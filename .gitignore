@@ -11,3 +11,8 @@ wadfusion_win.zip
 wadfusion_py.zip
 wadfusion.exe
 wadfusion.log
+
+# fork build outputs / local test data
+release
+xtras_src
+*_UZ5.pk3

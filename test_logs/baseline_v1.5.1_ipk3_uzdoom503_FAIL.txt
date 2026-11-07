@@ -1,0 +1,135 @@
+Log started: 2026-11-07 02:57:38
+W_Init: Init WADfiles.
+adding D:/Games/Doom Engines/UZ DOOM/uzdoom.pk3, 734 lumps
+adding D:/Games/Doom Engines/UZ DOOM/game_support.pk3, 3310 lumps
+adding ./../../Doom wads/IWADS/Doom Fusion/doom_fusion.ipk3, 5807 lumps
+adding ./../../Doom wads/IWADS/Doom Fusion/doom_fusion_widescreen_gfx.pk3, 57 lumps
+S_Init: Setting up sound.
+I_InitSound: Initializing OpenAL
+  Opened device OpenAL Soft on Speaker (Realtek(R) Audio)
+  EFX enabled
+I_Init: Setting up machine state.
+CPU speed: 2112 MHz
+CPU Vendor ID: GenuineIntel
+  Name: Intel(R) Core(TM) i7-14700F
+  Family 6, Model 183, Stepping 1
+  Features: SSE2 SSE3 SSSE3 SSE4.1 SSE4.2 AVX AVX2 F16C FMA3 BMI1 BMI2 HyperThreading
+Selecting Vulkan backend...
+ST_Init: Init startup screen.
+Checking cmd-line parameters...
+S_InitData: Load sound definitions.
+G_ParseMapInfo: Load map definitions.
+Script error, "doom_fusion.ipk3:mapinfo/id1_levels.txt" line 18:
+Unknown property 'compat_nombf21' found in map definition
+
+Texman.Init: Init texture manager.
+ParseTeamInfo: Load team definitions.
+LoadActors: Load actor definitions.
+doom_fusion.ipk3:zscript/id24gore.zs, line 21: Class name ID24LargeCorpsePile already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 37: Class name ID24HumanBBQ1 already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 53: Class name ID24HumanBBQ2 already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 69: Class name ID24HangingBodyBothLegs already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 86: Class name ID24HangingBodyBothLegsSolid already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 94: Class name ID24HangingBodyCrucified already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 111: Class name ID24HangingBodyCrucifiedSolid already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 119: Class name ID24HangingBodyArmsBound already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 136: Class name ID24HangingBodyArmsBoundSolid already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 144: Class name ID24HangingBaronOfHell already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 161: Class name ID24HangingBaronOfHellSolid already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 169: Class name ID24HangingChainedBody already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 186: Class name ID24HangingChainedBodySolid already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 194: Class name ID24HangingChainedTorso already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 211: Class name ID24HangingChainedTorsoSolid already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 219: Class name ID24SkullPoleTrio already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 235: Class name ID24SkullGibs already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 21: Class name ID24GrayStalagmite already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 37: Class name ID24BushShort already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 53: Class name ID24BushShortBurned1 already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 68: Class name ID24BushShortBurned2 already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 83: Class name ID24BushTall already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 99: Class name ID24BushTallBurned1 already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 114: Class name ID24BushTallBurned2 already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 129: Class name ID24CaveRockColumn already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 145: Class name ID24CaveStalagmiteLarge already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 161: Class name ID24CaveStalagmiteMedium already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 177: Class name ID24CaveStalagmiteSmall already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 193: Class name ID24CaveStalactiteLarge already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 210: Class name ID24CaveStalactiteLargeSolid already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 218: Class name ID24CaveStalactiteMedium already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 235: Class name ID24CaveStalactiteMediumSolid already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 243: Class name ID24CaveStalactiteSmall already exists
+doom_fusion.ipk3:zscript/id24nature.zs, line 260: Class name ID24CaveStalactiteSmallSolid already exists
+doom_fusion.ipk3:zscript/id24tech.zs, line 21: Class name ID24OfficeChair already exists
+doom_fusion.ipk3:zscript/id24tech.zs, line 37: Class name ID24OfficeLamp already exists
+doom_fusion.ipk3:zscript/id24tech.zs, line 66: Class name ID24CeilingLamp already exists
+doom_fusion.ipk3:zscript/id24tech.zs, line 83: Class name ID24CandelabraShort already exists
+doom_fusion.ipk3:zscript/id24ambientsounds.zs, line 19: Class name ID24AmbientKlaxon already exists
+doom_fusion.ipk3:zscript/id24ambientsounds.zs, line 37: Class name ID24AmbientPortalOpen already exists
+doom_fusion.ipk3:zscript/id24ambientsounds.zs, line 47: Class name ID24AmbientPortalLoop already exists
+doom_fusion.ipk3:zscript/id24ambientsounds.zs, line 57: Class name ID24AmbientPortalClose already exists
+doom_fusion.ipk3:zscript/id24ghoul.zs, line 21: Class name ID24Ghoul already exists
+doom_fusion.ipk3:zscript/id24ghoul.zs, line 70: Class name ID24GhoulBall already exists
+doom_fusion.ipk3:zscript/id24banshee.zs, line 21: Class name ID24Banshee already exists
+doom_fusion.ipk3:zscript/id24mindweaver.zs, line 21: Class name ID24Mindweaver already exists
+doom_fusion.ipk3:zscript/id24plasmaguy.zs, line 21: Class name ID24PlasmaGuy already exists
+doom_fusion.ipk3:zscript/id24plasmaguy.zs, line 83: Class name ID24PlasmaGuyHead already exists
+doom_fusion.ipk3:zscript/id24plasmaguy.zs, line 107: Class name ID24PlasmaGuyTorso already exists
+doom_fusion.ipk3:zscript/id24vassago.zs, line 21: Class name ID24Vassago already exists
+doom_fusion.ipk3:zscript/id24vassago.zs, line 76: Class name ID24VassagoFlame already exists
+doom_fusion.ipk3:zscript/id24tyrant.zs, line 21: Class name ID24Tyrant already exists
+doom_fusion.ipk3:zscript/id24tyrant.zs, line 83: Class name ID24TyrantBoss1 already exists
+doom_fusion.ipk3:zscript/id24tyrant.zs, line 92: Class name ID24TyrantBoss2 already exists
+doom_fusion.ipk3:zscript/id24gore.zs, line 21: ID24LargeCorpsePile already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 37: ID24HumanBBQ1 already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 53: ID24HumanBBQ2 already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 69: ID24HangingBodyBothLegs already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 86: ID24HangingBodyBothLegsSolid already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 94: ID24HangingBodyCrucified already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 111: ID24HangingBodyCrucifiedSolid already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 119: ID24HangingBodyArmsBound already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 136: ID24HangingBodyArmsBoundSolid already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 144: ID24HangingBaronOfHell already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 161: ID24HangingBaronOfHellSolid already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 169: ID24HangingChainedBody already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 186: ID24HangingChainedBodySolid already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 194: ID24HangingChainedTorso already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 211: ID24HangingChainedTorsoSolid already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 219: ID24SkullPoleTrio already has defaults
+doom_fusion.ipk3:zscript/id24gore.zs, line 235: ID24SkullGibs already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 21: ID24GrayStalagmite already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 37: ID24BushShort already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 53: ID24BushShortBurned1 already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 68: ID24BushShortBurned2 already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 83: ID24BushTall already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 99: ID24BushTallBurned1 already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 114: ID24BushTallBurned2 already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 129: ID24CaveRockColumn already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 145: ID24CaveStalagmiteLarge already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 161: ID24CaveStalagmiteMedium already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 177: ID24CaveStalagmiteSmall already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 193: ID24CaveStalactiteLarge already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 210: ID24CaveStalactiteLargeSolid already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 218: ID24CaveStalactiteMedium already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 235: ID24CaveStalactiteMediumSolid already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 243: ID24CaveStalactiteSmall already has defaults
+doom_fusion.ipk3:zscript/id24nature.zs, line 260: ID24CaveStalactiteSmallSolid already has defaults
+doom_fusion.ipk3:zscript/id24tech.zs, line 21: ID24OfficeChair already has defaults
+doom_fusion.ipk3:zscript/id24tech.zs, line 37: ID24OfficeLamp already has defaults
+doom_fusion.ipk3:zscript/id24tech.zs, line 66: ID24CeilingLamp already has defaults
+doom_fusion.ipk3:zscript/id24tech.zs, line 83: ID24CandelabraShort already has defaults
+doom_fusion.ipk3:zscript/id24ambientsounds.zs, line 19: ID24AmbientKlaxon already has defaults
+doom_fusion.ipk3:zscript/id24ambientsounds.zs, line 37: ID24AmbientPortalOpen already has defaults
+doom_fusion.ipk3:zscript/id24ambientsounds.zs, line 47: ID24AmbientPortalLoop already has defaults
+doom_fusion.ipk3:zscript/id24ambientsounds.zs, line 57: ID24AmbientPortalClose already has defaults
+doom_fusion.ipk3:zscript/id24ghoul.zs, line 21: ID24Ghoul already has defaults
+doom_fusion.ipk3:zscript/id24ghoul.zs, line 70: ID24GhoulBall already has defaults
+doom_fusion.ipk3:zscript/id24banshee.zs, line 21: ID24Banshee already has defaults
+doom_fusion.ipk3:zscript/id24mindweaver.zs, line 21: ID24Mindweaver already has defaults
+doom_fusion.ipk3:zscript/id24plasmaguy.zs, line 21: ID24PlasmaGuy already has defaults
+doom_fusion.ipk3:zscript/id24plasmaguy.zs, line 83: ID24PlasmaGuyHead already has defaults
+doom_fusion.ipk3:zscript/id24plasmaguy.zs, line 107: ID24PlasmaGuyTorso already has defaults
+doom_fusion.ipk3:zscript/id24vassago.zs, line 21: ID24Vassago already has defaults
+doom_fusion.ipk3:zscript/id24vassago.zs, line 76: ID24VassagoFlame already has defaults
+doom_fusion.ipk3:zscript/id24tyrant.zs, line 21: ID24Tyrant already has defaults
+doom_fusion.ipk3:zscript/id24tyrant.zs, line 83: ID24TyrantBoss1 already has defaults
+doom_fusion.ipk3:zscript/id24tyrant.zs, line 92: ID24TyrantBoss2 already has defaults

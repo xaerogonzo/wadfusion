@@ -2,6 +2,9 @@
 
 ## Unreleased Changes
 [**Full Changelog**](https://github.com/Owlet7/wadfusion/compare/v1.6.1...HEAD)
+- Patch mode (`-p`) now removes stale `zscript/` and `mapinfo/` files left over from older WadFusion
+  versions, and no longer duplicates `#include` lines in `textures.txt` when run repeatedly.
+- Added `build_release.ps1` to build the Windows exe and release zips without 7-Zip.
 - Added "Master Levels in Full Run" option.
 - Rewrote how the title screens and episode endings are handled.
   - Time spent on title screens won't be added to the total time played.

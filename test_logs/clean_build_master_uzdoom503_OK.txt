@@ -1,0 +1,51 @@
+UZDoom version 5.0.3
+Build: Win32 dated 2026-09-23T17:07:17-04:00
+OS: Windows 11 (or higher) (NT 10.0) Build 26200 
+M_LoadDefaults: Load system defaults.
+Can't find 'D:/Games/Doom wads/My Projects/Wad Fusion/doom_fusion_widescreen_gfx.pk3'
+W_Init: Init WADfiles.
+adding D:/Games/Doom Engines/UZ DOOM/uzdoom.pk3, 734 lumps
+adding D:/Games/Doom Engines/UZ DOOM/game_support.pk3, 3310 lumps
+adding D:/Games/Doom wads/My Projects/Wad Fusion/doom_fusion.ipk3, 5882 lumps
+adding D:/Games/Doom wads/IWADS/Doom Fusion/doom_fusion_widescreen_gfx.pk3, 57 lumps
+S_Init: Setting up sound.
+I_InitSound: Initializing OpenAL
+  Opened device OpenAL Soft on Speaker (Realtek(R) Audio)
+  EFX enabled
+I_Init: Setting up machine state.
+CPU speed: 2112 MHz
+CPU Vendor ID: GenuineIntel
+  Name: Intel(R) Core(TM) i7-14700F
+  Family 6, Model 183, Stepping 1
+  Features: SSE2 SSE3 SSSE3 SSE4.1 SSE4.2 AVX AVX2 F16C FMA3 BMI1 BMI2 HyperThreading
+Selecting Vulkan backend...
+ST_Init: Init startup screen.
+Checking cmd-line parameters...
+S_InitData: Load sound definitions.
+G_ParseMapInfo: Load map definitions.
+Texman.Init: Init texture manager.
+ParseTeamInfo: Load team definitions.
+LoadActors: Load actor definitions.
+script parsing took 331.50 ms
+WadFusion version 1.6.2-dev
+R_Init: Init Doom refresh subsystem.
+DecalLibrary: Load decals.
+M_Init: Init menus.
+P_Init: Init Playloop state.
+ParseSBarInfo: Loading custom status bar definition.
+D_CheckNetGame: Checking network game status.
+I_InitInput
+I_StartupMouse
+I_StartupKeyboard
+I_StartupXInput
+I_StartupRawPS2
+I_StartupDirectInputJoystick
+Vulkan device: NVIDIA GeForce RTX 4060
+Vulkan device type: discrete gpu
+Vulkan version: 1.4.329 (api) 595.380.0 (driver)
+Max. texture size: 32768
+Max. uniform buffer range: 65536
+Min. uniform buffer offset alignment: 64
+Resolution: 1920 x 1009
+V_Init: allocate screen.
+Init complete.

@@ -1085,22 +1085,54 @@ def add_newgame_patch():
     if map_exists('lr_map01'):
         RES_FILES += ['maps/WF_NEWGAME_LR_MAP01.wad', 'maps/WF_NEWGAME_LR_MAP08.wad']
 
+def remove_stale_resources():
+    # patch mode extracts an existing IPK3 and copies the current resources over it,
+    # which would leave behind scripts and MAPINFO from older WadFusion versions
+    # (e.g. bundled ID24 actors that now clash with the engine's own).
+    # Only the directories WadFusion fully owns are cleaned.
+    owned = set(f.replace('\\', '/') for f in RES_FILES)
+    removed = 0
+    for sub in ('zscript', 'mapinfo'):
+        sub_dir = path.join(DEST_DIR, sub)
+        if not path.isdir(sub_dir):
+            continue
+        for root, dirs, files in os.walk(sub_dir):
+            for name in files:
+                full = path.join(root, name)
+                rel = path.relpath(full, DEST_DIR).replace('\\', '/')
+                if rel not in owned:
+                    os.remove(full)
+                    logs('Removed stale resource: %s' % rel)
+                    removed += 1
+    if removed > 0:
+        logg('Removed %s stale resource file(s) from the old IPK3.' % removed)
+
 def add_textures_patch():
-    texfile = open(DEST_DIR + 'textures.txt', 'a')
+    # only add #include lines that are not already present, so patching
+    # an IPK3 more than once doesn't pile up duplicates
+    existing = ''
+    if path.exists(DEST_DIR + 'textures.txt'):
+        with open(DEST_DIR + 'textures.txt', 'r', encoding='utf-8', errors='replace') as f:
+            existing = f.read()
+    lines = []
     if map_exists('e1m1') or map_exists('lr_map01') or map_exists('dm_map01'):
-        texfile.write('#include "texdefs/doom1.txt"\n')
+        lines.append('#include "texdefs/doom1.txt"\n')
     if map_exists('map01') or map_exists('tn_map01') or map_exists('pl_map01'):
-        texfile.write('#include "texdefs/doom2.txt"\n')
+        lines.append('#include "texdefs/doom2.txt"\n')
     if map_exists('tn_map01'):
-        texfile.write('#include "texdefs/tnt.txt"\n')
+        lines.append('#include "texdefs/tnt.txt"\n')
     if map_exists('pl_map01'):
-        texfile.write('#include "texdefs/plutonia.txt"\n')
+        lines.append('#include "texdefs/plutonia.txt"\n')
     if map_exists('lr_map01') or map_exists('dm_map01'):
-        texfile.write('#include "texdefs/id1.txt"\n')
+        lines.append('#include "texdefs/id1.txt"\n')
     if map_exists('ml_map01'):
-        texfile.write('#include "texdefs/masterlevels.txt"\n')
+        lines.append('#include "texdefs/masterlevels.txt"\n')
     if map_exists('ml_map22'):
-        texfile.write('#include "texdefs/masterlevelsrejects.txt"\n')
+        lines.append('#include "texdefs/masterlevelsrejects.txt"\n')
+    with open(DEST_DIR + 'textures.txt', 'a') as texfile:
+        for line in lines:
+            if line.strip() not in existing:
+                texfile.write(line)
 
 def copy_resources():
     for src_file in RES_FILES:
@@ -1289,6 +1321,7 @@ def pk3_patch():
     pk3.extractall(DEST_DIR)
     pk3.close()
     make_dirs()
+    remove_stale_resources()
     add_newgame_patch()
     copy_resources()
     pk3_compress()
