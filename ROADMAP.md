@@ -25,17 +25,19 @@ Tested: UZDoom 5.0.3, WadFusion 1.6.2-dev (upstream `2e95646`).
   Tested: loads with no script errors; the hack maps hand over to the right maps (PSX02, PSX02B, E3M1,
   JA_MAP01, AB_MAP12, TN_MAP21).
 
+- **LZDoom works too** (tested on LZDoom l4.14.4): the current build, both Xtras packs and the Unofficial addon
+  load with no errors, the ID24 monsters and decorations spawn (LZDoom ships them too), the Legacy of Rust Tyrant
+  boss actors exist, and the PlayStation E3M1 swap works. Upstream already documents "UZDoom or LZDoom" and
+  its 1.6.1 changelog adds LZDoom 4.14.3a support. The old v1.5.1 ipk3 fails on LZDoom with the same
+  "Class name ... already exists" errors it gives on UZDoom 5, so rebuilding is the fix there as well.
+  Not tested: LZDoom 4.14.3a itself, or anything older, and actual play on a low-end machine.
+
 ## Known issues (Xtras-main)
 - Full Run only covers WadFusion's own episodes; the Xtras episodes aren't in the Full Run chain.
 - Not play-tested end to end: title-screen input flow, E4/PSX ending maps (`e4ending`), cast sequences.
 
 ## Planned
-1. **LZDoom support.** Goal: a build that runs on low-end machines where UZDoom is slow.
-   - Find out what LZDoom lacks: ID24 actors (UZDoom 5 has them built in), ZScript version, MAPINFO properties.
-   - Likely shape: a build option that bundles the ID24 actors again (upstream's 4.14.3 alternate build
-     does the same) and keeps Fusion's scripts independent of how the actors are provided.
-   - Test on LZDoom and UZDoom separately; don't claim support for one from testing the other.
-2. **Clearer "Full Run" menu wording.** The options (`Full Run`, `Master Levels in Full Run`,
+1. **Clearer "Full Run" menu wording.** The options (`Full Run`, `Master Levels in Full Run`,
    `End cast sequences in Full Run`, `Full Run loop`) aren't self-explanatory. Add short descriptions.
 
 ## Xtras Revised beta — what had to change for UZDoom 5
