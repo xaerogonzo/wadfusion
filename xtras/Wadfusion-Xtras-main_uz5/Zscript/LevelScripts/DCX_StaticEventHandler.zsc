@@ -1,0 +1,101 @@
+// Wadfusion Xtras - static handler
+//
+// Ported to WadFusion 1.6.x (UZDoom 5). The old version of this file replaced most of
+// WadFusionStaticHandler and copied WadFusion's full run / title screen code. WadFusion now does
+// all of that itself (wf_fullrun.zs / wf_story.zs), so this class only adds what Xtras needs:
+//   * the PlayStation versions of E3M1 (dcx_playstationmaps)
+//   * title screens and music for the Xtras-only episodes
+//       (Jaguar, Absolution, Doom II / TNT / Plutonia part 2 and 3 hack maps)
+
+class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
+{
+	override void WorldTick()
+	{
+		String mapName = Level.MapName.MakeLower();
+
+		if ( mapName.Left(10) == "wf_newgame" && DCX_NewGameIntro(mapName) )
+			return;
+
+		super.WorldTick();
+	}
+
+	// Returns true if this new game hack map was handled here,
+	// false to let WadFusion's own code handle it.
+	bool DCX_NewGameIntro(String mapName)
+	{
+		String target = mapName.Mid(11);
+		String titleMusic;
+		String title;
+		String titleIntro;
+
+		if ( target == "e3m1" )
+		{
+			int psx = CVar.FindCVar("dcx_playstationmaps").GetInt();
+			if ( psx == 2 )
+				target = "psx02b";
+			else if ( psx == 1 )
+				target = "psx02";
+			else
+				return false;
+
+			titleMusic = "d_intro";
+			title      = "Doom1_Title";
+			titleIntro = "Doom1_Title";
+		}
+		else if ( target == "ja_map01" )
+		{
+			titleMusic = "O_INTRO";
+			title      = "Dcx_Title_Jaguar";
+			titleIntro = "Dcx_Title_Jaguar";
+		}
+		else if ( target == "map12" || target == "map21" )
+		{
+			titleMusic = "d_dm2ttl";
+			title      = "Doom2_Title";
+			titleIntro = "Doom2_Title";
+		}
+		else if ( target == "tn_map12" || target == "tn_map21" )
+		{
+			titleMusic = "t_dm2ttl";
+			title      = "Tnt_Title";
+			titleIntro = "Tnt_Title";
+		}
+		else if ( target == "pl_map12" || target == "pl_map21" )
+		{
+			titleMusic = "p_dm2ttl";
+			title      = "Plutonia_Title";
+			titleIntro = "Plutonia_Title";
+		}
+		else if ( target == "ab_map01" || target == "ab_map12" || target == "ab_map21" )
+		{
+			titleMusic = "D_TITLEA";
+			title      = "Dcx_Title_Absolution";
+			titleIntro = target == "ab_map01" ? "Dcx_Title_Absolution_Intro" : "Dcx_Title_Absolution";
+		}
+		else
+			return false;
+
+		nextMap = target;
+		let compatTitlePics = CVar.FindCVar("wf_compat_titlepics").GetBool();
+
+		if ( Level.MapTime == 0 )
+		{
+			if ( compatTitlePics )
+				S_ChangeMusic(titleMusic, 0, false);
+
+			intermission = CVar.FindCVar("wf_intros").GetBool() ? titleIntro : title;
+		}
+
+		StoryStartIntermission(); // wf_story.zs
+
+		if ( compatTitlePics && Level.MapTime >= 1 || !compatTitlePics )
+		{
+			let isPistolStart = CVar.FindCVar("wf_compat_pistolstart").GetBool();
+			let pistolStart = CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION;
+
+			Level.ChangeLevel(nextMap, 0, isPistolStart ? pistolStart : CHANGELEVEL_NOINTERMISSION);
+		}
+
+		return true;
+	}
+}

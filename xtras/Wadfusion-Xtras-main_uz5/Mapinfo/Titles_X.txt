@@ -1,0 +1,30 @@
+// Title screen intermissions for the Xtras-only episodes (used by DCX_StaticHandler)
+
+intermission Dcx_Title_Jaguar
+{
+	Image
+	{
+		Background = "TITLEJA"
+		Music = "NULL"
+	}
+}
+
+intermission Dcx_Title_Absolution
+{
+	Image
+	{
+		Background = "TITLEAB"
+		Music = "NULL"
+	}
+}
+
+intermission Dcx_Title_Absolution_Intro
+{
+	Image
+	{
+		Background = "TITLEAB"
+		Music = "NULL"
+	}
+	Wiper {}
+	Link = Absolution_Intro
+}

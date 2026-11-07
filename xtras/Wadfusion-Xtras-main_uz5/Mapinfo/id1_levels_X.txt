@@ -1,0 +1,229 @@
+// Legacy of Rust maps
+
+defaultmap
+{
+	SuckTime = 1
+	ExitPic = "INTERLR"
+	InterMusic = "X_DM2INT"
+	NoJump
+	NoCrouch
+	// Compatibility options
+	compat_anybossdeath = 0
+	compat_checkswitchrange = 0
+	compat_floormove = 0
+	compat_light = 0
+	compat_mbfmonstermove = 0
+	compat_multiexit = 0
+	compat_nodoorlight = 0
+	compat_pointonline = 0
+	compat_pushwindow = 0
+	compat_railing = 0
+	compat_shortTex = 0
+	compat_stairs = 0
+	compat_teleport = 0
+	compat_useblocking = 0
+	compat_invisibility = "1"
+	F1 = "CREDITLR" 
+}
+
+// Test map
+
+map LR_MAP99 "$XHUSTR_99"
+{
+	Label = "Test map"
+	Next = "LR_MAP99"
+	Sky1 =  "SKYX2"
+	Music = "D_BLANK"
+	Author = "$WF_AU_ID1TEST"
+}
+
+// Episode 1
+
+adddefaultmap
+{
+	Cluster = 28
+	ExitPic = "XWIMAP0"
+	EnterPic = "$XWINTER0"
+}
+
+map LR_MAP01 "$XHUSTR_1"
+{
+	Label = "DOOM II HELL ON EARTH, E5M1"
+	Next = "LR_MAP02"
+	TitlePatch = "XWILV00"
+	Sky1 =  "SKYX1"
+	Music = "D_WELCOM"
+	Author = "$WF_AU_VILLARREAL"
+}
+
+map LR_MAP02 "$XHUSTR_2"
+{
+	Label = "DOOM II HELL ON EARTH, E5M2"
+	Next = "LR_MAP03"
+	SecretNext = "LR_MAP15"
+	TitlePatch = "XWILV01"
+	Sky1 =  "SKYX3"
+	Music = "D_SHORES"
+	Author = "$WF_AU_XASER"
+}
+
+map LR_MAP03 "$XHUSTR_3"
+{
+	Label = "DOOM II HELL ON EARTH, E5M3"
+	Next = "LR_MAP04"
+	TitlePatch = "XWILV02"
+	Sky1 =  "SKYX3"
+	Music = "D_BILGE"
+	Author = "$WF_AU_CARTER"
+}
+
+map LR_MAP04 "$XHUSTR_4"
+{
+	Label = "DOOM II HELL ON EARTH, E5M4"
+	Next = "LR_MAP05"
+	TitlePatch = "XWILV03"
+	Sky1 =  "SKYX3"
+	Music = "D_REGARD"
+	Author = "$WF_AU_VILLARREAL"
+}
+
+map LR_MAP05 "$XHUSTR_5"
+{
+	Label = "DOOM II HELL ON EARTH, E5M5"
+	Next = "LR_MAP06"
+	TitlePatch = "XWILV04"
+	Sky1 =  "SKYZ4"
+	Music = "D_LAUGH"
+	Author = "$WF_AU_VILLARREAL"
+}
+
+map LR_MAP06 "$XHUSTR_6"
+{
+	Label = "DOOM II HELL ON EARTH, E5M6"
+	Next = "LR_MAP07"
+	TitlePatch = "XWILV05"
+	Sky1 =  "SKYX4A"
+	Music = "D_CLOUDY"
+	Author = "$WF_AU_XASER"
+}
+
+map LR_MAP07 "$XHUSTR_7"
+{
+	Label = "DOOM II HELL ON EARTH, E5M7"
+	Next = EndPic, "CREDITLR"
+	TitlePatch = "XWILV06"
+	Sky1 =  "SKYX4A"
+	Music = "D_TACTIC"
+	nointermission
+	nosoundclipping
+	Author = "$WF_AU_VILLARREAL"
+}
+
+// Episode 1 secret map
+
+map LR_MAP15 "$XHUSTR_8"
+{
+	Label = "DOOM II HELL ON EARTH, E5M0"
+	Next = "LR_MAP03"
+	TitlePatch = "XWILV07"
+	Sky1 =  "SKYX3"
+	Music = "D_OPENIN"
+	Author = "$WF_AU_XASER"
+}
+
+// Episode 2
+
+adddefaultmap
+{
+	Cluster = 29
+	ExitPic = "XWIMAP1"
+	EnterPic = "$XWINTER1"
+}
+
+map LR_MAP08 "$XHUSTR_9"
+{
+	Label = "DOOM II HELL ON EARTH, E6M1"
+	Next = "LR_MAP09"
+	TitlePatch = "XWILV10"
+	Sky1 =  "SKYX2"
+	Music = "D_BONK"
+	Author = "$WF_AU_WATSON_XASER"
+}
+
+map LR_MAP09 "$XHUSTR_10"
+{
+	Label = "DOOM II HELL ON EARTH, E6M2"
+	Next = "LR_MAP10"
+	TitlePatch = "XWILV11"
+	Sky1 =  "SKYX2"
+	Music = "D_DRIVER"
+	Author = "$WF_AU_VILLARREAL"
+}
+
+map LR_MAP10 "$XHUSTR_11"
+{
+	Label = "DOOM II HELL ON EARTH, E6M3"
+	Next = "LR_MAP11"
+	SecretNext = "LR_MAP16"
+	TitlePatch = "XWILV12"
+	Sky1 =  "SKYX2"
+	Music = "D_WIZARD"
+	Author = "$WF_AU_WATSON"
+}
+
+map LR_MAP11 "$XHUSTR_12"
+{
+	Label = "DOOM II HELL ON EARTH, E6M4"
+	Next = "LR_MAP12"
+	TitlePatch = "XWILV13"
+	Sky1 =  "SKYX2"
+	Music = "D_DEJAVU"
+	Author = "$WF_AU_VILLARREAL"
+}
+
+map LR_MAP12 "$XHUSTR_13"
+{
+	Label = "DOOM II HELL ON EARTH, E6M5"
+	Next = "LR_MAP13"
+	TitlePatch = "XWILV14"
+	Sky1 =  "SKYX4A"
+	Music = "D_DISGUS"
+	Author = "$WF_AU_VILLARREAL"
+}
+
+map LR_MAP13 "$XHUSTR_14"
+{
+	Label = "DOOM II HELL ON EARTH, E6M6"
+	Next = "LR_MAP14"
+	TitlePatch = "XWILV15"
+	Sky1 =  "SKYX4A"
+	Music = "D_VESPER"
+	SpecialAction = "Cyberdemon", "Floor_LowerToNearest", 666, 8
+	Author = "$WF_AU_DUNLOP"
+}
+
+map LR_MAP14 "$XHUSTR_15"
+{
+	Label = "DOOM II HELL ON EARTH, E6M7"
+	Next = EndSequence, "Id1Cast"
+	TitlePatch = "XWILV16"
+	Sky1 =  "SKYX5A"
+	Music = "D_SKELET"
+	nointermission
+	nosoundclipping
+	SpecialAction = "ID24TyrantBoss1", "Floor_LowerToNearest", 666, 8 // TyrantBoss1
+	SpecialAction = "ID24TyrantBoss2", "Floor_LowerToNearest", 667, 8 // TyrantBoss2
+	Author = "$WF_AU_XASER"
+}
+
+// Episode 2 secret map
+
+map LR_MAP16 "$XHUSTR_16"
+{
+	Label = "DOOM II HELL ON EARTH, E6M0"
+	Next = "LR_MAP11"
+	TitlePatch = "XWILV17"
+	Sky1 =  "SKYX2"
+	Music = "D_HELFOR"
+	Author = "$WF_AU_XASER"
+}
