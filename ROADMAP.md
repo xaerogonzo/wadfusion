@@ -37,8 +37,7 @@ Tested: UZDoom 5.0.3, WadFusion 1.6.2-dev (upstream `2e95646`).
 - Not play-tested end to end: title-screen input flow, E4/PSX ending maps (`e4ending`), cast sequences.
 
 ## Planned
-1. **Clearer "Full Run" menu wording.** The options (`Full Run`, `Master Levels in Full Run`,
-   `End cast sequences in Full Run`, `Full Run loop`) aren't self-explanatory. Add short descriptions.
+(nothing queued - see ideas below)
 
 ## Xtras Revised beta — what had to change for UZDoom 5
 Pack: `Wadfusion-Xtras-Revised_beta.pk3`. All edits are renames or deletions:
