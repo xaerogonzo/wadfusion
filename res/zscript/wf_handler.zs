@@ -35,6 +35,9 @@ class WadFusionHandler : EventHandler
 		if ( CVar.FindCVar("wf_compat_texswap_ml").GetBool() && texSwapAll <= 0 )
 			DoMasterLevelsTextureReplacements();
 		
+		// wf_tex_wolf.zs
+		DoWolfensteinTextureReplacements();
+		
 		// temporary fix for the exit sector sky in the kex version of map20
 		// should be removed when gzdoom adds support for skydefs
 		if ( CVar.FindCVar("wf_compat_mapfixes").GetBool() )

@@ -50,6 +50,8 @@ WF_MENU_FULLRUN_LOOP,,,Loop back to first episode,,,,Kompletter Durchgang wieder
 WF_MENU_FULLRUN_INFO1,,,Finishing an episode starts the next one.,,,,,,,,,,,,,,,,,,,,,,,,,,,
 WF_MENU_FULLRUN_INFO2,,,Order: default / release date / chronological.,,,,,,,,,,,,,,,,,,,,,,,,,,,
 WF_MENU_ID24TRANS,,,Original ID24 actors transparency,,,,Original ID24 Actor Transparenz,,,,,,,,,Trasparenza originale per gli attori ID24,,,,,Oryginalna przezroczystość aktorów ID24,,,,Оригинальная прозрачность агентов (Actors) ID24,,,,,
+WF_MENU_WOLF_CENSORED,,,Censored Wolfenstein textures,,,,,,,,,,,,,,,,,,,,,,,,,,,
+WF_MENU_WOLF_INFO,,,Original ones need doom2_original.wad when building.,,,,,,,,,,,,,,,,,,,,,,,,,,,
 WF_MENU_MODE,,,Mode,,,,Modus,,,,,,,,,Modalità,,,,,Tryb,,,,Режим,,,,,
 WF_MENU_COMPAT_TITLE,,,WadFusion Compatibility Options,,,,WadFusion Kompatibilitäts-Optionen,,,,,,,,,Opzioni di compatibilità WadFusion,,,,,Opcje Zgodności WadFusion,,,,Настройки совместимости WadFusion,,,,,
 WF_MENU_COMPAT_RESTART_WARNING,,,Note: Changing most of these compatibility options requires a level restart.,,,,Hinweis: Die meisten Kompatibilitäts-Optionen benötigen einen Level-Neustart.,,,,,,,,,Nota: nella maggior parte dei casi modificare queste impostazioni il riavvio del livello,,,,,Uwaga: Zmiana większości tych ustawień kompatybilności wymaga zresetowania poziomu.,,,,Примечание: Для применения большинства настроек совместимости требуется перезапуск уровня.,,,,,

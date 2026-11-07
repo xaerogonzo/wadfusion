@@ -25,3 +25,5 @@ Renamed IWADs from the KEX-based version of DOOM + DOOM II (only if you wish to 
 doom.wad to doomkex.wad, doom2.wad to doom2kex.wad, tnt.wad to tntkex.wad, plutonia.wad to plutoniakex.wad
 
 Read the readme file for more details and links.
+
+Optional: doom2_original.wad (the original DOOM II v1.9, 14,604,584 bytes) restores the uncensored Wolfenstein textures.

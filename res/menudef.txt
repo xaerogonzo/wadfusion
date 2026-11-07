@@ -31,6 +31,8 @@ OptionMenu "WadFusionOptions"
 	StaticText "$WF_MENU_FULLRUN_INFO2", 8
 	StaticText " "
 	Option "$WF_MENU_ID24TRANS",     "wf_id24trans",     "OnOff"
+	Option "$WF_MENU_WOLF_CENSORED", "wf_wolf_censored", "OnOff"
+	StaticText "$WF_MENU_WOLF_INFO", 8
 	StaticText " "
 	Submenu "$OPTMNU_COMPATIBILITY", "WadFusionCompatibilityOptions"
 	Submenu "$HUDMNU_TITLE",         "WadFusionHudOptions"

@@ -1,0 +1,9 @@
+// Wolfenstein patches from the original (uncensored) DOOM II v1.9
+// stored under different names so they sit next to the censored ones
+WOLF2 : OWOLF2
+WOLF3 : OWOLF3
+WOLF4 : OWOLF4
+WOLF6 : OWOLF6
+WOLF7 : OWOLF7
+WOLF13 : OWOLF13
+WOLF17 : OWOLF17

@@ -5,6 +5,7 @@
 - Patch mode (`-p`) now removes stale `zscript/` and `mapinfo/` files left over from older WadFusion
   versions, and no longer duplicates `#include` lines in `textures.txt` when run repeatedly.
 - Added `build_release.ps1` to build the Windows exe and release zips without 7-Zip.
+- Added optional `doom2_original.wad` support: the original (uncensored) Wolfenstein textures of DOOM II are used by default when it is present, with a "Censored Wolfenstein textures" option in the menu.
 - Clearer English labels for the Full Run options, plus a short explanation under them in the menu.
 - Added "Master Levels in Full Run" option.
 - Rewrote how the title screens and episode endings are handled.

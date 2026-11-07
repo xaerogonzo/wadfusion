@@ -45,6 +45,7 @@ Here is the official list of WADs that WadFusion will recognize:
 - Xbox secret levels (`sewers.wad` and `betray.wad` from the [original Xbox port of DOOM](https://doomwiki.org/wiki/Xbox))
 - Tech Gone Bad and Phobos Mission Control (`e1m8b.wad` and `e1m4b.wad`, John Romero's map remakes)
 - Extras (`extras.wad` from the [Unity](https://doomwiki.org/wiki/Doom_Classic_Unity_port) or [KEX-based](https://doomwiki.org/wiki/Doom_%2B_Doom_II) re-releases)
+- Optional: the original, uncensored DOOM II v1.9 as `doom2_original.wad`. The DOOM II sold today has the swastikas in the Wolfenstein secret levels (MAP31 and MAP32) replaced with a different symbol. If this file is present, only its Wolfenstein textures are copied into the IPK3, and they are used by default; turn on "Censored Wolfenstein textures" in the WadFusion options menu to go back to the modern ones. `doom2.wad` is still needed, and the original WAD is not included with WadFusion. The original is the 14,604,584-byte `DOOM2.WAD` (MD5 `25e1459ca71d321525f84628f45ca8cd`).
 
 If IWADs from the Unity or KEX-based re-releases are also included (must be named `doomunity.wad`, `doom2unity.wad`, `tntunity.wad`, `plutoniaunity.wad` or `doomkex.wad`, `doom2kex.wad`, `tntkex.wad`, `plutoniakex.wad`), WadFusion will extract the official widescreen assets from them. These versions can also be used as the main IWADs for extraction, but do keep in mind that they are censored, and that WadFusion already comes with optional super-ultrawide assets.
 

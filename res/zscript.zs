@@ -26,6 +26,7 @@ const WF_VERSION = "1.6.2-dev";
 #include "zscript/wf_handler_static.zs"
 #include "zscript/wf_tex_swap.zs"
 #include "zscript/wf_tex_swap_all.zs"
+#include "zscript/wf_tex_wolf.zs"
 #include "zscript/wf_mus_swap.zs"
 #include "zscript/wf_mus_idkfa.zs"
 #include "zscript/wf_mus_sigil.zs"

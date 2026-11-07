@@ -1,0 +1,38 @@
+// Original (uncensored) DOOM II Wolfenstein textures.
+// Only included when doom2_original.wad was present while building the IPK3.
+// The ZOWOLF* textures replace the matching ZZWOLF* textures at map load (see wf_tex_wolf.zs).
+
+Texture "ZOWOLF2", 128, 128
+{
+	Patch "OWOLF2", 0, 0
+}
+
+Texture "ZOWOLF3", 128, 128
+{
+	Patch "OWOLF3", 0, 0
+}
+
+Texture "ZOWOLF4", 128, 128
+{
+	Patch "OWOLF4", 0, 0
+}
+
+Texture "ZOWOLF6", 128, 128
+{
+	Patch "OWOLF6", 0, 0
+}
+
+Texture "ZOWOLF7", 128, 128
+{
+	Patch "OWOLF7", 0, 0
+}
+
+Texture "ZOWOLF11", 128, 128
+{
+	Patch "OWOLF13", 0, 0
+}
+
+Texture "ZOWOLF13", 128, 128
+{
+	Patch "OWOLF17", 0, 0
+}

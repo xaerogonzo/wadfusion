@@ -190,6 +190,7 @@ def declare_data():
         'texdefs/common.txt',
         'texdefs/doom1.txt',
         'texdefs/doom2.txt',
+        'texdefs/doom2_wolf_original.txt',
         'texdefs/tnt.txt',
         'texdefs/plutonia.txt',
         'texdefs/id1.txt',
@@ -258,6 +259,7 @@ def declare_data():
         'zscript/wf_handler_static.zs',
         'zscript/wf_tex_swap.zs',
         'zscript/wf_tex_swap_all.zs',
+        'zscript/wf_tex_wolf.zs',
         'zscript/wf_mus_swap.zs',
         'zscript/wf_mus_idkfa.zs',
         'zscript/wf_mus_sigil.zs',
@@ -278,14 +280,16 @@ def declare_data():
         'id1', 'iddm1', 'extras',
         'doomunity', 'doom2unity', 'tntunity', 'plutoniaunity',
         'doomkex', 'doom2kex', 'tntkex', 'plutoniakex',
-        'masterlevels', 'nerve'
+        'masterlevels', 'nerve',
+        # optional: original (uncensored) DOOM II v1.9, only used for its Wolfenstein textures
+        'doom2_original'
     ]
     
     # wads to search for and report if found
     REPORT_WADS = [
         'doom', 'doomu',
         SIGIL_WAD, SIGIL_MP3_WAD, SIGIL2_WAD, SIGIL2_MP3_WAD,
-        'doom2', 'masterlevels',
+        'doom2', 'doom2_original', 'masterlevels',
         'attack', 'canyon', 'catwalk', 'fistula',
         'combine', 'subspace', 'paradox', 'subterra',
         'garrison', 'blacktwr', 'virgil', 'minos', 'nessus',
@@ -325,6 +329,8 @@ def declare_data():
         'doom': COMMON_LUMPS + DOOM1_LUMPS + ['graphics_doom1_registered'],
         'doomu': COMMON_LUMPS + DOOM1_LUMPS + ['graphics_doom1_retail', 'patches_doom1_retail'],
         'doom2': COMMON_LUMPS + DOOM2_LUMPS,
+        # Wolfenstein patches from the original DOOM II, stored under different names
+        'doom2_original': ['patches_doom2_original'],
         'masterlevels': ['patches_masterlevels', 'graphics_masterlevels'],
         'tnt': ['graphics_tnt', 'music_tnt', 'patches_tnt'],
         'plutonia': ['graphics_plutonia', 'music_plutonia', 'patches_plutonia'],
@@ -880,6 +886,34 @@ def extract_iwad_maps(wad_name, map_prefix):
         extract_map(in_wad, map_name, out_wad_filename)
         #logs('  Saved map %s' % out_wad_filename)
 
+def doom2_original_is_valid():
+    # doom2_original.wad is only useful if its Wolfenstein textures differ from doom2.wad's,
+    # i.e. it really is the original DOOM II rather than another copy of the censored one
+    orig_name = get_wad_filename('doom2_original')
+    doom2_name = get_wad_filename('doom2')
+    if not orig_name or not doom2_name:
+        return False
+    orig = omg.WAD()
+    orig.from_file(orig_name)
+    cur = omg.WAD()
+    cur.from_file(doom2_name)
+    different = 0
+    for line in open(DATA_DIR + 'patches_doom2_original').readlines():
+        line = line.strip()
+        if not line or line.startswith('//'):
+            continue
+        lump_name = line.split(':')[0].strip()
+        if lump_name not in orig.patches:
+            logg('  ERROR: doom2_original.wad has no %s patch, skipping it' % lump_name, error=True)
+            return False
+        if lump_name in cur.patches and orig.patches[lump_name].data != cur.patches[lump_name].data:
+            different += 1
+    if different == 0:
+        logg('  doom2_original.wad has the same Wolfenstein textures as doom2.wad, skipping it')
+        return False
+    logg('Original Wolfenstein textures found in doom2_original.wad (%s differ from doom2.wad).' % different)
+    return True
+
 def extract_lumps(wad_name):
     if not wad_name in WAD_LUMP_LISTS:
         return
@@ -985,6 +1019,11 @@ def extract_iwads():
                 if not doomu_is_retail():
                     logg('  ERROR: Skipping ' + SIGIL2_MP3_WAD + '.wad as registered or retail doom.wad is not present', error=True)
                     continue
+        if iwad_name == 'doom2_original' and not get_wad_filename('doom2'):
+            logg('  ERROR: Skipping doom2_original.wad as doom2.wad is not present', error=True)
+            continue
+        if iwad_name == 'doom2_original' and not doom2_original_is_valid():
+            continue
         if iwad_name == 'id1' and not get_wad_filename('doom2'):
             logg('  ERROR: Skipping id1.wad as doom2.wad is not present', error=True)
             continue
@@ -1052,6 +1091,8 @@ def add_textures():
         texfile.write('#include "texdefs/id1.txt"\n')
     if masterlevels_is_complete() or (get_wad_filename('masterlevels') and get_wad_filename('doom2')):
         texfile.write('#include "texdefs/masterlevels.txt"\n')
+    if get_wad_filename('doom2') and path.exists(DEST_DIR + 'patches/OWOLF2.lmp'):
+        texfile.write('#include "texdefs/doom2_wolf_original.txt"\n')
     if masterlevelsrejects_is_complete():
         texfile.write('#include "texdefs/masterlevelsrejects.txt"\n')
 
@@ -1129,6 +1170,8 @@ def add_textures_patch():
         lines.append('#include "texdefs/masterlevels.txt"\n')
     if map_exists('ml_map22'):
         lines.append('#include "texdefs/masterlevelsrejects.txt"\n')
+    if path.exists(DEST_DIR + 'patches/OWOLF2.lmp'):
+        lines.append('#include "texdefs/doom2_wolf_original.txt"\n')
     with open(DEST_DIR + 'textures.txt', 'a') as texfile:
         for line in lines:
             if line.strip() not in existing:
