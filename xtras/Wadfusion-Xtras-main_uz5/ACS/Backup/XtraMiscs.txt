@@ -1,0 +1,378 @@
+#library "XtraMisc"
+#include "zcommon.acs"
+
+function bool IsFloorLevel(int tag, int level)
+{
+    int flr = GetSectorFloorZ(tag,0,0) >> 16;
+    if (flr == level)
+        return 1;
+    return 0;
+}
+
+function bool IsDoorOpen(int tag)
+{
+    int height = GetSectorCeilingZ(tag,0,0) >> 16;
+    int flr = GetSectorFloorZ(tag,0,0) >> 16;
+    
+    if (height > flr)
+        return 1;
+    return 0;
+}
+
+function bool IsDoorClosed(int tag)
+{
+    return IsDoorOpen(tag) == 0;
+}
+
+script "ChangeSkyTexture" (void)
+{	
+	//Thing_Destroy(0);
+	Delay(10);
+	ChangeSky("DOHBLU2","DOHBLU2");	
+	Delay(10);
+	ChangeSky("DOHBLU3","DOHBLU3");	
+	Delay(10);
+	ChangeSky("DOHBLU4","DOHBLU4");
+	Delay(10);
+	ChangeSky("DOHBLU5","DOHBLU5");	
+	Delay(10);
+	ChangeSky("DOHBLU6","DOHBLU6");	
+	Delay(10);	
+	Terminate;
+}
+
+script "NoIntermission_Script" (void)
+{
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	str levelset = StrMid(mapName, 0, 3);
+	str levelset2 = StrMid(mapName, 0, 6);
+	
+	if( (StrICmp(mapName, "e4m8") == 0) || (StrICmp(mapName, "psx05") == 0) )
+	{
+		ChangeLevel("e4ending",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+		Terminate;
+	}
+	
+	if(GetCVar ("dcx_CabalOrder") == 2)
+	{
+		if(StrICmp(mapName, "ml_map42") == 0)
+		{
+			ChangeLevel("CabalEND",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+			Terminate;
+		}
+	}
+	else
+	{
+		if(StrICmp(mapName, "ml_map43") == 0)
+		{
+			ChangeLevel("CabalEND",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+			Terminate;
+		}
+	}
+	
+	Exit_Normal(0);
+	Terminate;
+}
+
+script "E1M1SEWERSEXIT" (Void)
+{
+	if (IsFloorLevel(6,-149))
+	{
+		Exit_Secret(0);
+		Terminate;
+	}
+}
+
+Script "ClubDoomMusicSwap" (void)
+{
+   SetMusic("D_PSX09B", 0);
+   Terminate;
+}
+
+Script "BossdeathScript" Enter
+{	
+	if (PlayerNumber() != 0)
+	terminate;
+	
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	
+	if ( (StrICmp(mapName, "e4m8") == 0) && (GetCVar ("dcx_playstationmaps") >=1) )
+	{
+		int TicDelay = 141;
+		
+		if (ThingCount(T_SPIDERMASTERMIND, 0) == 0)
+		{
+			TicDelay = 48;
+		}
+		
+		While ( (ThingCount(T_HELLKNIGHT , 0) > 0) || (ThingCount(T_SPIDERMASTERMIND , 0) > 0) ) { delay(1); }
+		
+		delay(TicDelay);
+		
+		Floor_LowerToNearest(666, 8);
+		
+		Terminate;
+	}
+	else if (StrICmp(mapName, "psx05") == 0)
+	{
+		While (ThingCount(T_NONE, 666) > 0) { delay(1); }
+		
+		delay(44);
+		
+		Door_Open (666, 64);
+		
+		Terminate;
+	}
+	else if ((StrICmp(mapName, "ab_map07") == 0))
+	{	
+		While ( ThingCount(T_HELLKNIGHT, 0) > 0 || ThingCount(T_CACODEMON, 0) > 0) { delay(1); }
+		
+		delay(48);
+		
+		Floor_LowerToNearest(7, 8);
+		Floor_LowerToNearest(11, 8);
+		Floor_LowerToNearest(12, 8);
+		
+		Terminate;
+	}
+	else
+	{
+		Terminate;
+	}
+	
+}
+
+// Weapon classes that only exist when the Unofficial Xtras addon is loaded.
+// CheckInventory/GiveInventory/TakeInventory print "Unknown actor class" every tick for classes
+// that don't exist, so these calls are skipped unless the addon is present.
+int oeWeaponsLoaded = 0;
+
+function int IsOEWeapon(str cls)
+{
+	return (StrICmp(cls, "H2P_RocketLauncher") == 0) ||
+	       (StrICmp(cls, "H2P_PlasmaTrident") == 0) ||
+	       (StrICmp(cls, "H2P_IncendiaryTrident") == 0) ||
+	       (StrICmp(cls, "DCX_DZ0PlasmaRifle") == 0);
+}
+
+function int SafeCheck(str cls)
+{
+	if (IsOEWeapon(cls) && !oeWeaponsLoaded)
+		return 0;
+	return CheckInventory(cls);
+}
+
+function void SafeGive(str cls, int amount)
+{
+	if (IsOEWeapon(cls) && !oeWeaponsLoaded)
+		return;
+	GiveInventory(cls, amount);
+}
+
+function void SafeTake(str cls, int amount)
+{
+	if (IsOEWeapon(cls) && !oeWeaponsLoaded)
+		return;
+	TakeInventory(cls, amount);
+}
+
+Script "WeaponManagement" Enter //Used to clean up inventory if you gave yourself all weapons via cheats
+{
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	str levelset = StrMid(mapName, 0, 3);
+	str levelset2 = StrMid(mapName, 0, 6);
+	
+	if(StrICmp(mapName, "TEST") == 0)
+	{
+		terminate;
+	}
+	
+	oeWeaponsLoaded = ScriptCall("DCX_Util", "OEWeaponsLoaded");
+
+	delay(1);
+	
+	if(GetCVar ("dcx_CustomMonsters") ==1)
+	{
+		if (SafeCheck("DCX_DoubleBladedChainsaw"))
+		{
+			SafeTake("DCX_Chainsaw", 1);
+		}
+			
+		if(StrICmp(levelset, "ab_") == 0)
+		{	
+			if ( (SafeCheck("DCX_PlasmaRifle")) || 
+				(SafeCheck("DCX_DZ0PlasmaRifle")) ||
+				(SafeCheck("H2P_PlasmaTrident")) )
+			{
+				SafeGive("DCX_HeavyPlasmaGun", 1);
+			}
+		
+			if (SafeCheck("H2P_IncendiaryTrident"))
+			{
+				SafeGive("DCX_BFG9000", 1);
+			}
+			
+			if (SafeCheck("H2P_RocketLauncher"))
+			{
+				SafeGive("DCX_RocketLauncher", 1);
+			}
+			
+		
+			SafeTake("H2P_RocketLauncher", 1);
+			SafeTake("DCX_PlasmaRifle", 1);
+			SafeTake("DCX_DZ0PlasmaRifle", 1);
+			SafeTake("H2P_PlasmaTrident", 1);
+			SafeTake("H2P_IncendiaryTrident", 1);
+		}
+		else if(StrICmp(levelset, "dz_") == 0)
+		{
+			if ( (SafeCheck("DCX_PlasmaRifle")) || 
+				(SafeCheck("DCX_HeavyPlasmaGun")) ||
+				(SafeCheck("H2P_PlasmaTrident")) )
+			{
+				SafeGive("DCX_DZ0PlasmaRifle", 1);
+			}
+			
+			if (SafeCheck("H2P_IncendiaryTrident"))
+			{
+				SafeGive("DCX_BFG9000", 1);
+			}
+			
+			if (SafeCheck("H2P_RocketLauncher"))
+			{
+				SafeGive("DCX_RocketLauncher", 1);
+			}
+			
+			SafeTake("H2P_RocketLauncher", 1);
+			SafeTake("DCX_PlasmaRifle", 1);
+			SafeTake("DCX_HeavyPlasmaGun", 1);
+			SafeTake("H2P_PlasmaTrident", 1);
+			SafeTake("H2P_IncendiaryTrident", 1);
+		}		
+		else if(StrICmp(levelset, "hp_") == 0)
+		{			
+			if ( (SafeCheck("DCX_PlasmaRifle")) || 
+				(SafeCheck("DCX_HeavyPlasmaGun")) ||
+				(SafeCheck("DCX_DZ0PlasmaRifle")) )
+			{
+				SafeGive("H2P_PlasmaTrident", 1);
+			}
+			
+			if (SafeCheck("DCX_BFG9000"))
+			{
+				SafeGive("H2P_IncendiaryTrident", 1);
+			}
+			
+			if (SafeCheck("DCX_RocketLauncher"))
+			{
+				SafeGive("H2P_RocketLauncher", 1);
+			}
+		
+			SafeTake("DCX_RocketLauncher", 1);
+			SafeTake("DCX_PlasmaRifle", 1);
+			SafeTake("DCX_HeavyPlasmaGun", 1);
+			SafeTake("DCX_DZ0PlasmaRifle", 1);
+			SafeTake("DCX_BFG9000", 1);
+		}
+		else
+		{		
+			if (SafeCheck("H2P_RocketLauncher"))
+			{
+				SafeGive("DCX_RocketLauncher", 1);
+			}
+		
+			if ( (SafeCheck("DCX_HeavyPlasmaGun")) || 
+				(SafeCheck("DCX_DZ0PlasmaRifle")) ||
+				(SafeCheck("H2P_PlasmaTrident")) )
+			{
+				SafeGive("DCX_PlasmaRifle", 1);
+			}
+		
+			if (SafeCheck("H2P_IncendiaryTrident"))
+			{
+				SafeGive("DCX_BFG9000", 1);
+			}
+		
+			//SafeTake("DCX_DoubleBladedChainsaw", 1);
+			SafeTake("H2P_RocketLauncher", 1);
+			SafeTake("DCX_HeavyPlasmaGun", 1);
+			SafeTake("H2P_PlasmaTrident", 1);
+			SafeTake("DCX_DZ0PlasmaRifle", 1);
+			SafeTake("H2P_IncendiaryTrident", 1);
+		}
+	}
+	else 
+	{
+		if (SafeCheck("DCX_DoubleBladedChainsaw"))
+		{
+			SafeGive("DCX_Chainsaw", 1);
+		}
+		
+		if (SafeCheck("H2P_RocketLauncher"))
+		{
+			SafeGive("DCX_RocketLauncher", 1);
+		}
+		
+		if ( (SafeCheck("DCX_HeavyPlasmaGun")) || 
+			 (SafeCheck("DCX_DZ0PlasmaRifle")) ||
+			 (SafeCheck("H2P_PlasmaTrident")) )
+		{
+			SafeGive("DCX_PlasmaRifle", 1);
+		}
+		
+		if (SafeCheck("H2P_IncendiaryTrident"))
+		{
+			SafeGive("DCX_BFG9000", 1);
+		}
+		
+		SafeTake("DCX_DoubleBladedChainsaw", 1);
+		SafeTake("H2P_RocketLauncher", 1);
+		SafeTake("DCX_HeavyPlasmaGun", 1);
+		SafeTake("H2P_PlasmaTrident", 1);
+		SafeTake("DCX_DZ0PlasmaRifle", 1);
+		SafeTake("H2P_IncendiaryTrident", 1);
+		SafeTake("DCX_Unmaker", 1);
+	}
+	restart;
+	//terminate;
+}
+
+Script "LORMap14ScriptingShit" Enter
+{
+	if (PlayerNumber() != 0)
+	terminate;
+	
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	
+	if ((StrICmp(mapName, "lr_map14") == 0) && (GetCVar ("dcx_CustomMonsters") !=1))
+	{	
+		While (ThingCount(T_NONE, 666) > 0) { delay(1); }
+		
+		delay(115);
+		
+		Floor_LowerToNearest(666, 8);
+	
+		While (ThingCount(T_NONE, 667) > 0) { delay(1); }
+		
+		delay(115);
+		
+		Floor_LowerToNearest(667, 8);
+		
+	}
+	else { terminate; }
+}
+
+function bool IsBrutalDoom(void)
+{
+    if (GetActorClass(0) == "BDoomer" || GetActorClass(0) == "Doomer2" || GetActorClass(0) == "TacticalDoomer" || GetActorClass(0) == "Purist")
+        return true;
+    return false;
+}

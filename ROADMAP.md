@@ -18,13 +18,14 @@ Tested: UZDoom 5.0.3, WadFusion 1.6.2-dev (upstream `2e95646`).
   (between 1.5.1 and 1.6.0), so its handler was rewritten as a small subclass of `WadFusionStaticHandler`
   that adds only what Xtras needs: the PlayStation E3M1 maps (`dcx_playstationmaps`) and title screens/music
   for the Jaguar, Absolution and Doom II / TNT / Plutonia part 2 and 3 hack maps.
+  Also silenced the `ACS: 'H2P_RocketLauncher': Unknown actor class.` spam: the pack's `WeaponManagement` ACS script
+  touched weapons that only exist in the Unofficial addon, so it now asks `DCX_Util.OEWeaponsLoaded()` (new ZScript
+  helper, via `ScriptCall`) and skips them when the addon isn't loaded. Recompiled with ACC; the unmodified source
+  compiles byte-identical to the shipped `.o`, so nothing else changed.
   Tested: loads with no script errors; the hack maps hand over to the right maps (PSX02, PSX02B, E3M1,
   JA_MAP01, AB_MAP12, TN_MAP21).
 
 ## Known issues (Xtras-main)
-- Console/screen spam `ACS: 'H2P_RocketLauncher': Unknown actor class.` (and similar). Comes from the pack's
-  compiled ACS (`XtraMisc`), which probes for weapons from other mods and prints when they aren't loaded.
-  Not caused by the port. Possible fix: recompile the ACS without those checks, or define stub classes.
 - Full Run only covers WadFusion's own episodes; the Xtras episodes aren't in the Full Run chain.
 - Not play-tested end to end: title-screen input flow, E4/PSX ending maps (`e4ending`), cast sequences.
 

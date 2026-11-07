@@ -1,0 +1,17 @@
+version "4.14.1"
+
+#include "Zscript/LevelScripts/Dcx_Levelpostprocessors.zsc"
+#include "Zscript/LevelScripts/DCX_StaticEventHandler.zsc"
+#include "Zscript/LevelScripts/Dcx_EventHandlers.zsc"
+
+#include "Zscript/Actors/Dcx_BaseDoom_Actors.zsc"
+#include "Zscript/Actors/Dcx_D64D2_Actors.zsc"
+#include "Zscript/Actors/Dcx_KickAttack_Actors.zsc"
+#include "Zscript/Actors/Dcx_LegacyOfRust_Actors.zsc"
+#include "Zscript/Actors/Dcx_Extra_Actors.zsc"
+#include "Zscript/Actors/Dcx_Weapons.zsc"
+#include "Zscript/Actors/Dcx_Items.zsc"
+#include "Zscript/Dcx_Util.zsc"
+
+#include "Zscript/UI/Dcx_sbar.zsc"
+#include "Zscript/UI/Dcx_sbar_alt.zsc"
