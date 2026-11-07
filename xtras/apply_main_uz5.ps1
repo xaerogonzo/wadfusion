@@ -1,7 +1,7 @@
 <#
  Builds a UZDoom 5 compatible copy of Wadfusion-Xtras-main.zip.
  Usage: .\xtras\apply_main_uz5.ps1 -Zip "...\Wadfusion-Xtras-main.zip" -Out "...\Wadfusion-Xtras-main_UZ5.pk3"
- Replaces the 4 changed files inside a copy of the original zip (the original is not modified).
+ replaces the changed files inside a copy of the original zip (the original is not modified).
 #>
 param([Parameter(Mandatory)][string]$Zip, [Parameter(Mandatory)][string]$Out)
 $ErrorActionPreference = 'Stop'

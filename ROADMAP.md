@@ -32,12 +32,21 @@ Tested: UZDoom 5.0.3, WadFusion 1.6.2-dev (upstream `2e95646`).
   "Class name ... already exists" errors it gives on UZDoom 5, so rebuilding is the fix there as well.
   Not tested: LZDoom 4.14.3a itself, or anything older, and actual play on a low-end machine.
 
+- **Xtras episodes in the Full Run chain.** After WadFusion's last episode (in all three orders) the Full Run
+  continues with Jaguar, then Absolution; with "Full Run loop" on it then wraps back to the first episode.
+  Cast calls (`Jaguar_Cast`, `D64Inter_Cast`) play when "Show cast call" is on. Also fixed the Jaguar ending,
+  which pointed at a non-existent intermission name. Implementation notes: `DCX_StaticHandler` is a separate
+  handler that runs next to WadFusion's (`Replaces` does not remove the original), after it on each tick, so it
+  adjusts WadFusion's `nextMap` instead of racing it; the Xtras ending uses its own hand-over map
+  `DCX_HANDOVER` (a copy of a WadFusion hack map) that WadFusion's handler ignores.
+  Tested on UZDoom 5.0.3 and LZDoom l4.14.4 with an auto-exit test pack: Jaguar→Absolution, Absolution→loop,
+  chain end, PL_MAP30→Jaguar (order 1, with and without loop), LR_MAP14→Jaguar (order 2), E2M8→PSX02/PSX02B.
+
 ## Known issues (Xtras-main)
-- Full Run only covers WadFusion's own episodes; the Xtras episodes aren't in the Full Run chain.
 - Not play-tested end to end: title-screen input flow, E4/PSX ending maps (`e4ending`), cast sequences.
 
 ## Planned
-(nothing queued - see ideas below)
+(nothing queued)
 
 ## Xtras Revised beta — what had to change for UZDoom 5
 Pack: `Wadfusion-Xtras-Revised_beta.pk3`. All edits are renames or deletions:

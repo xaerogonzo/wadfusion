@@ -1,0 +1,290 @@
+//Jaguar/GBA/PSX Port Levels 
+
+defaultmap
+{
+	SuckTime = 1
+	InterMusic = "O_INTER"
+	BorderTexture = "FLOOR7_2"
+	NoJump
+	NoCrouch
+	ExitPic = "DMVICTOR"
+	Cluster = 668
+	compat_invisibility = "1"
+}
+
+adddefaultmap
+{
+	Sky1 = "DSKY1"
+}
+
+//		Episode 1		//
+
+map JA_MAP01 "$HUSTR_E1M1"
+{
+	LevelNum = 1
+	Next = "JA_MAP02"
+	TitlePatch = "WILV00"
+	Par = 30
+	Music = "O_E1M1"
+	Label = "JAGUAR DOOM, MAP01"
+}
+
+map JA_MAP02 "$HUSTR_E1M2B"
+{
+	LevelNum = 2
+	Next = "JA_MAP03"
+	TitlePatch = "WILV01B"
+	Par = 30
+	Music = "O_E1M2"
+	Label = "JAGUAR DOOM, MAP02"
+}
+
+map JA_MAP03 "$HUSTR_E1M3"
+{
+	LevelNum = 3
+	Next = "JA_MAP04"
+	SecretNext = "JA_MAP25"
+	TitlePatch = "WILV02"
+	Par = 30
+	Music = "O_E1M3"
+	Label = "JAGUAR DOOM, MAP03"
+}
+
+map JA_MAP04 "$HUSTR_E1M4"
+{
+	LevelNum = 4
+	Next = "JA_MAP05"
+	TitlePatch = "WILV03"
+	Par = 30
+	Music = "O_E1M4"
+	Label = "JAGUAR DOOM, MAP04"
+}
+
+map JA_MAP05 "$HUSTR_E1M5"
+{
+	LevelNum = 5
+	Next = "JA_MAP06"
+	TitlePatch = "WILV04"
+	Par = 30
+	Music = "O_E1M5"
+	Label = "JAGUAR DOOM, MAP05"
+}
+
+map JA_MAP06 "$HUSTR_E1M6"
+{
+	LevelNum = 6
+	Next = "JA_MAP07"
+	TitlePatch = "WILV05"
+	Par = 30
+	Music = "O_E1M6"
+	Label = "JAGUAR DOOM, MAP06"
+}
+
+map JA_MAP07 "$HUSTR_E1M7"
+{
+	LevelNum = 7
+	Next = "JA_MAP08"
+	TitlePatch = "WILV06"
+	Par = 30
+	Music = "O_E1M7"
+	Label = "JAGUAR DOOM, MAP07"
+}
+
+map JA_MAP08 "$HUSTR_E1M8"
+{
+	LevelNum = 8
+	Next = "JA_MAP09"
+	TitlePatch = "WILV07"
+	BaronSpecial
+	SpecialAction_LowerFloor
+	Par = 30
+	Music = "O_E1M8"
+	Label = "JAGUAR DOOM, MAP08"
+}
+
+//	Secret map	//
+
+map JA_MAP25 "$HUSTR_E1M9" //Map 24
+{
+	LevelNum = 25
+	Next = "JA_MAP04"
+	TitlePatch = "WILV08"
+	Par = 30
+	//Sky1 = "SKY3"
+	Music = "O_E1M9"
+	Label = "JAGUAR DOOM, MAP25"
+}
+
+//		Episode 2		//
+
+adddefaultmap
+{
+	Sky1 = "DSKY2"
+}
+
+map JA_MAP09 "$HUSTR_E2M1"
+{
+	LevelNum = 9
+	Next = "JA_MAP10"
+	TitlePatch = "WILV10"
+	Par = 30
+	Music = "O_E2M1"
+	Label = "JAGUAR DOOM, MAP09"
+}
+
+map JA_MAP10 "$HUSTR_E2M2"
+{
+	LevelNum = 10
+	Next = "JA_MAP11"
+	TitlePatch = "WILV11"
+	Par = 30
+	Music = "O_E3M2"
+	Label = "JAGUAR DOOM, MAP10"
+}
+
+map JA_MAP11 "$HUSTR_E2M3"
+{
+	LevelNum = 11
+	Next = "JA_MAP12"
+	TitlePatch = "WILV12"
+	Par = 30
+	Music = "O_E2M9"
+	Label = "JAGUAR DOOM, MAP11"
+}
+
+map JA_MAP12 "$HUSTR_E2M4"
+{
+	LevelNum = 12
+	Next = "JA_MAP13"
+	TitlePatch = "WILV13"
+	Par = 30
+	Music = "O_E1M1"
+	Label = "JAGUAR DOOM, MAP12"
+}
+
+map JA_MAP13 "$HUSTR_E2M5"
+{
+	LevelNum = 13
+	Next = "JA_MAP14"
+	TitlePatch = "WILV14"
+	Par = 30
+	Music = "O_E1M2"
+	Label = "JAGUAR DOOM, MAP13"
+}
+
+map JA_MAP14 "$HUSTR_E2M5b" //Extramap.wad
+{
+	LevelNum = 14
+	Next = "JA_MAP15"
+	Titlepatch = "PXILV00"
+	Par = 30
+	Music = "O_E2M1"
+	Label = "JAGUAR DOOM, MAP14"
+}
+
+map JA_MAP15 "$HUSTR_E2M6" //Map 14 
+{
+	LevelNum = 15
+	Next = "JA_MAP16"
+	TitlePatch = "WILV15"
+	Par = 30
+	Music = "O_E1M3"
+	Label = "JAGUAR DOOM, MAP15"
+}
+
+map JA_MAP16 "$HUSTR_E2M7" //Map 15
+{
+	LevelNum = 16
+	Next = "JA_MAP17"
+	TitlePatch = "WILV16"
+	Par = 30
+	Music = "O_E1M4"
+	Label = "JAGUAR DOOM, MAP16"
+}
+
+map JA_MAP17 "$HUSTR_E2M8" //Map 16
+{
+	LevelNum = 17
+	Next = "JA_MAP18"
+	TitlePatch = "WILV17"
+	Par = 30
+	Music = "O_E1M5"
+	Label = "JAGUAR DOOM, MAP17"
+}
+
+//		Episode 3		//
+
+adddefaultmap
+{
+	Sky1 = "DSKY3"
+}
+
+map JA_MAP18 "$HUSTR_E3M1" //Map 17
+{
+	LevelNum = 18
+	Next = "JA_MAP19"
+	TitlePatch = "WILV20"
+	Par = 30
+	Music = "O_E1M6"
+	Label = "JAGUAR DOOM, MAP18"
+}
+
+map JA_MAP19 "$HUSTR_E3M3" //Map 18
+{
+	LevelNum = 19
+	Next = "JA_MAP20"
+	TitlePatch = "WILV22"
+	Par = 30
+	Music = "O_E1M7"
+	Label = "JAGUAR DOOM, MAP19"
+}
+
+map JA_MAP20 "$HUSTR_E3M4" //Map 19
+{
+	LevelNum = 20
+	Next = "JA_MAP21"
+	TitlePatch = "WILV23"
+	Par = 30
+	Music = "O_E2M1"
+	Label = "JAGUAR DOOM, MAP20"
+}
+
+map JA_MAP21 "$HUSTR_E3M5" //Map 20
+{
+	LevelNum = 21
+	Next = "JA_MAP22"
+	TitlePatch = "WILV24"
+	Par = 30
+	Music = "O_E3M2"
+	Label = "JAGUAR DOOM, MAP21"
+}
+
+map JA_MAP22 "$HUSTR_E3M6" //Map 21
+{
+	LevelNum = 22
+	Next = "JA_MAP23"
+	TitlePatch = "WILV25"
+	Par = 30
+	Music = "O_E2M9"
+	Label = "JAGUAR DOOM, MAP22"
+}
+
+map JA_MAP23 "$HUSTR_E3M7" //Map 22
+{
+	LevelNum = 23
+	Next = "JA_MAP24"
+	TitlePatch = "WILV26"
+	Par = 30
+	Music = "O_E1M6"
+	Label = "JAGUAR DOOM, MAP23"
+}
+
+map JA_MAP24 "$HUSTR_E3M8" //Map 23
+{
+	LevelNum = 24
+	next = EndSequence, "Jaguar_Cast"
+	TitlePatch = "WILV27"
+	Par = 30
+	Music = "O_E1M8"
+	Label = "JAGUAR DOOM, MAP24"
+}
