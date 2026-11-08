@@ -294,6 +294,21 @@ extend class WadFusionStaticHandler
 				continue;
 			return e.startMap;
 		}
+
+		// a custom run has no fixed end: with "loop" on, nothing available after this campaign means start over
+		// (the built-in orders keep their original behaviour, where only the very last entry loops)
+		if ( fullRun == 4 && fullRunLoop && !fullRunEndLoop )
+		{
+			for ( int j = 0; j <= i; j++ )
+			{
+				let e = WFFindEntry(ids[j]);
+				if ( !e || !e.available )
+					continue;
+				if ( !fullRunMasterLevels && e.id == "masterlevels" )
+					continue;
+				return e.startMap;
+			}
+		}
 		return "";
 	}
 
