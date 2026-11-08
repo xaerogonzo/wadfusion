@@ -5,10 +5,7 @@ defaultmap
 	SuckTime = 1
 	InterMusic = "O_INTER"
 	BorderTexture = "FLOOR7_2"
-	NoJump
-	NoCrouch
 	ExitPic = "DMVICTOR"
-	Cluster = 668
 	compat_invisibility = "1"
 }
 
@@ -110,7 +107,6 @@ map JA_MAP25 "$HUSTR_E1M9" //Map 24
 	Next = "JA_MAP04"
 	TitlePatch = "WILV08"
 	Par = 30
-	//Sky1 = "SKY3"
 	Music = "O_E1M9"
 	Label = "JAGUAR DOOM, MAP25"
 }
@@ -172,7 +168,7 @@ map JA_MAP13 "$HUSTR_E2M5"
 	Label = "JAGUAR DOOM, MAP13"
 }
 
-map JA_MAP14 "$HUSTR_E2M5b" //Extramap.wad
+map JA_MAP14 "$HUSTR_PSX01" //Extramap.wad
 {
 	LevelNum = 14
 	Next = "JA_MAP15"

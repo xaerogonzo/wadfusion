@@ -8,7 +8,6 @@ include mapinfo/Doom2_levels_X.txt
 include mapinfo/Console_Doom_Levels_X.txt
 include mapinfo/Xbox_levels_X.txt
 include mapinfo/Master_levels_X.txt
-include mapinfo/Master_levels_christen_X.txt
 include mapinfo/Master_levels_flynn_X.txt
 include mapinfo/Master_levels_anderson_X.txt
 include mapinfo/Master_levels_kvernmo_X.txt
@@ -17,6 +16,7 @@ include mapinfo/Tnt_levels_X.txt
 include mapinfo/Id1_levels_X.txt
 include mapinfo/Plutonia_levels_X.txt
 include mapinfo/Absolution_X.txt
+include mapinfo/Beta_64_levels_X.txt
 include mapinfo/GbaDeathMatch_Levels_X.txt
 include mapinfo/Iddm1_levels_X.txt
 include mapinfo/Intro_Outro_Inter_X.txt
@@ -27,8 +27,8 @@ include mapinfo/Bonus_Misc_Maps_X.txt
 gameinfo 
 {
 	PlayerClasses = "DCX_Player"
-	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler", "DCX_StaticHandler" //, "DCX_NightmareMonsterHandler"
-    infopage = "CREDIT"
+	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_MusicHandler", "DCX_StaticHandler"
+    infopage = "HELP"
     drawreadthis = true
     StatusBarClass = "DCX_Statusbar"
 }
@@ -41,7 +41,7 @@ DoomEdNums
 	3146 = ID24CalamityBlade
 	
 	255 = DCX_DoubleBladedChainsaw
-	256 = DCX_HeavyPlasmaGun
+	256 = DCX_PlasmaRifleMKII
 	666 = DCX_Unmaker
 	667 = DCX_Demonkey1
 	668 = DCX_Demonkey2
