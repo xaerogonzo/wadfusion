@@ -27,6 +27,7 @@ class WadFusionStaticHandler : StaticEventHandler
 	override void OnRegister()
 	{
 		Console.Printf(StringTable.Localize("$WF_TITLE").." version "..WF_VERSION);
+		WFInitRuns(); // wf_runs.zs
 	}
 	
 	override void PostUiTick()

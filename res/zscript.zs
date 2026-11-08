@@ -33,6 +33,8 @@ const WF_VERSION = "1.6.2-dev";
 #include "zscript/wf_sbar.zs"
 #include "zscript/wf_sbar_alt.zs"
 #include "zscript/wf_masterlevels.zs"
+#include "zscript/wf_runs.zs"
+#include "zscript/wf_runmenu.zs"
 #include "zscript/wf_fullrun.zs"
 #include "zscript/wf_story.zs"
 #include "zscript/wf_map_fixes.zs"
