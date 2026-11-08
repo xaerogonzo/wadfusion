@@ -1,0 +1,2 @@
+# End-to-end run with the Xtras pack: Plutonia first, cheat jump to its last map, hand-over to Jaguar. label | start map | console vars | files
+E_pl_to_ja      | wf_newgame_pl_map01 | +wf_fullrun 4 +wf_run_slot1 plutonia +wf_run_slot2 jaguar +wf_fullrun_loop 0 +dcxtest_exits 3 +dcxtest_follow 1 +dcxtest_jump pl_map01:pl_map30 |

@@ -40,6 +40,20 @@ class DCXTest_AutoExit : StaticEventHandler
 			String nm = Level.NextMap;
 			Console.Printf("DCXTEST exiting %s -> [%s]", m, nm);
 			CVar f = CVar.FindCVar("dcxtest_follow");
+			// dcxtest_jump = "from:to": like a player typing "map <to>" in the console while on <from>
+			CVar j = CVar.FindCVar("dcxtest_jump");
+			if ( j && j.GetString() != "" )
+			{
+				Array<String> parts;
+				j.GetString().MakeLower().Split(parts, ":");
+				if ( parts.Size() == 2 && parts[0] == m )
+				{
+					Console.Printf("DCXTEST jumping %s -> [%s]", m, parts[1]);
+					j.SetString("");
+					Level.ChangeLevel(parts[1], 0, CHANGELEVEL_NOINTERMISSION);
+					return;
+				}
+			}
 			if ( f && f.GetInt() > 0 )
 			{
 				if ( nm != "" && nm.Left(11) != "EndSequence" )

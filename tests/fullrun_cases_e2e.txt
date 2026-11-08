@@ -1,0 +1,4 @@
+# End-to-end runs started the way a player starts them (new game hack map), with a cheat jump to each campaign's last map.
+# dcxtest_exits counts normal maps only; dcxtest_jump = from:to acts like typing "map <to>" in the console.
+# label | start map | console vars | files
+E_d1_to_pl      | wf_newgame_e1m1 | +wf_fullrun 4 +wf_run_slot1 doom1_e1 +wf_run_slot2 plutonia +wf_fullrun_loop 0 +dcxtest_exits 3 +dcxtest_follow 1 +dcxtest_jump e1m1:e1m8 |
