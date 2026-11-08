@@ -8,6 +8,8 @@
 - Added optional `doom2_original.wad` support: the original (uncensored) Wolfenstein textures of DOOM II are used by default when it is present, with a "Censored Wolfenstein textures" option in the menu.
 - Added `wadfusion --check` (lists which source WADs were found and what they unlock, builds nothing), `--scan <folder>`
   (finds usable WADs under a folder) and `WadFusion Menu.bat`, a menu around them with a saved list of extra WAD folders.
+- When both `masterlevels.wad` and the 20 individual Master Levels WADs are present, the individual ones are used
+  (the bundle lacks three sky patches), so nothing has to be removed.
 - The Full Run option now lists "On (custom order)" (it showed "Unknown").
 - Clearer English labels for the Full Run options, plus a short explanation under them in the menu.
 - Full Run is now one router with a catalog of campaigns (stable IDs) instead of three hard-coded chains.

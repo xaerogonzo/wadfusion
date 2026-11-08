@@ -501,10 +501,11 @@ def check_report():
     line('e1m8b', 'replacement E1M8')
     line('e1m4b', 'replacement E1M4')
     logg('')
-    ml_all = have('masterlevels')
+    ml_all = have('masterlevels') or ML_BUNDLE_IGNORED
     ml_missing = [w for w in MASTER_LEVELS_ORDER if not have(w)]
     logg('Master Levels (needs DOOM II):')
-    line('masterlevels', 'the KEX bundle (one file instead of the 20 below)')
+    bundle_present = ML_BUNDLE_IGNORED or have('masterlevels')
+    logg('  %s %-16s %s' % (mark(bundle_present), 'masterlevels.wad', 'the KEX bundle (one file instead of the 20 below)' + ('; ignored because the 20 individual WADs are all present' if ML_BUNDLE_IGNORED else '')))
     logg('  %s the 20 individual WADs: %d of %d found%s' % (mark(not ml_missing), len(MASTER_LEVELS_ORDER) - len(ml_missing), len(MASTER_LEVELS_ORDER),
          '' if not ml_missing else ('; missing ' + ', '.join(ml_missing))))
     rej_missing = [w for w in MASTER_LEVELS_REJECTS_ORDER if not have(w)]
@@ -525,8 +526,8 @@ def check_report():
         notes.append('SIGIL needs doom.wad or doomu.wad; it will be skipped.')
     if nv and not d2:
         notes.append('nerve.wad needs doom2.wad; it will be skipped.')
-    if ml_all and not ml_missing:
-        notes.append('masterlevels.wad and the 20 individual Master Levels WADs are both present: the build then reports 3 missing sky patches (MSKY1, MSKY2, STARS). Remove masterlevels.wad if you want a clean build.')
+    if ML_BUNDLE_IGNORED:
+        notes.append('masterlevels.wad and the 20 individual Master Levels WADs are both present: the individual ones are used, nothing needs to be removed.')
     if d2 and ml_missing and not ml_all:
         notes.append('Master Levels will be skipped (missing: %s).' % ', '.join(ml_missing))
     eps = get_eps(get_report_found())
@@ -582,6 +583,15 @@ def scan_report(root):
         logg('  ' + f)
     return True
 
+def choose_masterlevels_source():
+    # With both the KEX bundle and the 20 individual WADs present, use the individual ones: building from the bundle
+    # loses three sky patches (MSKY1, MSKY2, STARS) that only the individual WADs carry.
+    global ML_BUNDLE_IGNORED
+    ML_BUNDLE_IGNORED = False
+    if get_wad_filename('masterlevels') and masterlevels_is_complete():
+        ML_BUNDLE_IGNORED = True
+        logs('masterlevels.wad ignored: the 20 individual Master Levels WADs are present and are used instead.')
+
 def should_deflate():
     if args.deflate:
         return True
@@ -621,7 +631,12 @@ def logs(line, error=False):
     if error:
         num_errors += 1
 
+# True when the 20 individual Master Levels WADs are all present next to a masterlevels.wad bundle: the bundle is then ignored
+ML_BUNDLE_IGNORED = False
+
 def get_wad_filename(wad_name):
+    if ML_BUNDLE_IGNORED and wad_name == 'masterlevels':
+        return None
     # return filename of first case-insensitive match
     wad_name += '.wad'
     for i in SRC_WAD_DIR:
@@ -1539,6 +1554,7 @@ def main():
     set_sigil_filenames()
     # initialize data tables
     declare_data()
+    choose_masterlevels_source()
     # --check: report and stop
     if args.check:
         ok = check_report()
