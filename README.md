@@ -1,4 +1,77 @@
-# WadFusion — simple IWAD merge utility
+# WadFusion — UZDoom 5 / LZDoom fork
+
+**WadFusion merges your DOOM, DOOM II, Final DOOM and re-release data into one IPK3 for [UZDoom](https://zdoom.org/downloads) or LZDoom, with every game and expansion as its own entry in the episode list.**
+
+This is a fork of [Owlet7/wadfusion](https://github.com/Owlet7/wadfusion), which is itself based on [WadSmoosh](https://jp.itch.io/wadsmoosh) by JP LeBreton. All the original work and credit stay with them; this fork keeps their tool and adds to it. Current version: **1.7.0** (tag `v1.7.0-uz5`), built on upstream commit `2e95646`, tested on **UZDoom 5.0.3** and **LZDoom l4.14.4**.
+
+> [!NOTE]
+> Upstream's 1.6.1 release builds an IPK3 for UZDoom 4.14. On UZDoom 5 it fails with "Class name already exists" and `compat_nombf21` errors, because UZDoom 5 now contains the ID24 actors itself. Building from this fork fixes that.
+
+## What this fork adds
+
+- **Works on UZDoom 5 and LZDoom.** A clean build loads with no script or MAPINFO errors on both. Patch mode (`-p`) now removes stale files left by older builds.
+- **One Full Run router with a campaign catalog.** The three built-in orders behave exactly as before (checked against 96 recorded cases). New: a **Custom** order with 16 slots and a menu to set it, and outside campaigns (for example *Back to Saturn X*) described by a small `WFRUN` text file. See [Custom Full Run](#custom-full-run).
+- **Outside-mod awareness.** At start-up WadFusion reports when another file replaces one of its maps or ships its own texture tables, and an outside campaign keeps its own ending and music.
+- **A pre-flight check for your source WADs.** `WadFusion Menu.bat` (and `wadfusion --check` / `--scan`) shows which WADs were found, what each unlocks and which episodes the build would contain, before anything is built. See [Checking your WADs](#checking-your-wads-before-you-build).
+- **Original Wolfenstein textures.** With the original `doom2_original.wad` (DOOM II v1.9) the uncensored textures are used; the censored ones are an option.
+- **Master Levels:** with both `masterlevels.wad` and the 20 individual WADs present, the individual ones are used (the bundle lacks three sky patches).
+- **One Xtras pack.** `xtras/` rebuilds a single pack from the two original Xtras releases ([details below](#xtras-packs)).
+- **A release script** (`build_release.ps1`, no 7-Zip needed) and a **test harness** (`tests/`) that plays campaign hand-overs by script on both engines.
+
+See [CHANGES.md](CHANGES.md) for the full list and [ROADMAP.md](ROADMAP.md) for what was tested and what is planned.
+
+## Quick start
+
+1. Install [Python 3](https://www.python.org/downloads/), or build `wadfusion.exe` ([Building](#building-the-release-files)).
+2. Copy your WAD files into `source_wads\`, or leave them where they are and add that folder from the menu. WADs are recognised by file name; case does not matter.
+3. Run `WadFusion Menu.bat`, choose **1** to see what was found, then **2** to build. You get `doom_fusion.ipk3` (about 436 MB with everything).
+4. Start the game with the IPK3 as the IWAD. The widescreen graphics pack is optional; `build_release.ps1` creates it from `ultrawiderpix\`, and the release zips contain it:
+
+```
+uzdoom.exe -iwad doom_fusion.ipk3 -file doom_fusion_widescreen_gfx.pk3
+```
+
+For the WAD list, versions and file names see [Supported WADs](#supported-wads). If you have never done this before, read the [Absolute Beginner's Guide](#absolute-beginners-guide).
+
+## Xtras packs
+
+The community **WadFusion Xtras** packs add the console maps (Jaguar Doom, PlayStation levels, Doom 64: Absolution), extra music and graphics, and the unofficial campaigns. They are other people's work and are **not included in this repository**. The scripts in `xtras/` take your own copies of the original downloads and apply this fork's changes:
+
+| Script | Input | Result |
+|---|---|---|
+| `apply_merged_uz5.ps1` | Xtras main (`Wadfusion-Xtras-main.zip`) and the Revised beta (`Wadfusion-Xtras-Revised_beta.pk3`) | **One** pack with the UZDoom 5 fixes, Jaguar and Absolution in the Full Run, the Total Carnage / Unholy Massacre / ULTRA NIGHTMARE skills with their monsters, Final DOOM HUD skins for TNT and Plutonia (menu options), and a co-op item cleanup option. Both inputs are checked by SHA-256 and never modified. |
+| `apply_unofficial_uz5.ps1` | `WadFusion-Unoffical-Xtras-main.zip` | Adds a `WFRUN` file so Doom Zero, Evil Unleashed, Freedoom 1 and 2, Hell to Pay, Perdition's Gate, Plutonia 2 and TNT: Revilution can be put in a Custom Full Run. |
+
+`xtras/MERGE_DISPOSITION.md` records what happened to every item of the Revised beta (ported, superseded, left out, and why). Load the merged pack **instead of** the two originals, then the Unofficial pack if you want it:
+
+```
+uzdoom.exe -iwad doom_fusion.ipk3 -file doom_fusion_widescreen_gfx.pk3 Wadfusion-Xtras-Merged_UZ5.pk3 WadFusion-Unofficial-Xtras-main_UZ5.pk3
+```
+
+## Known limits
+
+- **Outside mods change the look of everything while loaded.** A mod that ships its own palette, `TEXTURE1`/`PNAMES`, flats, sprites or menu art (Back to Saturn X does) replaces same-named resources for the whole session, so DOOM and Plutonia look different too. The mod is loaded when the game starts, so Full Run order cannot help. WadFusion detects and reports this but cannot undo it yet; a per-map fix is on the [roadmap](ROADMAP.md).
+- A campaign that another mod replaces keeps its menu name ("Hell on Earth" starts Back to Saturn X).
+- The Custom Full Run and the Xtras packs were tested by script (map exits and hand-overs) and by loading each pack, not by playing every campaign through.
+- Tested on Windows with UZDoom 5.0.3 and LZDoom l4.14.4 only.
+
+## Building the release files
+
+On Windows, `build_release.ps1` builds `wadfusion.exe` and the two zips (`wadfusion_win.zip`, `wadfusion_py.zip`) with PowerShell and Python only:
+
+```
+python -m venv .venv-build
+.venv-build\Scripts\python -m pip install pyinstaller
+.\build_release.ps1 -Python .venv-build\Scripts\python.exe
+```
+
+`windows_build.bat` is the original upstream script and needs 7-Zip. The tests in `tests/` need an engine and a built IPK3; see `tests/fullrun_matrix.ps1`.
+
+---
+
+# Reference (from upstream, updated for this fork)
+
+## What WadFusion does
 
 WadFusion merges your provided DOOM, DOOM II, and Final DOOM data into a single IPK3 file that can be played in [ZDoom](https://zdoom.org/index), with each game as its own entry in the episode list. This makes it very convenient to play all of classic DOOM's official releases without re-launching the game with different settings.
 
@@ -183,12 +256,12 @@ Values that contain spaces need quotes. Names are not case sensitive.
 
 ## Absolute Beginner's Guide
 
-1. Download WadFusion for [Windows](https://github.com/Owlet7/wadfusion/releases/latest/download/wadfusion_win.zip) or [macOS and GNU/Linux](https://github.com/Owlet7/wadfusion/releases/latest/download/wadfusion_py.zip), and extract it to a folder.
+1. Get this fork: download the source (green **Code** button, then **Download ZIP**) and install [Python 3](https://www.python.org/downloads/), or build `wadfusion.exe` yourself ([Building](#building-the-release-files)). The upstream download links build an IPK3 for UZDoom 4.14 and will not work on UZDoom 5.
 2. Find the folder(s) where GOG / Steam installed your game(s).
    - For Steam on Windows, this will be something like\
    `C:\Program Files (x86)\Steam\steamapps\common\Ultimate Doom\base`
 3. Copy any files you find with a `.WAD` extension to the `source_wads` subfolder where you extracted WadFusion.
-4. On Windows, launch `wadfusion.exe`. On macOS or GNU/Linux, run the `wadfusion.py` Python 3 script.
+4. On Windows, double-click `WadFusion Menu.bat` (option 1 checks your WADs, option 2 builds). Otherwise run the `wadfusion.py` Python 3 script.
 5. A terminal window will show which episodes can be extracted. Press Y and then Enter to proceed.
 6. The terminal window will show progress as it generates the IPK3. When it finishes, press Enter to close the window. You should now have a file in the WadFusion folder called `doom_fusion.ipk3`.
 7. Download [UZDoom](https://zdoom.org/downloads) and extract it to a folder.
