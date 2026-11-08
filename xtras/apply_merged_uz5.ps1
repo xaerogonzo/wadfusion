@@ -22,27 +22,7 @@ Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
 $here = $PSScriptRoot
 $sources = Get-Content (Join-Path $here 'xtras_sources.json') -Raw | ConvertFrom-Json
 
-# A fingerprint of an archive's contents (file names and CRC-32s, without the top folder), so a download from GitHub
-# matches the original zip even though the zip file itself differs.
-function Get-Fingerprint($path) {
-  $z = [IO.Compression.ZipFile]::OpenRead($path)
-  try {
-    $files = @($z.Entries | Where-Object { $_.FullName -notmatch '/$' })
-    $root = $files[0].FullName.Split('/')[0] + '/'
-    [string[]]$lines = @($files | Where-Object { $_.FullName.StartsWith($root) } | ForEach-Object { '{0}|{1:x8}' -f $_.FullName.Substring($root.Length), $_.Crc32 })
-    [Array]::Sort($lines, [StringComparer]::Ordinal)
-    $sha = [Security.Cryptography.SHA256]::Create()
-    return ([BitConverter]::ToString($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes(($lines -join "`n")))) -replace '-', '').ToLower()
-  } finally { $z.Dispose() }
-}
-function Test-Input($path, $src, $label) {
-  if (-not (Test-Path -LiteralPath $path)) { throw "$label not found: $path" }
-  $h = Get-Fingerprint $path
-  if ($h -ne $src.fingerprint) {
-    throw "$label is not the version this script was made for (commit $($src.commit.Substring(0,7)) of $($src.repo)). Download exactly that one: $($src.download)"
-  }
-  return $h
-}
+. (Join-Path $here 'xtras_common.ps1')
 $mainHash = Test-Input $Main $sources.main 'Xtras main'
 $revHash  = Test-Input $Revised $sources.revised 'Xtras Revised beta'
 

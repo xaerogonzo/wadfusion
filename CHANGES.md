@@ -1,5 +1,11 @@
 # WadFusion Changelog
 
+## WadFusion 1.7.1 (UZDoom 5 / LZDoom fork, 8 November 2026)
+[**Full Changelog**](https://github.com/xaerogonzo/wadfusion/compare/v1.7.0...HEAD)
+- `xtras/get_xtras.ps1` (and option 9 of `WadFusion Menu.bat`) downloads the pinned Xtras versions from their authors' GitHub pages and builds the merged and Unofficial packs in one step. The Xtras scripts now accept a GitHub download as well as the original zips, and refuse any other version.
+- The release zips now include the `xtras` folder (build scripts and patch files; no Xtras content), and `WadFusion Menu.bat` has an option 9 that runs the Xtras setup.
+- README: a complete step-by-step setup that explains which files you load together and where each one comes from.
+
 ## WadFusion 1.7.0 (UZDoom 5 / LZDoom fork, 8 November 2026)
 [**Full Changelog**](https://github.com/Owlet7/wadfusion/compare/v1.6.1...HEAD)
 - Patch mode (`-p`) now removes stale `zscript/` and `mapinfo/` files left over from older WadFusion

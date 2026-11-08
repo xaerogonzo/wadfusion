@@ -31,6 +31,16 @@ function New-ZipFromDir($dir, $zipPath) {
         [IO.Compression.CompressionLevel]::Optimal, $false)
 }
 
+# the Xtras build scripts and the patch files they apply (no Xtras content: users download that themselves)
+function Copy-Xtras($dest) {
+    $x = Join-Path $dest 'xtras'
+    New-Item -ItemType Directory -Path $x | Out-Null
+    Copy-Item xtras\*.ps1, xtras\xtras_sources.json, xtras\merge_imports.txt, xtras\MERGE_DISPOSITION.md $x
+    foreach ($d in 'Wadfusion-Xtras-main_uz5', 'Wadfusion-Xtras-merged_uz5', 'Wadfusion-Unofficial-Xtras-main_uz5') {
+        Copy-Item (Join-Path xtras $d) (Join-Path $x $d) -Recurse
+    }
+}
+
 $proj = 'wadfusion'
 $wide = 'doom_fusion_widescreen_gfx.pk3'
 $stage = Join-Path $OutDir 'stage'
@@ -59,6 +69,7 @@ New-Item -ItemType Directory -Path (Join-Path $win 'source_wads') | Out-Null
 Copy-Item (Join-Path $stage "dist\$proj.exe") $win
 Copy-Item README.md, CHANGES.md, 'WadFusion Menu.bat' $win
 Copy-Item source_wads\place_wads_here.txt (Join-Path $win 'source_wads')
+Copy-Xtras $win
 Copy-Item (Join-Path $OutDir $wide), (Join-Path $OutDir 'licenses.zip') $win
 New-ZipFromDir $win (Join-Path $OutDir "${proj}_win.zip")
 
@@ -70,6 +81,7 @@ foreach ($d in 'data', 'omg', 'res') { Copy-Item $d (Join-Path $py $d) -Recurse 
 Get-ChildItem $py -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force
 Copy-Item README.md, CHANGES.md, 'WadFusion Menu.bat', "$proj.py" $py
 Copy-Item source_wads\place_wads_here.txt (Join-Path $py 'source_wads')
+Copy-Xtras $py
 Copy-Item (Join-Path $OutDir $wide), (Join-Path $OutDir 'licenses.zip') $py
 New-ZipFromDir $py (Join-Path $OutDir "${proj}_py.zip")
 

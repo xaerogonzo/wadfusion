@@ -2,7 +2,7 @@
 
 **WadFusion merges your DOOM, DOOM II, Final DOOM and re-release data into one IPK3 for [UZDoom](https://zdoom.org/downloads) or LZDoom, with every game and expansion as its own entry in the episode list.**
 
-This is a fork of [Owlet7/wadfusion](https://github.com/Owlet7/wadfusion), which is itself based on [WadSmoosh](https://jp.itch.io/wadsmoosh) by JP LeBreton. All the original work and credit stay with them; this fork keeps their tool and adds to it. Current version: **1.7.0** (tag `v1.7.0`), built on upstream commit `2e95646`, tested on **UZDoom 5.0.3** and **LZDoom l4.14.4**.
+This is a fork of [Owlet7/wadfusion](https://github.com/Owlet7/wadfusion), which is itself based on [WadSmoosh](https://jp.itch.io/wadsmoosh) by JP LeBreton. All the original work and credit stay with them; this fork keeps their tool and adds to it. Current version: **1.7.1** (tag `v1.7.1`), built on upstream commit `2e95646`, tested on **UZDoom 5.0.3** and **LZDoom l4.14.4**.
 
 > [!NOTE]
 > Upstream's 1.6.1 release builds an IPK3 for UZDoom 4.14. On UZDoom 5 it fails with "Class name already exists" and `compat_nombf21` errors, because UZDoom 5 now contains the ID24 actors itself. Building from this fork fixes that.
@@ -33,9 +33,41 @@ uzdoom.exe -iwad doom_fusion.ipk3 -file doom_fusion_widescreen_gfx.pk3
 
 For the WAD list, versions and file names see [Supported WADs](#supported-wads). If you have never done this before, read the [Absolute Beginner's Guide](#absolute-beginners-guide).
 
+## Complete setup: everything, including the merged Xtras
+
+A full install is **several files that you load together**, not one. The IPK3 is the game itself, built on your PC from your own WADs; the Xtras are add-ons that the engine loads on top of it.
+
+| File | What it is | Where it comes from | Needed? |
+|---|---|---|---|
+| `doom_fusion.ipk3` | Every game and expansion you own, as one episode list, plus the Full Run, custom runs and menus | You build it: `WadFusion Menu.bat`, option 2 | Yes |
+| `doom_fusion_widescreen_gfx.pk3` | Ultra-widescreen HUD and title graphics | Inside the release zip | Optional |
+| `Wadfusion-Xtras-Merged_UZ5.pk3` | Jaguar Doom, PlayStation levels, Doom 64: Absolution, the Total Carnage / Unholy Massacre / ULTRA NIGHTMARE skills, extra music and HUD skins | You build it: `WadFusion Menu.bat`, option 9 | Optional |
+| `WadFusion-Unofficial-Xtras-main_UZ5.pk3` | Doom Zero, Freedoom 1 and 2, Hell to Pay, Perdition's Gate, Plutonia 2, TNT: Revilution and more | Built by the same option 9 | Optional, needs the merged Xtras |
+
+The Xtras are not bundled because they are other people's work; option 9 downloads them straight from their authors' GitHub pages and builds the packs on your machine.
+
+1. **Get the tool.** Download `wadfusion_win.zip` from the [latest release](https://github.com/xaerogonzo/wadfusion/releases/latest) and extract it. (macOS and Linux: `wadfusion_py.zip`, which needs Python 3.)
+2. **Add your WADs.** Copy them into `source_wads\`, or run `WadFusion Menu.bat` and use option 4 to find them on your PC and option 3 to add their folder. Option 1 then shows what was found and which episodes you will get. More WADs, more episodes; the list of names is under [Supported WADs](#supported-wads).
+3. **Build the IPK3** with option 2 (about a minute). You now have `doom_fusion.ipk3`.
+4. **Build the Xtras (optional)** with option 9. It needs [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows) (`winget install Microsoft.PowerShell`), downloads about 440 MB and creates the two Xtras packs next to the menu. When it is done you can delete the `xtras_downloads` folder.
+5. **Install an engine:** [UZDoom](https://zdoom.org/downloads) 5.0.3 or LZDoom l4.14.4.
+6. **Start it** with all the files, in this order:
+
+```
+uzdoom.exe -iwad doom_fusion.ipk3 -file doom_fusion_widescreen_gfx.pk3 Wadfusion-Xtras-Merged_UZ5.pk3 WadFusion-Unofficial-Xtras-main_UZ5.pk3
+```
+
+In a launcher such as Doom Runner, choose `doom_fusion.ipk3` as the game (IWAD) and add the other three as files, in that order. Leave out any you don't want; the game works with just the IPK3.
+
+7. **Turn on the extras in the game.** Options, WadFusion Options: set **Full Run** (three built-in orders, or **On (custom order)** and open **Custom Full Run** to pick up to 16 campaigns, including the Xtras ones). The Xtras' own settings (PlayStation levels, Final DOOM HUD skins, skills) are under Options, DCX Options. The extra skills appear in the skill menu when you start a new game.
+
+**Optional files that unlock more:** `doom2_original.wad` (the original DOOM II v1.9, for the uncensored Wolfenstein textures), the soundtrack WADs `sigil_shreds.wad` and `sigil2_mp3.wad`, and your own campaigns through [WFRUN files](#adding-outside-campaigns-wfrun-files).
+
 ## Xtras packs
 
 The community **WadFusion Xtras** packs by Someguyman add the console maps (Jaguar Doom, PlayStation levels, Doom 64: Absolution), extra music and graphics, and the unofficial campaigns. They are other people's work, have no published licence, and are **not included in this repository or in the releases**. Instead, `xtras/` holds PowerShell scripts that take the original download and apply this fork's changes (UZDoom 5 fixes, Full Run files, merged features) to a copy. The originals are never modified.
+
+**The easy way:** `WadFusion Menu.bat`, option 9, or `pwsh -File xtras\get_xtras.ps1`, downloads the right versions and builds both packs for you (see [Complete setup](#complete-setup-everything-including-the-merged-xtras)). The rest of this section is what that does, for anyone who prefers to do it by hand.
 
 **Step 1: download exactly these versions** (the scripts refuse any other, because the patches replace whole files of those versions; newer commits of the Xtras repositories have not been ported):
 

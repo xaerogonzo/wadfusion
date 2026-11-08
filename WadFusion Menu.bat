@@ -51,9 +51,10 @@ echo   5  Forget the added folders
 echo   6  Patch an existing doom_fusion.ipk3 with newer WadFusion files
 echo   7  Open source_wads folder
 echo   8  Open the last log
+echo   9  Download and build the Xtras packs ^(about 440 MB from GitHub^)
 echo   Q  Quit
 echo.
-choice /c 12345678Q /n /m "  Choose: "
+choice /c 123456789Q /n /m "  Choose: "
 set "PICK=%errorlevel%"
 if "%PICK%"=="1" ( call :check & pause & goto menu )
 if "%PICK%"=="2" ( call :build & pause & goto menu )
@@ -63,6 +64,7 @@ if "%PICK%"=="5" ( call :forget & goto menu )
 if "%PICK%"=="6" ( call :patch & pause & goto menu )
 if "%PICK%"=="7" ( start "" explorer "%~dp0source_wads" & goto menu )
 if "%PICK%"=="8" ( if exist wadfusion.log ( start "" notepad wadfusion.log ) else ( echo No log yet. & pause ) & goto menu )
+if "%PICK%"=="9" ( call :xtras & goto menu )
 exit /b 0
 
 :folderargs
@@ -143,5 +145,27 @@ exit /b 0
 if exist "%FOLDERS%" del "%FOLDERS%"
 echo.
 echo   The added folders were forgotten. source_wads\ is still searched.
+pause
+exit /b 0
+
+:xtras
+echo.
+if not exist "%~dp0xtras\get_xtras.ps1" (
+    echo   The xtras folder is missing next to this file.
+    pause
+    exit /b 1
+)
+where pwsh >nul 2>nul
+if errorlevel 1 (
+    echo   The Xtras setup needs PowerShell 7. Install it with this command, then run this menu again:
+    echo       winget install Microsoft.PowerShell
+    pause
+    exit /b 1
+)
+echo   This downloads the WadFusion Xtras packs by Someguyman from their GitHub pages ^(about 440 MB^)
+echo   and builds the merged pack and the Unofficial pack next to this file. Nothing of theirs is changed.
+choice /c YN /n /m "  Continue? [Y/N] "
+if errorlevel 2 exit /b 0
+pwsh -NoProfile -ExecutionPolicy Bypass -File "%~dp0xtras\get_xtras.ps1" -OutDir "%~dp0."
 pause
 exit /b 0
