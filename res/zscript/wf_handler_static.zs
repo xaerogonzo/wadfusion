@@ -23,6 +23,7 @@ class WadFusionStaticHandler : StaticEventHandler
 	String nextMap;
 	String intermission;
 	bool teeth;
+	bool wfOutsideMap; // the current map comes from another mod's files, not from WadFusion
 	
 	override void OnRegister()
 	{
@@ -32,7 +33,7 @@ class WadFusionStaticHandler : StaticEventHandler
 	
 	override void PostUiTick()
 	{
-		if ( CVar.FindCVar("wf_compat_changemusic").GetBool() )
+		if ( CVar.FindCVar("wf_compat_changemusic").GetBool() && !wfOutsideMap ) // outside campaigns keep their own music
 		{
 			DoSigilMusicReplacements(); // wf_mus_sigil.zs
 			DoIdkfaMusicReplacements(); // wf_mus_idkfa.zs
@@ -56,6 +57,11 @@ class WadFusionStaticHandler : StaticEventHandler
 	{
 		// reset global variables when starting maps where they're not used
 		String mapName = Level.MapName.MakeLower();
+
+		String supplier = WFMapContainer(mapName);
+		String fusion = WFFusionContainer();
+		wfOutsideMap = supplier != "" && fusion != "" && supplier != fusion;
+
 		if ( mapName.Left(10) != "wf_newgame" && mapName.Left(10) != "wf_endgame" && mapName.Left(8) != "wf_story" )
 		{
 			nextMap = "";
