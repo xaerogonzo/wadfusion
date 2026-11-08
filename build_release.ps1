@@ -5,10 +5,10 @@
 .DESCRIPTION
   Mirrors windows_build.bat, using only PowerShell + Python:
     1. builds doom_fusion_widescreen_gfx.pk3 from ultrawiderpix/
-    2. runs PyInstaller with wadfusion.spec  -> wadfusion.exe
-    3. packages wadfusion_win.zip (exe, README, CHANGES, licenses.zip,
+    2. runs PyInstaller with wadmelt.spec  -> wadmelt.exe
+    3. packages wadmelt_win.zip (exe, README, CHANGES, licenses.zip,
        widescreen pk3, source_wads/place_wads_here.txt)
-    4. packages wadfusion_py.zip (Python source release for macOS / Linux)
+    4. packages wadmelt_py.zip (Python source release for macOS / Linux)
 
   Requires Python 3 with PyInstaller installed in the interpreter given by -Python.
 
@@ -41,7 +41,7 @@ function Copy-Xtras($dest) {
     }
 }
 
-$proj = 'wadfusion'
+$proj = 'wadmelt'
 $wide = 'doom_fusion_widescreen_gfx.pk3'
 $stage = Join-Path $OutDir 'stage'
 if (Test-Path $OutDir) { Remove-Item $OutDir -Recurse -Force }
@@ -67,7 +67,7 @@ if ($LASTEXITCODE -ne 0) { throw 'PyInstaller failed' }
 $win = Join-Path $stage 'win'
 New-Item -ItemType Directory -Path (Join-Path $win 'source_wads') | Out-Null
 Copy-Item (Join-Path $stage "dist\$proj.exe") $win
-Copy-Item README.md, CHANGES.md, 'WadFusion Menu.bat' $win
+Copy-Item README.md, CHANGES.md, 'WadMelt Menu.bat' $win
 Copy-Item source_wads\place_wads_here.txt (Join-Path $win 'source_wads')
 Copy-Xtras $win
 Copy-Item (Join-Path $OutDir $wide), (Join-Path $OutDir 'licenses.zip') $win
@@ -79,7 +79,7 @@ $py = Join-Path $stage 'py'
 New-Item -ItemType Directory -Path (Join-Path $py 'source_wads') | Out-Null
 foreach ($d in 'data', 'omg', 'res') { Copy-Item $d (Join-Path $py $d) -Recurse }
 Get-ChildItem $py -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force
-Copy-Item README.md, CHANGES.md, 'WadFusion Menu.bat', "$proj.py" $py
+Copy-Item README.md, CHANGES.md, 'WadMelt Menu.bat', "$proj.py" $py
 Copy-Item source_wads\place_wads_here.txt (Join-Path $py 'source_wads')
 Copy-Xtras $py
 Copy-Item (Join-Path $OutDir $wide), (Join-Path $OutDir 'licenses.zip') $py

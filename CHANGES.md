@@ -1,7 +1,7 @@
 # WadMelt Changelog (WadFusion changelog below)
 
 ## WadMelt 2.0.0 (UZDoom 5 / LZDoom fork, 8 November 2026)
-- The fork is renamed **WadMelt** so it is not confused with upstream WadFusion, and its version numbers now start at 2.0.0 (upstream's own 1.7.0 is not out yet). Menus, log lines and the README use the new name. Internal names (`wf_` variables, `WFRUN`, `wadfusion.exe`, `WadFusion Menu.bat`, class names) are unchanged, so saved settings and add-on files keep working.
+- The fork is renamed **WadMelt** so it is not confused with upstream WadFusion, and its version numbers now start at 2.0.0 (upstream's own 1.7.0 is not out yet). Menus, log lines and the README use the new name. The program, menu script, log file and release zips are now `wadmelt.exe` / `wadmelt.py`, `WadMelt Menu.bat`, `wadmelt.log` and `wadmelt_win.zip` / `wadmelt_py.zip` (the folder list file is `wadmelt_folders.txt`; copy your old `wadfusion_folders.txt` over). Names inside the game files (`wf_` variables, `WFRUN`, `WadFusion...` class names) are unchanged on purpose, so the original WadFusion Xtras and other add-ons keep working.
 - The README credits Owlet7's WadFusion as the project this fork is based on.
 Earlier entries below were released under the name WadFusion (UZDoom 5 / LZDoom fork).
 

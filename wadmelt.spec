@@ -7,7 +7,7 @@ sys.modules['FixTk'] = None
 block_cipher = None
 
 a = Analysis(
-    ['wadfusion.py'],
+    ['wadmelt.py'],
     pathex=[],
     binaries=[],
     datas= [ ( 'data', 'data' ), ( 'res', 'res' ) ],
@@ -32,7 +32,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='wadfusion',
+    name='wadmelt',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

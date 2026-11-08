@@ -9,7 +9,7 @@ Tested: UZDoom 5.0.3, WadFusion 1.6.2-dev (upstream `2e95646`).
   own ID24 actors (now built into UZDoom 5) and used the removed `compat_nombf21` MAPINFO property.
 - Patch mode (`-p`) now removes stale files from `zscript/` and `mapinfo/` that are no longer part of
   WadFusion, and no longer appends duplicate `#include` lines to `textures.txt` on repeated runs.
-- `build_release.ps1`: builds `wadfusion.exe` and the release zips with only PowerShell + Python
+- `build_release.ps1`: builds `wadmelt.exe` and the release zips with only PowerShell + Python
   (no 7-Zip needed).
 
 - **Wadfusion-Xtras-main ported to UZDoom 5** (and the Unofficial Xtras addon on top of it loads too).

@@ -65,7 +65,7 @@ DEST_DIR = 'temp/'
 DEST_DIR_MUS = DEST_DIR + 'music/'
 DEST_DIR_GRAPHICS = DEST_DIR + 'graphics/'
 DEST_FILENAME = 'doom_fusion.ipk3'
-LOG_FILENAME = 'wadfusion.log'
+LOG_FILENAME = 'wadmelt.log'
 
 # forward-declare all the stuff in declare_data() for clarity
 RES_FILES = []

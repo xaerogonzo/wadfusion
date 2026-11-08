@@ -1,26 +1,26 @@
 @echo off
 rem WadFusion builder menu: check your source WADs before building, build the IPK3, patch an existing one.
-rem Run it from the folder that holds wadfusion.exe (or wadfusion.py). Command line shortcuts:
-rem     "WadFusion Menu.bat" check     only list what was found
-rem     "WadFusion Menu.bat" build     check, then build (asks before it starts)
+rem Run it from the folder that holds wadmelt.exe (or wadmelt.py). Command line shortcuts:
+rem     "WadMelt Menu.bat" check     only list what was found
+rem     "WadMelt Menu.bat" build     check, then build (asks before it starts)
 setlocal EnableDelayedExpansion
 cd /d "%~dp0"
 title WadMelt builder
 
-set "FOLDERS=wadfusion_folders.txt"
+set "FOLDERS=wadmelt_folders.txt"
 set "WF="
-if exist "wadfusion.exe" set WF="%~dp0wadfusion.exe"
-if not defined WF if exist "wadfusion.py" (
+if exist "wadmelt.exe" set WF="%~dp0wadmelt.exe"
+if not defined WF if exist "wadmelt.py" (
     where python >nul 2>nul
     if errorlevel 1 (
-        echo Python was not found. Install Python 3 from python.org, or use the wadfusion.exe release.
+        echo Python was not found. Install Python 3 from python.org, or use the wadmelt.exe release.
         pause
         exit /b 1
     )
-    set "WF=python wadfusion.py"
+    set "WF=python wadmelt.py"
 )
 if not defined WF (
-    echo Put this file next to wadfusion.exe or wadfusion.py.
+    echo Put this file next to wadmelt.exe or wadmelt.py.
     pause
     exit /b 1
 )
@@ -63,7 +63,7 @@ if "%PICK%"=="4" ( call :scan & goto menu )
 if "%PICK%"=="5" ( call :forget & goto menu )
 if "%PICK%"=="6" ( call :patch & pause & goto menu )
 if "%PICK%"=="7" ( start "" explorer "%~dp0source_wads" & goto menu )
-if "%PICK%"=="8" ( if exist wadfusion.log ( start "" notepad wadfusion.log ) else ( echo No log yet. & pause ) & goto menu )
+if "%PICK%"=="8" ( if exist wadmelt.log ( start "" notepad wadmelt.log ) else ( echo No log yet. & pause ) & goto menu )
 if "%PICK%"=="9" ( call :xtras & goto menu )
 exit /b 0
 
