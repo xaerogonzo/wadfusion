@@ -57,11 +57,26 @@ The Xtras are not bundled because they are other people's work; option 9 downloa
 uzdoom.exe -iwad doom_fusion.ipk3 -file doom_fusion_widescreen_gfx.pk3 Wadfusion-Xtras-Merged_UZ5.pk3 WadFusion-Unofficial-Xtras-main_UZ5.pk3
 ```
 
-In a launcher such as Doom Runner, choose `doom_fusion.ipk3` as the game (IWAD) and add the other three as files, in that order. Leave out any you don't want; the game works with just the IPK3.
+In a launcher such as Doom Runner, choose `doom_fusion.ipk3` as the game (IWAD) and add the other three as files, in that order. Leave out any you don't want; the game works with just the IPK3. See [Load order](#load-order).
 
 7. **Turn on the extras in the game.** Options, WadMelt Options: set **Full Run** (three built-in orders, or **On (custom order)** and open **Custom Full Run** to pick up to 16 campaigns, including the Xtras ones). The Xtras' own settings (PlayStation levels, Final DOOM HUD skins, skills) are under Options, DCX Options. The extra skills appear in the skill menu when you start a new game.
 
 **Optional files that unlock more:** `doom2_original.wad` (the original DOOM II v1.9, for the uncensored Wolfenstein textures), the soundtrack WADs `sigil_shreds.wad` and `sigil2_mp3.wad`, and your own campaigns through [WFRUN files](#adding-outside-campaigns-wfrun-files).
+
+## Load order
+
+Order matters: a file loaded later replaces matching files from the ones before it.
+
+| # | File | Where | Notes |
+|---|------|-------|-------|
+| 1 | `doom_fusion.ipk3` | the **game / IWAD** | Always first |
+| 2 | `doom_fusion_widescreen_gfx.pk3` | first file | Optional. Must come after the IPK3 because it replaces some of its graphics |
+| 3 | `Wadfusion-Xtras-Merged_UZ5.pk3` | second file | Optional. Load **only this** Xtras pack, never the original Main or Revised beta packs next to it |
+| 4 | `WadFusion-Unofficial-Xtras-main_UZ5.pk3` | third file | Optional. Needs the Merged pack loaded before it |
+
+Command line: `uzdoom.exe -iwad doom_fusion.ipk3 -file doom_fusion_widescreen_gfx.pk3 Wadfusion-Xtras-Merged_UZ5.pk3 WadFusion-Unofficial-Xtras-main_UZ5.pk3`
+
+In a launcher such as Doom Runner the IPK3 is picked in the IWAD list and the other three go in the mods list, top to bottom in the order above. Add any other mod after these files. Leave out the files you don't want; every one except the IPK3 is optional.
 
 ## Xtras packs
 
