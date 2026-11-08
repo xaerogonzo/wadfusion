@@ -1,0 +1,112 @@
+// Monsters of the Total Carnage / Unholy Massacre / ULTRA NIGHTMARE skills.
+// Ported from the Xtras Revised beta (Zscript/Actors.zsc). They derive from the Xtras main
+// DCX_Cyberdemon / DCX_SpiderMastermind, so every change made to those carries over.
+// Placed by ACS/XtraHardMode.o (map placements) and by DoomEdNums 616, 607 and 711 in mapinfo.txt.
+
+// The ACS function Replace() spawns this probe, finds the monster standing at the spot, removes it
+// and then puts the replacement there.
+Class DC_Replacer : Actor {}
+
+Class DCX_LesserCyber : DCX_Cyberdemon
+{
+	Default
+	{
+		Health 2000;
+		Scale 0.95;
+		SeeSound "LesserCyber/sight";
+		PainSound "LesserCyber/pain";
+		DeathSound "LesserCyber/death";
+		Tag "Lesser Cyberdemon";
+		BloodColor "30 67 23";
+	}
+	States
+	{
+	Spawn:
+		LCYB AB 10 A_Look;
+		Loop;
+	See:
+		LCYB A 3 A_Hoof;
+		LCYB ABBCC 3 A_Chase;
+		LCYB D 3 A_Metal;
+		LCYB D 3 A_Chase;
+		Loop;
+	Missile:
+		LCYB E 6 A_FaceTarget;
+		LCYB F 12 Bright A_CyberAttack;
+		LCYB E 12 A_FaceTarget;
+		LCYB F 12 Bright A_CyberAttack;
+		LCYB E 12 A_FaceTarget;
+		LCYB F 12 Bright A_CyberAttack;
+		Goto See;
+	Pain:
+		LCYB G 10 A_Pain;
+		Goto See;
+	Death:
+		LCYB H 10 Bright;
+		LCYB I 10 Bright A_Scream;
+		LCYB JKL 10 Bright;
+		LCYB M 10 Bright A_NoBlocking;
+		LCYB NO 10 Bright;
+		LCYB P 30;
+		LCYB P -1 A_BossDeath;
+		Stop;
+	}
+}
+
+Class DCX_NightmareCyberdemon : DCX_Cyberdemon
+{
+	Default
+	{
+		Health 8000;
+		+SHADOW
+		BloodColor "Cyan";
+		RenderStyle "Subtract";
+	}
+}
+
+Class DCX_LesserMastermind : DCX_SpiderMastermind
+{
+	Default
+	{
+		Health 1500;
+		Scale 0.9;
+		SeeSound "LesserSpider/sight";
+		PainSound "LesserSpider/pain";
+		DeathSound "LesserSpider/death";
+		Obituary "$OB_SPIDER";
+		Tag "$FN_SPIDER";
+		BloodColor "30 67 23";
+	}
+	States
+	{
+	Spawn:
+		LSPI AB 10 A_Look;
+		Loop;
+	See:
+		LSPI A 3 A_Metal;
+		LSPI ABB 3 A_Chase;
+		LSPI C 3 A_Metal;
+		LSPI CDD 3 A_Chase;
+		LSPI E 3 A_Metal;
+		LSPI EFF 3 A_Chase;
+		Loop;
+	Missile:
+		LSPI A 20 A_FaceTarget;
+		LSPI G 4 BRIGHT A_SPosAttackUseAtkSound;
+		LSPI H 4 BRIGHT A_SposAttackUseAtkSound;
+		LSPI H 1 BRIGHT A_SpidRefire;
+		Goto Missile+1;
+	Pain:
+		LSPI I 3;
+		LSPI I 3 A_Pain;
+		Goto See;
+	Death:
+		LSPI J 1;
+		LSPI J 19 A_Scream;
+		LSPI K 10 A_NoBlocking;
+		LSPI LMNOPQR 10 Bright;
+		LSPI S 30;
+		LSPI S -1 A_BossDeath;
+		Stop;
+	}
+}

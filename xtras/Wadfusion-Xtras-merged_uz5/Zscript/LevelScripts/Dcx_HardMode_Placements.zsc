@@ -1,0 +1,350 @@
+// Total Carnage / ULTRA NIGHTMARE: extra and replaced monsters, changed in the map data when a map loads.
+// Taken from the Xtras Revised beta (Levelpostprocessors.zsc) by xtras/make_hardmode_postprocessor.py.
+// Runs only when the skill's ACS number is 5 (Total Carnage, ULTRA NIGHTMARE).
+
+class DCX_HardModePlacements : LevelPostProcessor
+{
+	protected void Apply(Name checksum, String mapNameArg)
+	{
+		if ( G_SkillPropertyInt(SKILLP_ACSReturn) != 5 )
+			return;
+
+		String mapName = level.MapName.MakeLower();
+
+						{
+							if ( mapName == "e1m8" )
+							{
+								AddThing(697, (48, 688, 999), 45);
+								AddThing(697, (784, 688, 999), 135);
+							}
+							if ( mapName == "e2m3" )
+							{
+								AddThing(2006, (864, -64, -999), 270,MODES_ALL | MTF_AMBUSH);
+							}
+							if ( mapName == "e3m3" )
+							{
+								SetThingEdNum(71,697);
+								SetThingEdNum(97,697);
+								SetThingEdNum(139,697);
+								SetThingEdNum(151,697);
+								SetThingEdNum(198,697);
+							}
+							if ( mapNAme == "e3m5" )
+							{
+								SetThingEdNum(217,64);
+						
+								SetThingEdNum(160,69);
+								SetThingEdNum(161,69);
+						
+								//;)
+						
+								SetThingEdNum(4,697);
+								SetThingEdNum(5,697);
+								SetThingEdNum(6,697);
+								SetThingEdNum(7,697);
+								SetThingEdNum(8,697);
+								SetThingEdNum(9,697);
+								SetThingEdNum(108,697);
+							}
+							if ( mapName == "e4m7" )
+							{
+								SetThingEdNum(131,69);
+						
+								SetThingEdNum(170,66);
+								SetThingEdNum(171,66);
+						
+								SetThingEdNum(49,65);
+						
+								SetThingEdNum(42,66);
+								SetThingEdNum(43,66);
+						
+								SetThingEdNum(10,66);
+								SetThingEdNum(11,66);
+						
+								SetThingEdNum(176,71);
+						
+								SetThingEdNum(62,82);
+							}
+							if ( mapName == "psx04" )
+							{
+								SetThingEdNum(304,3003);
+								SetThingEdNum(305,3003);
+								SetThingEdNum(306,3003);
+								SetThingEdNum(307,3003);
+								SetThingEdNum(308,3003);
+								SetThingEdNum(309,3003);
+								SetThingEdNum(310,3003);
+								SetThingEdNum(311,3003);
+								SetThingEdNum(312,3003);
+							}
+							if ( mapName == "e5m1" )
+							{
+								SetThingEdNum(157,697);
+							}
+							if ( mapName == "e5m3" )
+							{
+								SetThingEdNum(67,710);
+				
+								AddThing(697,(-448,-2016,-999),135);
+								AddThing(697,(-800,-2016,-999),45);
+				
+								AddThing(697,(-704,-2432,-999),45);
+								AddThing(697,(-512,-2432,-999),135);
+							}
+							if ( mapName == "e5m4" )
+							{
+								SetThingEdNum(37,686);
+								SetThingEdNum(89,686);
+								SetThingEdNum(261,686);
+								SetThingEdNum(268,686);
+							}
+							if ( mapName == "e5m5" )
+							{
+								SetThingEdNum(23,69);
+								SetThingEdNum(110,69);
+								SetThingEdNum(109,69);
+								SetThingEdNum(354,69);
+							}
+							if ( mapName == "e5m6" )
+							{
+								SetThingEdNum(31,69);
+								SetThingEdNum(32,69);
+								SetThingEdNum(33,69);
+				
+								SetThingEdNum(80,69);
+								SetThingEdNum(116,69);
+								SetThingEdNum(181,69);
+							}
+							if ( mapName == "e5m7" )
+							{
+								SetThingEdNum(55,685);
+				
+								SetThingEdNum(104,686);				
+								SetThingEdNum(214,686);
+								SetThingEdNum(215,686);
+								SetThingEdNum(372,686);
+							}
+							if ( mapName == "e5m8" )
+							{
+								SetThingEdNum(55,685);
+				
+								SetThingEdNum(201,697);			
+								SetThingEdNum(204,697);
+				
+								SetThingEdNum(206,697);
+								SetThingEdNum(208,697);
+				
+								AddThing(82,(1472,-552,999),90,MODES_ALL | MTF_AMBUSH);
+							}		
+							if ( mapName == "e5m9" )
+							{
+								SetThingEdNum(164,697);
+				
+								AddThing(58,(-1824,24,999),90,MODES_ALL | MTF_AMBUSH);
+								AddThing(58,(-1440,24,999),90,MODES_ALL | MTF_AMBUSH);
+								AddThing(697,(-1632,24,-999),90,MODES_ALL | MTF_AMBUSH);
+							}
+							if ( mapName == "map01" )
+							{						
+								SetThingEdNum(20,9);
+								SetThingEdNum(21,9);
+								SetThingEdNum(22,9);
+						
+								SetThingEdNum(11,65);
+								SetThingEdNum(12,65);
+								SetThingEdNum(13,65);
+								SetThingEdNum(14,65);
+								SetThingEdNum(31,65);
+								SetThingEdNum(48,65);
+								SetThingEdNum(32,65);
+						
+								SetThingEdNum(51,66);
+							}
+							if ( mapName == "map02" )
+							{
+								SetThingEdNum(35,65);
+								SetThingEdNum(145,65);
+						
+								SetThingEdNum(17,66);
+								SetThingEdNum(18,66);
+						
+								SetThingEdNum(19,65);
+								SetThingEdNum(20,65);
+						
+								SetThingEdNum(33,65);
+						
+								SetThingEdNum(46,69);
+								SetThingEdNum(47,69);
+								SetThingEdNum(48,69);
+						
+								SetThingEdNum(151,69);
+								SetThingEdNum(152,69);
+						
+								AddThing(65,(1440,1360,-999),0);
+							}
+							if ( mapName == "map03" )
+							{
+								SetThingEdNum(103,3003);
+						
+								SetThingEdNum(108,69);
+								SetThingEdNum(109,69);
+						
+								SetThingEdNum(142,66);
+								SetThingEdNum(143,66);
+						
+								SetThingEdNum(144,66);
+						
+								SetThingEdNum(121,69);
+								AddThing(69,(2624,2016,-999),90);
+								AddThing(69,(2816,2016,-999),90);
+						
+								SetThingEdNum(107,697);
+								AddThing(697,(3040,2336,-999),90);
+							}
+							if ( mapName == "map04" )
+							{
+								SetThingEdNum(15,65);
+						
+								SetThingEdNum(64,697);
+						
+								SetThingEdNum(73,66);
+						
+								SetThingEdNum(22,66);
+								SetThingEdNum(23,66);
+								SetThingEdNum(24,66);
+								SetThingEdNum(84,66);
+								SetThingEdNum(132,69);
+							}					
+							if ( mapName == "map05" )
+							{			
+								SetThingEdNum(46,2003);
+						
+								SetThingEdNum(167,0);
+								SetThingEdNum(168,0);
+								SetThingEdNum(169,0);
+						
+								SetThingEdNum(183,69);
+						
+								SetThingEdNum(186,67);
+						
+								SetThingEdNum(197,66);
+								SetThingEdNum(198,66);
+						
+								SetThingEdNum(19,66);
+								SetThingEdNum(21,66);
+								SetThingEdNum(23,66);
+								SetThingEdNum(25,66);
+						
+								SetThingEdNum(20,65);
+								SetThingEdNum(22,65);
+								SetThingEdNum(24,65);
+
+								SetThingEdNum(93,64);						
+								SetThingEdNum(95,64);						
+						
+								SetThingEdNum(61,66);
+						
+								SetThingEdNum(56,2023);
+								SetThingEdNum(215,2013);
+							}
+							if ( mapName == "map06" )
+							{
+								AddThing(697,(2144,1664,-999),180);
+								AddThing(697,(2240,1760,-999),180);
+								AddThing(697,(2240,1568,-999),180);
+						
+								SetThingEdNum(245,697);
+						
+								SetThingEdNum(220,9);
+								SetThingEdNum(221,9);
+							}
+							if ( mapName == "map07" )
+							{
+								AddThing(17,(-672,-96,-999),135);
+								AddThing(17,(-544,-224,-999),315);
+								AddThing(17,(-672,-224,-999),225);
+								AddThing(17,(-544,-96,-999),45);
+						
+								/*					
+								⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⠛⠿⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⡀⠠⠤⠒⢂⣉⣉⣉⣑⣒⣒⠒⠒⠒⠒⠒⠒⠒⠀⠀⠐⠒⠚⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⡠⠔⠉⣀⠔⠒⠉⣀⣀⠀⠀⠀⣀⡀⠈⠉⠑⠒⠒⠒⠒⠒⠈⠉⠉⠉⠁⠂⠀⠈⠙⢿⣿⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠔⠁⠠⠖⠡⠔⠊⠀⠀⠀⠀⠀⠀⠀⠐⡄⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠉⠲⢄⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠊⠀⢀⣀⣤⣤⣤⣤⣀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠜⠀⠀⠀⠀⣀⡀⠀⠈⠃⠀⠀⠀⠸⣿⣿⣿⣿⣿
+								⣿⣿⣿⣿⡿⠥⠐⠂⠀⠀⠀⠀⡄⠀⠰⢺⣿⣿⣿⣿⣿⣟⠀⠈⠐⢤⠀⠀⠀⠀⠀⠀⢀⣠⣶⣾⣯⠀⠀⠉⠂⠀⠠⠤⢄⣀⠙⢿⣿⣿
+								⣿⡿⠋⠡⠐⠈⣉⠭⠤⠤⢄⡀⠈⠀⠈⠁⠉⠁⡠⠀⠀⠀⠉⠐⠠⠔⠀⠀⠀⠀⠀⠲⣿⠿⠛⠛⠓⠒⠂⠀⠀⠀⠀⠀⠀⠠⡉⢢⠙⣿
+								⣿⠀⢀⠁⠀⠊⠀⠀⠀⠀⠀⠈⠁⠒⠂⠀⠒⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⢀⣀⡠⠔⠒⠒⠂⠀⠈⠀⡇⣿⣿⣿
+								⣿⠀⢸⠀⠀⠀⢀⣀⡠⠋⠓⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠈⠢⠤⡀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⡠⠀⡇⣿⣿⣿
+								⣿⡀⠘⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠈⠑⡦⢄⣀⠀⠀⠐⠒⠁⢸⠀⠀⠠⠒⠄⠀⠀⠀⠀⠀⢀⠇⠀⣀⡀⠀⠀⢀⢾⡆⠀⠈⡀⠎⣸⣿⣿
+								⣿⣿⣄⡈⠢⠀⠀⠀⠀⠘⣶⣄⡀⠀⠀⡇⠀⠀⠈⠉⠒⠢⡤⣀⡀⠀⠀⠀⠀⠀⠐⠦⠤⠒⠁⠀⠀⠀⠀⣀⢴⠁⠀⢷⠀⠀⠀⢰⣿⣿⣿
+								⣿⣿⣿⣿⣇⠂⠀⠀⠀⠀⠈⢂⠀⠈⠹⡧⣀⠀⠀⠀⠀⠀⡇⠀⠀⠉⠉⠉⢱⠒⠒⠒⠒⢖⠒⠒⠂⠙⠏⠀⠘⡀⠀⢸⠀⠀⠀⣿⣿⣿
+								⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠑⠄⠰⠀⠀⠁⠐⠲⣤⣴⣄⡀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢸⠀⠀⠀⠀⢠⠀⣠⣷⣶⣿⠀⠀⢰⣿⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠁⢀⠀⠀⠀⠀⠀⡙⠋⠙⠓⠲⢤⣤⣷⣤⣤⣤⣤⣾⣦⣤⣤⣶⣿⣿⣿⣿⡟⢹⠀⠀⢸⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠑⠀⢄⠀⡰⠁⠀⠀⠀⠀⠀⠈⠉⠁⠈⠉⠻⠋⠉⠛⢛⠉⠉⢹⠁⢀⢇⠎⠀⠀⢸⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠈⠢⢄⡉⠂⠄⡀⠀⠈⠒⠢⠄⠀⢀⣀⣀⣰⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⣎⠀⠼⠊⠀⠀⠀⠘⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠉⠢⢄⡈⠑⠢⢄⡀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⢀⠀⠀⠀⠀⠀⢻⣿⣿
+								⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⡈⠑⠢⢄⡀⠈⠑⠒⠤⠄⣀⣀⠀⠉⠉⠉⠉⠀⠀⠀⣀⡀⠤⠂⠁⠀⢀⠆⠀⠀⢸⣿
+								⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠁⠉⠒⠂⠤⠤⣀⣀⣉⡉⠉⠉⠉⠉⢀⣀⣀⡠⠤⠒⠈⠀⠀⠀⠀⣸⣿
+								⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿
+								⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣤⣤⣤⣤⣀⣀⣤⣤⣤⣶⣾⣿⣿⣿⣿
+								*/
+							}
+							if ( mapName == "map11" )
+							{
+								SetThingEdNum(190,697);
+							}
+							if ( mapName == "map13" )
+							{
+								SetThingEdNum(11,697);
+								SetThingEdNum(13,697);
+								SetThingEdNum(17,697);
+						
+								SetThingEdNum(166,697);
+						
+								AddThing(697,(1552,-3072,-999),180);
+							}
+							if ( mapName == "map14" )
+							{
+								SetThingEdNum(92,697);
+							}
+							if ( mapName == "map17" )
+							{
+								AddThing(686,(-2336,-1472,-999),0);
+							}
+							if ( mapName == "map27" )
+							{
+								SetThingEdNum(74,697);
+								SetThingEdNum(75,697);
+								SetThingEdNum(76,697);
+								SetThingEdNum(77,697);
+							}
+							if ( mapName == "map31" )
+							{
+								AddThing(65,(-4000,-1184,-999),0);
+								AddThing(65,(-4000,-1248,-999),0);
+								AddThing(65,(-3936,-1184,-999),0);
+								AddThing(65,(-3936,-1248,-999),0);
+						
+								AddThing(697,(-4160,-1216,-999),0);
+							}
+							if ( mapName == "map32" )
+							{
+								SetThingEdNum(60,711);
+						
+								AddThing(3003,(416,7720,-999),270);
+								AddThing(3003,(480,7720,-999),270);
+								AddThing(3003,(352,7776,-999),270);
+								AddThing(3003,(416,7776,-999),270);
+								AddThing(3003,(480,7776,-999),270);
+								AddThing(3003,(544,7776,-999),270);
+								AddThing(3003,(384,7840,-999),270);
+								AddThing(3003,(448,7840,-999),270);
+								AddThing(3003,(512,7840,-999),270);
+							}
+							if ( mapName == "nv_map08" )
+							{
+								SetThingEdNum(59,711);
+							}
+						}
+	}
+}

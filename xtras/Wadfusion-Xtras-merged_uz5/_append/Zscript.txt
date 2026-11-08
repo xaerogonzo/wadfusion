@@ -1,0 +1,3 @@
+
+#include "Zscript/Actors/Dcx_HardMode_Actors.zsc"
+#include "Zscript/LevelScripts/Dcx_HardMode_Placements.zsc"
