@@ -1,0 +1,15 @@
+# Unofficial Xtras campaigns described by their WFRUN (load Xtras main + the Unofficial pack). label | map | vars | files
+U_dz_end         | dz_map30           | +wf_fullrun 4 +wf_run_slot1 doomzero +wf_run_slot2 plutonia |
+U_dz_mid         | dz_map12           | +wf_fullrun 4 +wf_run_slot1 doomzero +wf_run_slot2 plutonia |
+U_dz_off         | dz_map30           | +wf_fullrun 0 |
+U_handover_dz    | wf_endgame_custom  | +wf_fullrun 4 +wf_run_slot1 doomzero +wf_run_slot2 plutonia +dcxtest_pending doomzero |
+U_pl_into_dz     | wf_endgame_pl_map30| +wf_fullrun 4 +wf_run_slot1 plutonia +wf_run_slot2 doomzero |
+U_pt_end33       | pt_map33           | +wf_fullrun 4 +wf_run_slot1 plutonia2 +wf_run_slot2 doomzero |
+U_pt_end30       | pt_map30           | +wf_fullrun 4 +wf_run_slot1 plutonia2 +wf_run_slot2 doomzero |
+U_fd1_end        | fd_e4m8            | +wf_fullrun 4 +wf_run_slot1 freedoom1 +wf_run_slot2 doomzero |
+U_fd1_e1m8       | fd_e1m8            | +wf_fullrun 4 +wf_run_slot1 freedoom1 +wf_run_slot2 doomzero |
+U_hp_end         | hp_map30           | +wf_fullrun 4 +wf_run_slot1 helltopay +wf_run_slot2 perditionsgate |
+U_handover_hp    | wf_endgame_custom  | +wf_fullrun 4 +wf_run_slot1 helltopay +wf_run_slot2 perditionsgate +dcxtest_pending helltopay |
+U_handover_tr    | wf_endgame_custom  | +wf_fullrun 4 +wf_run_slot1 tntrevilution +dcxtest_pending tntrevilution +wf_fullrun_loop 1 |
+U_eu_end         | eu_map08           | +wf_fullrun 4 +wf_run_slot1 evilunleashed +wf_run_slot2 tntrevilution |
+U_preset_dz      | dz_map30           | +wf_fullrun 1 |
