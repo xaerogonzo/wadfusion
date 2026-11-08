@@ -34,6 +34,22 @@ extend class WadFusionStaticHandler
 		CVar.FindCVar("wf_fullrun_ml").ResetToDefault();
 		CVar.FindCVar("wf_fullrun_cast").ResetToDefault();
 		CVar.FindCVar("wf_fullrun_loop").ResetToDefault();
+		CVar.FindCVar("wf_run_slot1").ResetToDefault();
+		CVar.FindCVar("wf_run_slot2").ResetToDefault();
+		CVar.FindCVar("wf_run_slot3").ResetToDefault();
+		CVar.FindCVar("wf_run_slot4").ResetToDefault();
+		CVar.FindCVar("wf_run_slot5").ResetToDefault();
+		CVar.FindCVar("wf_run_slot6").ResetToDefault();
+		CVar.FindCVar("wf_run_slot7").ResetToDefault();
+		CVar.FindCVar("wf_run_slot8").ResetToDefault();
+		CVar.FindCVar("wf_run_slot9").ResetToDefault();
+		CVar.FindCVar("wf_run_slot10").ResetToDefault();
+		CVar.FindCVar("wf_run_slot11").ResetToDefault();
+		CVar.FindCVar("wf_run_slot12").ResetToDefault();
+		CVar.FindCVar("wf_run_slot13").ResetToDefault();
+		CVar.FindCVar("wf_run_slot14").ResetToDefault();
+		CVar.FindCVar("wf_run_slot15").ResetToDefault();
+		CVar.FindCVar("wf_run_slot16").ResetToDefault();
 		CVar.FindCVar("wf_id24trans").ResetToDefault();
 		CVar.FindCVar("wf_wolf_censored").ResetToDefault();
 		

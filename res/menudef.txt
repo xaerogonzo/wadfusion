@@ -29,6 +29,7 @@ OptionMenu "WadFusionOptions"
 	Option "$WF_MENU_FULLRUN_LOOP",  "wf_fullrun_loop",  "OnOff"
 	StaticText "$WF_MENU_FULLRUN_INFO1", 8
 	StaticText "$WF_MENU_FULLRUN_INFO2", 8
+	Submenu "$WF_MENU_CUSTOMRUN", "WadFusionCustomRun"
 	StaticText " "
 	Option "$WF_MENU_ID24TRANS",     "wf_id24trans",     "OnOff"
 	Option "$WF_MENU_WOLF_CENSORED", "wf_wolf_censored", "OnOff"
@@ -47,6 +48,12 @@ OptionValue "WF_FULLRUN"
     1, "$WF_MENU_FULLRUN_OPVAL1"
     2, "$WF_MENU_FULLRUN_OPVAL2"
     3, "$WF_MENU_FULLRUN_OPVAL3"
+}
+
+OptionMenu "WadFusionCustomRun"
+{
+	Class "WF_CustomRunMenu"
+	Title "$WF_MENU_CUSTOMRUN_TITLE"
 }
 
 OptionMenu "WadFusionCompatibilityOptions"
