@@ -1,11 +1,12 @@
 # WadFusion Changelog
 
-## Unreleased Changes
+## WadFusion 1.7.0 (UZDoom 5 / LZDoom fork, 8 November 2026)
 [**Full Changelog**](https://github.com/Owlet7/wadfusion/compare/v1.6.1...HEAD)
 - Patch mode (`-p`) now removes stale `zscript/` and `mapinfo/` files left over from older WadFusion
   versions, and no longer duplicates `#include` lines in `textures.txt` when run repeatedly.
 - Added `build_release.ps1` to build the Windows exe and release zips without 7-Zip.
 - Added optional `doom2_original.wad` support: the original (uncensored) Wolfenstein textures of DOOM II are used by default when it is present, with a "Censored Wolfenstein textures" option in the menu.
+- The Full Run option now lists "On (custom order)" (it showed "Unknown").
 - Clearer English labels for the Full Run options, plus a short explanation under them in the menu.
 - Full Run is now one router with a catalog of campaigns (stable IDs) instead of three hard-coded chains.
   The three built-in orders behave exactly as before.

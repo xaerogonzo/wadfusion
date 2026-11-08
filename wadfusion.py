@@ -55,7 +55,7 @@ from os import path
 
 import omg
 
-VERSION = '1.6.1'
+VERSION = '1.7.0'
 
 # abspath is used for the sake of the Windows executable
 DATA_DIR = path.abspath(path.join(path.dirname(__file__), 'data')) + '/'
