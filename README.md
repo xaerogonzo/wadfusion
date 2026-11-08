@@ -22,7 +22,7 @@ See [CHANGES.md](CHANGES.md) for the full list and [ROADMAP.md](ROADMAP.md) for 
 
 ## Quick start
 
-1. Install [Python 3](https://www.python.org/downloads/), or build `wadfusion.exe` ([Building](#building-the-release-files)).
+1. Download **`wadfusion_win.zip`** (Windows, includes `wadfusion.exe`) or **`wadfusion_py.zip`** (needs Python 3; also for macOS and Linux) from the [latest release](https://github.com/xaerogonzo/wadfusion/releases/latest), and extract it. The download contains no game data; you supply your own WADs.
 2. Copy your WAD files into `source_wads\`, or leave them where they are and add that folder from the menu. WADs are recognised by file name; case does not matter.
 3. Run `WadFusion Menu.bat`, choose **1** to see what was found, then **2** to build. You get `doom_fusion.ipk3` (about 436 MB with everything).
 4. Start the game with the IPK3 as the IWAD. The widescreen graphics pack is optional; `build_release.ps1` creates it from `ultrawiderpix\`, and the release zips contain it:
@@ -256,7 +256,7 @@ Values that contain spaces need quotes. Names are not case sensitive.
 
 ## Absolute Beginner's Guide
 
-1. Get this fork: download the source (green **Code** button, then **Download ZIP**) and install [Python 3](https://www.python.org/downloads/), or build `wadfusion.exe` yourself ([Building](#building-the-release-files)). The upstream download links build an IPK3 for UZDoom 4.14 and will not work on UZDoom 5.
+1. Download [WadFusion for Windows](https://github.com/xaerogonzo/wadfusion/releases/latest/download/wadfusion_win.zip) or [for macOS and GNU/Linux](https://github.com/xaerogonzo/wadfusion/releases/latest/download/wadfusion_py.zip) from this fork's releases, and extract it somewhere. (The upstream project's downloads build an IPK3 for UZDoom 4.14 and will not work on UZDoom 5.)
 2. Find the folder(s) where GOG / Steam installed your game(s).
    - For Steam on Windows, this will be something like\
    `C:\Program Files (x86)\Steam\steamapps\common\Ultimate Doom\base`
