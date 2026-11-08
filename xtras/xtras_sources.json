@@ -1,0 +1,26 @@
+{
+ "main": {
+  "repo": "Someguyman/Wadfusion-Xtras",
+  "commit": "426ac4c2fe42305e690af8cfd2abfed0f828b6be",
+  "download": "https://github.com/Someguyman/Wadfusion-Xtras/archive/426ac4c2fe42305e690af8cfd2abfed0f828b6be.zip",
+  "files": 3763,
+  "fingerprint": "2de53315d4f9b69a98bb41a8518a570868c0201394992de8bf3a6792398b6870",
+  "original_name": "Wadfusion-Xtras-main.zip"
+ },
+ "revised": {
+  "repo": "Someguyman/Wadfusion-Xtras",
+  "commit": "42d2c95ad6ef28e637461f792a0ec4083fd194d5",
+  "download": "https://github.com/Someguyman/Wadfusion-Xtras/archive/42d2c95ad6ef28e637461f792a0ec4083fd194d5.zip",
+  "files": 3135,
+  "fingerprint": "5f8445537fa32d294b95423864734161e87966ea691058f786bcf15ddeb19c95",
+  "original_name": "Wadfusion-Xtras-Revised_beta.pk3"
+ },
+ "unofficial": {
+  "repo": "Someguyman/WadFusion-Unoffical-Xtras",
+  "commit": "bec82e2f2e07ee208e514f6175a2967491902a31",
+  "download": "https://github.com/Someguyman/WadFusion-Unoffical-Xtras/archive/bec82e2f2e07ee208e514f6175a2967491902a31.zip",
+  "files": 3960,
+  "fingerprint": "3a9659b1229a85f55ee3aba0889ce8483ef534d91b816638b620f2509987df1a",
+  "original_name": "WadFusion-Unoffical-Xtras-main.zip"
+ }
+}

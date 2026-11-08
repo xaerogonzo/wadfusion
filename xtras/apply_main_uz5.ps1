@@ -10,10 +10,11 @@ $src = Join-Path $PSScriptRoot 'Wadfusion-Xtras-main_uz5'
 Copy-Item -LiteralPath $Zip -Destination $Out -Force
 $arc = [IO.Compression.ZipFile]::Open($Out, 'Update')
 try {
+  $root = (($arc.Entries | Where-Object { $_.FullName -notmatch '/$' } | Select-Object -First 1).FullName -split '/')[0] + '/'   # Wadfusion-Xtras-main/ in the original zip, Wadfusion-Xtras-<commit>/ in a GitHub download
   foreach ($f in Get-ChildItem $src -Recurse -File) {
     $rel = $f.FullName.Substring($src.Length + 1).Replace('\', '/')
-    $old = $arc.Entries | Where-Object { $_.FullName -ieq "Wadfusion-Xtras-main/$rel" } | Select-Object -First 1
-    $name = if ($old) { $old.FullName } else { "Wadfusion-Xtras-main/$rel" }
+    $old = $arc.Entries | Where-Object { $_.FullName -ieq "$root$rel" } | Select-Object -First 1
+    $name = if ($old) { $old.FullName } else { "$root$rel" }
     if ($old) { $old.Delete() }
     [void][IO.Compression.ZipFileExtensions]::CreateEntryFromFile($arc, $f.FullName, $name, [IO.Compression.CompressionLevel]::Optimal)
     "patched $name"

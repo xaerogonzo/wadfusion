@@ -2,7 +2,7 @@
  Builds the merged Xtras pack (Xtras main + the unique parts of the Revised beta) for UZDoom 5 / LZDoom.
 
  Inputs are the two ORIGINAL archives; they are only read. Order of operations (always the same):
-   1. verify both inputs against the SHA-256 recorded in xtras/merge_manifest.json
+   1. verify both inputs against the content fingerprints in xtras/xtras_sources.json (a GitHub download of that commit matches)
    2. build the patched Main pack with apply_main_uz5.ps1 (our UZDoom 5 fixes, Jaguar/Absolution WFRUN, ...)
    3. import the files listed in xtras/merge_imports.txt from the Revised pack (Main wins: nothing in Main is replaced)
    4. append the definition snippets in xtras/Wadfusion-Xtras-merged_uz5/_append/ to the matching Main files
@@ -20,16 +20,31 @@ param(
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
 $here = $PSScriptRoot
-$manifest = Get-Content (Join-Path $here 'merge_manifest.json') -Raw | ConvertFrom-Json
+$sources = Get-Content (Join-Path $here 'xtras_sources.json') -Raw | ConvertFrom-Json
 
-function Test-Input($path, $expected, $label) {
+# A fingerprint of an archive's contents (file names and CRC-32s, without the top folder), so a download from GitHub
+# matches the original zip even though the zip file itself differs.
+function Get-Fingerprint($path) {
+  $z = [IO.Compression.ZipFile]::OpenRead($path)
+  try {
+    $files = @($z.Entries | Where-Object { $_.FullName -notmatch '/$' })
+    $root = $files[0].FullName.Split('/')[0] + '/'
+    [string[]]$lines = @($files | Where-Object { $_.FullName.StartsWith($root) } | ForEach-Object { '{0}|{1:x8}' -f $_.FullName.Substring($root.Length), $_.Crc32 })
+    [Array]::Sort($lines, [StringComparer]::Ordinal)
+    $sha = [Security.Cryptography.SHA256]::Create()
+    return ([BitConverter]::ToString($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes(($lines -join "`n")))) -replace '-', '').ToLower()
+  } finally { $z.Dispose() }
+}
+function Test-Input($path, $src, $label) {
   if (-not (Test-Path -LiteralPath $path)) { throw "$label not found: $path" }
-  $h = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLower()
-  if ($h -ne $expected) { throw "$label has an unexpected SHA-256 ($h, expected $expected). Refusing to continue." }
+  $h = Get-Fingerprint $path
+  if ($h -ne $src.fingerprint) {
+    throw "$label is not the version this script was made for (commit $($src.commit.Substring(0,7)) of $($src.repo)). Download exactly that one: $($src.download)"
+  }
   return $h
 }
-$mainHash = Test-Input $Main $manifest.inputs.main.sha256 'Xtras main'
-$revHash  = Test-Input $Revised $manifest.inputs.revised.sha256 'Xtras Revised beta'
+$mainHash = Test-Input $Main $sources.main 'Xtras main'
+$revHash  = Test-Input $Revised $sources.revised 'Xtras Revised beta'
 
 $tmp = "$Out.building"
 if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Force }
@@ -38,17 +53,18 @@ if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Force }
 & (Join-Path $here 'apply_main_uz5.ps1') -Zip $Main -Out $tmp | Out-Null
 
 $log = [ordered]@{ imports = @(); appends = @(); overlays = @(); skipped = @() }
-$mainRoot = 'Wadfusion-Xtras-main/'
 $arc = [IO.Compression.ZipFile]::Open($tmp, 'Update')
 $rev = [IO.Compression.ZipFile]::OpenRead($Revised)
 try {
+  $mainRoot = (($arc.Entries | Where-Object { $_.FullName -notmatch '/$' } | Select-Object -First 1).FullName -split '/')[0] + '/'
+  $revRoot = (($rev.Entries | Where-Object { $_.FullName -notmatch '/$' } | Select-Object -First 1).FullName -split '/')[0] + '/'
   $have = @{}
   foreach ($e in $arc.Entries) { $have[$e.FullName.ToLower()] = $true }
   $revIndex = @{}
   foreach ($e in $rev.Entries) {
     $n = $e.FullName
+    if ($n.StartsWith($revRoot)) { $n = $n.Substring($revRoot.Length) }
     $low = $n.ToLower()
-    if ($low.StartsWith('wadfusion-xtras-revised_beta/')) { $low = $low.Substring('wadfusion-xtras-revised_beta/'.Length); $n = $n.Substring('wadfusion-xtras-revised_beta/'.Length) }
     $revIndex[$low] = @{ Entry = $e; Name = $n }
   }
 

@@ -2,7 +2,7 @@
 
 **WadFusion merges your DOOM, DOOM II, Final DOOM and re-release data into one IPK3 for [UZDoom](https://zdoom.org/downloads) or LZDoom, with every game and expansion as its own entry in the episode list.**
 
-This is a fork of [Owlet7/wadfusion](https://github.com/Owlet7/wadfusion), which is itself based on [WadSmoosh](https://jp.itch.io/wadsmoosh) by JP LeBreton. All the original work and credit stay with them; this fork keeps their tool and adds to it. Current version: **1.7.0** (tag `v1.7.0-uz5`), built on upstream commit `2e95646`, tested on **UZDoom 5.0.3** and **LZDoom l4.14.4**.
+This is a fork of [Owlet7/wadfusion](https://github.com/Owlet7/wadfusion), which is itself based on [WadSmoosh](https://jp.itch.io/wadsmoosh) by JP LeBreton. All the original work and credit stay with them; this fork keeps their tool and adds to it. Current version: **1.7.0** (tag `v1.7.0`), built on upstream commit `2e95646`, tested on **UZDoom 5.0.3** and **LZDoom l4.14.4**.
 
 > [!NOTE]
 > Upstream's 1.6.1 release builds an IPK3 for UZDoom 4.14. On UZDoom 5 it fails with "Class name already exists" and `compat_nombf21` errors, because UZDoom 5 now contains the ID24 actors itself. Building from this fork fixes that.
@@ -35,12 +35,27 @@ For the WAD list, versions and file names see [Supported WADs](#supported-wads).
 
 ## Xtras packs
 
-The community **WadFusion Xtras** packs add the console maps (Jaguar Doom, PlayStation levels, Doom 64: Absolution), extra music and graphics, and the unofficial campaigns. They are other people's work and are **not included in this repository**. The scripts in `xtras/` take your own copies of the original downloads and apply this fork's changes:
+The community **WadFusion Xtras** packs by Someguyman add the console maps (Jaguar Doom, PlayStation levels, Doom 64: Absolution), extra music and graphics, and the unofficial campaigns. They are other people's work, have no published licence, and are **not included in this repository or in the releases**. Instead, `xtras/` holds PowerShell scripts that take the original download and apply this fork's changes (UZDoom 5 fixes, Full Run files, merged features) to a copy. The originals are never modified.
 
-| Script | Input | Result |
-|---|---|---|
-| `apply_merged_uz5.ps1` | Xtras main (`Wadfusion-Xtras-main.zip`) and the Revised beta (`Wadfusion-Xtras-Revised_beta.pk3`) | **One** pack with the UZDoom 5 fixes, Jaguar and Absolution in the Full Run, the Total Carnage / Unholy Massacre / ULTRA NIGHTMARE skills with their monsters, Final DOOM HUD skins for TNT and Plutonia (menu options), and a co-op item cleanup option. Both inputs are checked by SHA-256 and never modified. |
-| `apply_unofficial_uz5.ps1` | `WadFusion-Unoffical-Xtras-main.zip` | Adds a `WFRUN` file so Doom Zero, Evil Unleashed, Freedoom 1 and 2, Hell to Pay, Perdition's Gate, Plutonia 2 and TNT: Revilution can be put in a Custom Full Run. |
+**Step 1: download exactly these versions** (the scripts refuse any other, because the patches replace whole files of those versions; newer commits of the Xtras repositories have not been ported):
+
+| Pack | Download (pinned commit) |
+|---|---|
+| Xtras main | [`426ac4c`](https://github.com/Someguyman/Wadfusion-Xtras/archive/426ac4c2fe42305e690af8cfd2abfed0f828b6be.zip) |
+| Xtras Revised beta | [`42d2c95`](https://github.com/Someguyman/Wadfusion-Xtras/archive/42d2c95ad6ef28e637461f792a0ec4083fd194d5.zip) (the `Revised_beta` branch) |
+| Unofficial Xtras (optional) | [`bec82e2`](https://github.com/Someguyman/WadFusion-Unoffical-Xtras/archive/bec82e2f2e07ee208e514f6175a2967491902a31.zip) |
+
+**Step 2: run the scripts** (PowerShell 7) from a clone or download of this repository:
+
+```
+.xtraspply_merged_uz5.ps1 -Main <xtras main zip> -Revised <revised beta zip> -Out Wadfusion-Xtras-Merged_UZ5.pk3
+.xtraspply_unofficial_uz5.ps1 -Zip <unofficial zip> -Out WadFusion-Unofficial-Xtras-main_UZ5.pk3
+```
+
+| Script | Result |
+|---|---|
+| `apply_merged_uz5.ps1` | **One** pack from Xtras main and the Revised beta, with the UZDoom 5 fixes, Jaguar and Absolution in the Full Run, the Total Carnage / Unholy Massacre / ULTRA NIGHTMARE skills with their monsters, Final DOOM HUD skins for TNT and Plutonia (menu options), and a co-op item cleanup option. A build record (`.build.json`) is written next to it. |
+| `apply_unofficial_uz5.ps1` | Adds a `WFRUN` file so Doom Zero, Evil Unleashed, Freedoom 1 and 2, Hell to Pay, Perdition's Gate, Plutonia 2 and TNT: Revilution can be put in a Custom Full Run. |
 
 `xtras/MERGE_DISPOSITION.md` records what happened to every item of the Revised beta (ported, superseded, left out, and why). Load the merged pack **instead of** the two originals, then the Unofficial pack if you want it:
 
