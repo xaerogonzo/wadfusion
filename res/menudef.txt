@@ -48,6 +48,7 @@ OptionValue "WF_FULLRUN"
     1, "$WF_MENU_FULLRUN_OPVAL1"
     2, "$WF_MENU_FULLRUN_OPVAL2"
     3, "$WF_MENU_FULLRUN_OPVAL3"
+    4, "$WF_MENU_FULLRUN_OPVAL4"
 }
 
 OptionMenu "WadFusionCustomRun"
