@@ -48,8 +48,8 @@ The community **WadFusion Xtras** packs by Someguyman add the console maps (Jagu
 **Step 2: run the scripts** (PowerShell 7) from a clone or download of this repository:
 
 ```
-.xtraspply_merged_uz5.ps1 -Main <xtras main zip> -Revised <revised beta zip> -Out Wadfusion-Xtras-Merged_UZ5.pk3
-.xtraspply_unofficial_uz5.ps1 -Zip <unofficial zip> -Out WadFusion-Unofficial-Xtras-main_UZ5.pk3
+.\xtras\apply_merged_uz5.ps1 -Main <xtras main zip> -Revised <revised beta zip> -Out Wadfusion-Xtras-Merged_UZ5.pk3
+.\xtras\apply_unofficial_uz5.ps1 -Zip <unofficial zip> -Out WadFusion-Unofficial-Xtras-main_UZ5.pk3
 ```
 
 | Script | Result |
