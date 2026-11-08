@@ -1,0 +1,77 @@
+// Full Run entries for the WadFusion Unofficial Xtras (read by WadFusion's Full Run, see its README: "Custom Full Run").
+// They show up in the Custom Full Run menu; they are not part of the three built-in orders.
+
+version = 1
+
+entry
+{
+    id = doomzero
+    name = "Doom Zero"
+    order = 110
+    start = DZ_MAP01
+    end = DZ_MAP30
+}
+
+entry
+{
+    id = evilunleashed
+    name = "Evil Unleashed"
+    order = 120
+    start = EU_MAP01
+    end = EU_MAP08
+}
+
+entry
+{
+    id = freedoom1
+    name = "Freedoom: Phase 1"
+    order = 130
+    start = FD_E1M1
+    end = FD_E4M8
+}
+
+entry
+{
+    id = freedoom2
+    name = "Freedoom: Phase 2"
+    order = 140
+    start = FD_MAP01
+    end = FD_MAP30
+}
+
+entry
+{
+    id = helltopay
+    name = "Hell to Pay"
+    order = 150
+    start = HP_MAP01
+    end = HP_MAP30
+}
+
+entry
+{
+    id = perditionsgate
+    name = "Perdition's Gate"
+    order = 160
+    start = PG_MAP01
+    end = PG_MAP30
+}
+
+entry
+{
+    id = plutonia2
+    name = "Plutonia 2"
+    order = 170
+    start = PT_MAP01
+    end = PT_MAP30
+    end = PT_MAP33
+}
+
+entry
+{
+    id = tntrevilution
+    name = "TNT: Revilution"
+    order = 180
+    start = TR_MAP01
+    end = TR_MAP30
+}
