@@ -2,7 +2,7 @@
 
 **WadFusion merges your DOOM, DOOM II, Final DOOM and re-release data into one IPK3 for [UZDoom](https://zdoom.org/downloads) or LZDoom, with every game and expansion as its own entry in the episode list.**
 
-This is a fork of [Owlet7/wadfusion](https://github.com/Owlet7/wadfusion), which is itself based on [WadSmoosh](https://jp.itch.io/wadsmoosh) by JP LeBreton. All the original work and credit stay with them; this fork keeps their tool and adds to it. Current version: **1.7.1** (tag `v1.7.1`), built on upstream commit `2e95646`, tested on **UZDoom 5.0.3** and **LZDoom l4.14.4**.
+This is a fork of [Owlet7/wadfusion](https://github.com/Owlet7/wadfusion), which is itself based on [WadSmoosh](https://jp.itch.io/wadsmoosh) by JP LeBreton. All the original work and credit stay with them; this fork keeps their tool and adds to it. Current version: **1.7.2** (tag `v1.7.2`), built on upstream commit `2e95646`, tested on **UZDoom 5.0.3** and **LZDoom l4.14.4**.
 
 > [!NOTE]
 > Upstream's 1.6.1 release builds an IPK3 for UZDoom 4.14. On UZDoom 5 it fails with "Class name already exists" and `compat_nombf21` errors, because UZDoom 5 now contains the ID24 actors itself. Building from this fork fixes that.
@@ -69,13 +69,13 @@ The community **WadFusion Xtras** packs by Someguyman add the console maps (Jagu
 
 **The easy way:** `WadFusion Menu.bat`, option 9, or `pwsh -File xtras\get_xtras.ps1`, downloads the right versions and builds both packs for you (see [Complete setup](#complete-setup-everything-including-the-merged-xtras)). The rest of this section is what that does, for anyone who prefers to do it by hand.
 
-**Step 1: download exactly these versions** (the scripts refuse any other, because the patches replace whole files of those versions; newer commits of the Xtras repositories have not been ported):
+**Step 1: download exactly these versions** (the scripts refuse any other, because the patches replace whole files of those versions; commits newer than these have not been ported yet):
 
 | Pack | Download (pinned commit) |
 |---|---|
-| Xtras main | [`426ac4c`](https://github.com/Someguyman/Wadfusion-Xtras/archive/426ac4c2fe42305e690af8cfd2abfed0f828b6be.zip) |
+| Xtras main | [`54be31c`](https://github.com/Someguyman/Wadfusion-Xtras/archive/54be31c11659e209da0aa446dba82f6758691d00.zip) |
 | Xtras Revised beta | [`42d2c95`](https://github.com/Someguyman/Wadfusion-Xtras/archive/42d2c95ad6ef28e637461f792a0ec4083fd194d5.zip) (the `Revised_beta` branch) |
-| Unofficial Xtras (optional) | [`bec82e2`](https://github.com/Someguyman/WadFusion-Unoffical-Xtras/archive/bec82e2f2e07ee208e514f6175a2967491902a31.zip) |
+| Unofficial Xtras (optional) | [`d28ae24`](https://github.com/Someguyman/WadFusion-Unoffical-Xtras/archive/d28ae2423bd525bd04dcd2275f675240f80a138d.zip) |
 
 **Step 2: run the scripts** (PowerShell 7) from a clone or download of this repository:
 

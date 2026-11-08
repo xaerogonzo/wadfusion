@@ -1,5 +1,10 @@
 # WadFusion Changelog
 
+## WadFusion 1.7.2 (UZDoom 5 / LZDoom fork, 8 November 2026)
+[**Full Changelog**](https://github.com/xaerogonzo/wadfusion/compare/v1.7.1...HEAD)
+- Xtras patches ported to the newest upstream commits: Xtras main `54be31c` and Unofficial Xtras `d28ae24` (the Revised beta branch is unchanged). Upstream fixed the weapon-class log spam itself, so that ACS patch and its helper are gone; the remaining patches are: ZScript version lowered to 4.14.1 (LZDoom), `compat_nombf21` removed (UZDoom 5), the slimmed static handler, the Jaguar cast screen name, and the WFRUN files.
+- The merged pack's skills, monsters, HUD skins and menus were regenerated against the new Xtras main.
+
 ## WadFusion 1.7.1 (UZDoom 5 / LZDoom fork, 8 November 2026)
 [**Full Changelog**](https://github.com/xaerogonzo/wadfusion/compare/v1.7.0...HEAD)
 - `xtras/get_xtras.ps1` (and option 9 of `WadFusion Menu.bat`) downloads the pinned Xtras versions from their authors' GitHub pages and builds the merged and Unofficial packs in one step. The Xtras scripts now accept a GitHub download as well as the original zips, and refuse any other version.
