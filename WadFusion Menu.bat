@@ -5,7 +5,7 @@ rem     "WadFusion Menu.bat" check     only list what was found
 rem     "WadFusion Menu.bat" build     check, then build (asks before it starts)
 setlocal EnableDelayedExpansion
 cd /d "%~dp0"
-title WadFusion builder
+title WadMelt builder
 
 set "FOLDERS=wadfusion_folders.txt"
 set "WF="
@@ -32,7 +32,7 @@ if /i "%~1"=="build" ( call :build & exit /b !errorlevel! )
 :menu
 cls
 echo ==========================================================
-echo   WadFusion builder
+echo   WadMelt builder
 echo ==========================================================
 echo.
 echo   Source WAD folders searched:
@@ -48,7 +48,7 @@ echo   2  Build doom_fusion.ipk3
 echo   3  Add another folder that holds source WADs
 echo   4  Search a folder tree for source WADs
 echo   5  Forget the added folders
-echo   6  Patch an existing doom_fusion.ipk3 with newer WadFusion files
+echo   6  Patch an existing doom_fusion.ipk3 with newer WadMelt files
 echo   7  Open source_wads folder
 echo   8  Open the last log
 echo   9  Download and build the Xtras packs ^(about 440 MB from GitHub^)

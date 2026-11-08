@@ -20,7 +20,7 @@
 
 version "4.14.3"
 
-const WF_VERSION = "1.7.2";
+const WF_VERSION = "2.0.0";
 
 #include "zscript/wf_handler.zs"
 #include "zscript/wf_handler_static.zs"

@@ -55,7 +55,7 @@ from os import path
 
 import omg
 
-VERSION = '1.7.2'
+VERSION = '2.0.0'
 
 # abspath is used for the sake of the Windows executable
 DATA_DIR = path.abspath(path.join(path.dirname(__file__), 'data')) + '/'
@@ -106,13 +106,13 @@ num_errors = 0
 src_wad_dirs_errors = 0
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--version', action='version', version='WadFusion v%s' % VERSION)
+parser.add_argument('--version', action='version', version='WadMelt v%s' % VERSION)
 parser.add_argument('-v', '--verbose', help='Print out all the logged information', action='store_true')
 parser.add_argument('-w', '--wads', help='Search the specified directory path for WADs. Can be used multiple times', metavar='PATH', action='append')
 parser.add_argument('-p', '--patch', help='Patch an existing IPK3 without extracting WADs', action='store_true')
 parser.add_argument('-d', '--deflate', help='Use DEFLATE compression when generating the IPK3', action='store_true')
 parser.add_argument('-c', '--check', help='List which source WADs were found and what they unlock, then exit without building', action='store_true')
-parser.add_argument('--scan', help='Search a folder (and everything below it) for source WADs WadFusion can use, list them with their sizes, then exit', metavar='PATH')
+parser.add_argument('--scan', help='Search a folder (and everything below it) for source WADs WadMelt can use, list them with their sizes, then exit', metavar='PATH')
 parser.add_argument('-e', '--extract-only', help='Skip copying pre-authored lumps and only extract WADs (for developers)', action='store_true')
 args = parser.parse_args()
 
@@ -545,7 +545,7 @@ def check_report():
     return len(problems) == 0
 
 def scan_report(root):
-    # list every source WAD WadFusion knows under `root`, flagging names that exist more than once
+    # list every source WAD WadMelt knows under `root`, flagging names that exist more than once
     wanted = set(REPORT_WADS) | set(WADS) | set(MASTER_LEVELS_ORDER) | set(MASTER_LEVELS_REJECTS_ORDER)
     wanted |= set(SIGIL_FILENAMES) | set(SIGIL_MP3_FILENAMES) | set(SIGIL2_FILENAMES) | set(SIGIL2_MP3_FILENAMES)
     wanted |= {'udtwid', 'caball', 'sewers', 'betray', 'e1m8b', 'e1m4b'}
@@ -576,7 +576,7 @@ def scan_report(root):
     logg('')
     logg('%d different WADs found.' % len(hits))
     if dups:
-        logg('These exist in more than one version (different sizes); WadFusion uses the first one it finds in your folder list, so keep only the version you want in the folder you add: ' + ', '.join(sorted(dups)))
+        logg('These exist in more than one version (different sizes); WadMelt uses the first one it finds in your folder list, so keep only the version you want in the folder you add: ' + ', '.join(sorted(dups)))
     folders = sorted({path.dirname(f) for n in hits for f, _ in hits[n]})
     logg('Folders holding them:')
     for f in folders:
@@ -1273,9 +1273,9 @@ def add_newgame_patch():
 
 def remove_stale_resources():
     # patch mode extracts an existing IPK3 and copies the current resources over it,
-    # which would leave behind scripts and MAPINFO from older WadFusion versions
+    # which would leave behind scripts and MAPINFO from older WadMelt versions
     # (e.g. bundled ID24 actors that now clash with the engine's own).
-    # Only the directories WadFusion fully owns are cleaned.
+    # Only the directories WadMelt fully owns are cleaned.
     owned = set(f.replace('\\', '/') for f in RES_FILES)
     removed = 0
     for sub in ('zscript', 'mapinfo'):
@@ -1538,7 +1538,7 @@ def main():
         logs('Command line arguments used: ' + args_str + '\n')
     # clear out pk3 dir from previous runs
     clear_temp()
-    title_line = 'WadFusion v%s' % VERSION
+    title_line = 'WadMelt v%s' % VERSION
     logg(title_line + '\n' + '-' * len(title_line) + '\n')
     # --scan needs only the name tables, not the source folders
     if args.scan:

@@ -1,2 +1,2 @@
-This file was created by WadFusion:
-https://github.com/Owlet7/wadfusion
+This file was created by WadMelt, a fork of WadFusion (https://github.com/Owlet7/wadfusion):
+https://github.com/xaerogonzo/wadmelt

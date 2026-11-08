@@ -240,7 +240,7 @@ extend class WadFusionStaticHandler
 	void WFNote(String line)
 	{
 		wfNotes.Push(line);
-		Console.Printf("WadFusion runs: %s", line);
+		Console.Printf("WadMelt runs: %s", line);
 	}
 
 	//-------------------------------------------------------------------------
@@ -595,7 +595,7 @@ extend class WadFusionStaticHandler
 		{
 			let e = wfCatalog[i];
 			if ( e.external )
-				Console.Printf("WadFusion runs: outside entry %s (%s) %s", e.id, e.displayName, e.available ? "available" : "NOT available: "..e.unavailableReason);
+				Console.Printf("WadMelt runs: outside entry %s (%s) %s", e.id, e.displayName, e.available ? "available" : "NOT available: "..e.unavailableReason);
 		}
 	}
 }
