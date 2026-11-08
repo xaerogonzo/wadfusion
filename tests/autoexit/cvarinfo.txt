@@ -1,0 +1,3 @@
+nosave int dcxtest_exits = 0;
+nosave int dcxtest_follow = 0;
+nosave string dcxtest_pending = "";

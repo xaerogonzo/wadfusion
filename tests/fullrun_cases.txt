@@ -1,0 +1,98 @@
+# Full Run regression cases (base build, no Xtras). Format: label | start map | console vars
+# H_* start on an end map and report where its exit leads (the hook); R_* start on a hand-over map and report the router's decision.
+H_e1m8 | e1m8 | +wf_fullrun 1
+H_e1m8b | e1m8b | +wf_fullrun 1
+H_e2m8 | e2m8 | +wf_fullrun 1
+H_e3m8 | e3m8 | +wf_fullrun 1
+H_e4m8 | e4m8 | +wf_fullrun 1
+H_e5m8 | e5m8 | +wf_fullrun 1
+H_e6m8 | e6m8 | +wf_fullrun 1
+H_map30 | map30 | +wf_fullrun 1
+H_ml_map20_nomlr | ml_map20 | +wf_fullrun 1 +wf_map_mlr 0
+H_ml_map43_nomlr | ml_map43 | +wf_fullrun 1 +wf_map_mlr 0
+H_ml_map20_mlr | ml_map20 | +wf_fullrun 1 +wf_map_mlr 1
+H_ml_map43_mlr | ml_map43 | +wf_fullrun 1 +wf_map_mlr 1
+H_nv_map08 | nv_map08 | +wf_fullrun 1
+H_lr_map07 | lr_map07 | +wf_fullrun 1
+H_lr_map14 | lr_map14 | +wf_fullrun 1
+H_tn_map30 | tn_map30 | +wf_fullrun 1
+H_pl_map30 | pl_map30 | +wf_fullrun 1
+H_map29 | map29 | +wf_fullrun 1
+H_e1m7 | e1m7 | +wf_fullrun 1
+H_ml_map19 | ml_map19 | +wf_fullrun 1
+H_lr_map13 | lr_map13 | +wf_fullrun 1
+H_map30_nonext | map30 | +wf_fullrun 1 +wf_compat_nextmap 0
+R_o1c_e1m8 | wf_endgame_e1m8 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_e1m8 | wf_endgame_e1m8 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_e1m8 | wf_endgame_e1m8 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_e1m8 | wf_endgame_e1m8 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_e1m8 | wf_endgame_e1m8 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_e2m8 | wf_endgame_e2m8 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_e2m8 | wf_endgame_e2m8 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_e2m8 | wf_endgame_e2m8 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_e2m8 | wf_endgame_e2m8 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_e2m8 | wf_endgame_e2m8 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_e3m8 | wf_endgame_e3m8 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_e3m8 | wf_endgame_e3m8 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_e3m8 | wf_endgame_e3m8 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_e3m8 | wf_endgame_e3m8 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_e3m8 | wf_endgame_e3m8 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_e4m8 | wf_endgame_e4m8 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_e4m8 | wf_endgame_e4m8 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_e4m8 | wf_endgame_e4m8 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_e4m8 | wf_endgame_e4m8 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_e4m8 | wf_endgame_e4m8 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_e5m8 | wf_endgame_e5m8 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_e5m8 | wf_endgame_e5m8 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_e5m8 | wf_endgame_e5m8 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_e5m8 | wf_endgame_e5m8 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_e5m8 | wf_endgame_e5m8 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_e6m8 | wf_endgame_e6m8 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_e6m8 | wf_endgame_e6m8 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_e6m8 | wf_endgame_e6m8 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_e6m8 | wf_endgame_e6m8 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_e6m8 | wf_endgame_e6m8 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_map30 | wf_endgame_map30 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_map30 | wf_endgame_map30 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_map30 | wf_endgame_map30 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_map30 | wf_endgame_map30 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_map30 | wf_endgame_map30 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_masterlevels | wf_endgame_masterlevels | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_masterlevels | wf_endgame_masterlevels | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_masterlevels | wf_endgame_masterlevels | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_masterlevels | wf_endgame_masterlevels | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_masterlevels | wf_endgame_masterlevels | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_nv_map08 | wf_endgame_nv_map08 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_nv_map08 | wf_endgame_nv_map08 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_nv_map08 | wf_endgame_nv_map08 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_nv_map08 | wf_endgame_nv_map08 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_nv_map08 | wf_endgame_nv_map08 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_lr_map07 | wf_endgame_lr_map07 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_lr_map07 | wf_endgame_lr_map07 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_lr_map07 | wf_endgame_lr_map07 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_lr_map07 | wf_endgame_lr_map07 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_lr_map07 | wf_endgame_lr_map07 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_tn_map30 | wf_endgame_tn_map30 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_tn_map30 | wf_endgame_tn_map30 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_tn_map30 | wf_endgame_tn_map30 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_tn_map30 | wf_endgame_tn_map30 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_tn_map30 | wf_endgame_tn_map30 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_o1c_pl_map30 | wf_endgame_pl_map30 | +wf_fullrun 1 +wf_fullrun_cast 1
+R_o1n_pl_map30 | wf_endgame_pl_map30 | +wf_fullrun 1 +wf_fullrun_cast 0
+R_o2c_pl_map30 | wf_endgame_pl_map30 | +wf_fullrun 2 +wf_fullrun_cast 1
+R_o3c_pl_map30 | wf_endgame_pl_map30 | +wf_fullrun 3 +wf_fullrun_cast 1
+R_off_pl_map30 | wf_endgame_pl_map30 | +wf_fullrun 0 +wf_fullrun_cast 1
+R_loop0_o1_pl_map30 | wf_endgame_pl_map30 | +wf_fullrun 1 +wf_fullrun_cast 0 +wf_fullrun_loop 0
+R_loop1_o1_pl_map30 | wf_endgame_pl_map30 | +wf_fullrun 1 +wf_fullrun_cast 0 +wf_fullrun_loop 1
+R_loop0_o2_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 2 +wf_fullrun_cast 0 +wf_fullrun_loop 0
+R_loop1_o2_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 2 +wf_fullrun_cast 0 +wf_fullrun_loop 1
+R_loop0_o3_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 3 +wf_fullrun_cast 0 +wf_fullrun_loop 0
+R_loop1_o3_lr_map14 | wf_endgame_lr_map14 | +wf_fullrun 3 +wf_fullrun_cast 0 +wf_fullrun_loop 1
+R_noml_o1_map30 | wf_endgame_map30 | +wf_fullrun 1 +wf_fullrun_cast 0 +wf_fullrun_ml 0
+R_noml_o2_e4m8 | wf_endgame_e4m8 | +wf_fullrun 2 +wf_fullrun_cast 0 +wf_fullrun_ml 0
+R_noml_o3_nv_map08 | wf_endgame_nv_map08 | +wf_fullrun 3 +wf_fullrun_cast 0 +wf_fullrun_ml 0

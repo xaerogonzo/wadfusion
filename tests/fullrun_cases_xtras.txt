@@ -1,0 +1,13 @@
+# Cases with the Xtras pack loaded (pass -Packs with the Xtras pack). Format: label | start map | console vars
+XT_o1_pl30         | wf_endgame_pl_map30 | +wf_fullrun 1 +wf_fullrun_cast 0
+XT_o2_lr14         | wf_endgame_lr_map14 | +wf_fullrun 2 +wf_fullrun_cast 0
+XT_o3_lr14         | wf_endgame_lr_map14 | +wf_fullrun 3 +wf_fullrun_cast 0
+XT_o1_e1m8_not_end | wf_endgame_e1m8 | +wf_fullrun 1 +wf_fullrun_cast 0
+XT_hook_ja24_warp  | ja_map24 | +wf_fullrun 1
+XT_hook_ab30_warp  | ab_map30 | +wf_fullrun 1
+XT_hook_ja24_off   | ja_map24 | +wf_fullrun 0
+XT_ja_next_cast    | wf_endgame_custom | +wf_fullrun 1 +wf_fullrun_cast 1 +dcxtest_pending jaguar
+XT_ja_next_nocast  | wf_endgame_custom | +wf_fullrun 1 +wf_fullrun_cast 0 +dcxtest_pending jaguar
+XT_ab_end_noloop   | wf_endgame_custom | +wf_fullrun 1 +wf_fullrun_cast 1 +wf_fullrun_loop 0 +dcxtest_pending absolution
+XT_ab_end_loop     | wf_endgame_custom | +wf_fullrun 1 +wf_fullrun_cast 0 +wf_fullrun_loop 1 +dcxtest_pending absolution
+XT_custom_ja_first | wf_endgame_custom | +wf_fullrun 4 +wf_run_slot1 jaguar +wf_run_slot2 doom1_e1 +dcxtest_pending jaguar

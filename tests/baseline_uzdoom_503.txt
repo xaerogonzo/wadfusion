@@ -1,0 +1,384 @@
+== H_e1m8  [e1m8 +wf_fullrun 1]
+   E1M8 - Phobos Anomaly
+   DCXTEST exiting e1m8 -> [wf_endgame_e1m8]
+   errors=0
+== H_e1m8b  [e1m8b +wf_fullrun 1]
+   E1M8B - Tech Gone Bad
+   DCXTEST exiting e1m8b -> [wf_endgame_e1m8]
+   errors=0
+== H_e2m8  [e2m8 +wf_fullrun 1]
+   E2M8 - Tower of Babel
+   DCXTEST exiting e2m8 -> [wf_endgame_e2m8]
+   errors=0
+== H_e3m8  [e3m8 +wf_fullrun 1]
+   E3M8 - Dis
+   DCXTEST exiting e3m8 -> [wf_endgame_e3m8]
+   errors=0
+== H_e4m8  [e4m8 +wf_fullrun 1]
+   E4M8 - Unto The Cruel
+   DCXTEST exiting e4m8 -> [wf_endgame_e4m8]
+   errors=0
+== H_e5m8  [e5m8 +wf_fullrun 1]
+   E5M8 - Halls of Perdition
+   DCXTEST exiting e5m8 -> [wf_endgame_e5m8]
+   errors=0
+== H_e6m8  [e6m8 +wf_fullrun 1]
+   E6M8 - Abyss of Despair
+   DCXTEST exiting e6m8 -> [wf_endgame_e6m8]
+   errors=0
+== H_map30  [map30 +wf_fullrun 1]
+   MAP30 - Icon of Sin
+   DCXTEST exiting map30 -> [wf_endgame_map30]
+   errors=0
+== H_ml_map20_nomlr  [ml_map20 +wf_fullrun 1 +wf_map_mlr 0]
+   ML_MAP20 - Mephisto's Mausoleum
+   DCXTEST exiting ml_map20 -> [wf_endgame_masterlevels]
+   errors=0
+== H_ml_map43_nomlr  [ml_map43 +wf_fullrun 1 +wf_map_mlr 0]
+   ML_MAP43 - The Image of Evil
+   DCXTEST exiting ml_map43 -> [wf_endgame_ml_map43]
+   errors=0
+== H_ml_map20_mlr  [ml_map20 +wf_fullrun 1 +wf_map_mlr 1]
+   ML_MAP20 - Mephisto's Mausoleum
+   DCXTEST exiting ml_map20 -> [ml_map40]
+   errors=0
+== H_ml_map43_mlr  [ml_map43 +wf_fullrun 1 +wf_map_mlr 1]
+   ML_MAP43 - The Image of Evil
+   DCXTEST exiting ml_map43 -> [wf_endgame_masterlevels]
+   errors=0
+== H_nv_map08  [nv_map08 +wf_fullrun 1]
+   NV_MAP08 - Tomb of Malevolence
+   DCXTEST exiting nv_map08 -> [wf_endgame_nv_map08]
+   errors=0
+== H_lr_map07  [lr_map07 +wf_fullrun 1]
+   LR_MAP07 - Forfeited Salvation
+   DCXTEST exiting lr_map07 -> [wf_endgame_lr_map07]
+   errors=0
+== H_lr_map14  [lr_map14 +wf_fullrun 1]
+   LR_MAP14 - Brink
+   DCXTEST exiting lr_map14 -> [wf_endgame_lr_map14]
+   errors=0
+== H_tn_map30  [tn_map30 +wf_fullrun 1]
+   TN_MAP30 - Last Call
+   DCXTEST exiting tn_map30 -> [wf_endgame_tn_map30]
+   errors=0
+== H_pl_map30  [pl_map30 +wf_fullrun 1]
+   PL_MAP30 - The Gateway of Hell
+   DCXTEST exiting pl_map30 -> [wf_endgame_pl_map30]
+   errors=0
+== H_map29  [map29 +wf_fullrun 1]
+   MAP29 - The Living End
+   DCXTEST exiting map29 -> [MAP30]
+   errors=0
+== H_e1m7  [e1m7 +wf_fullrun 1]
+   E1M7 - Computer Station
+   DCXTEST exiting e1m7 -> [e1m8]
+   errors=0
+== H_ml_map19  [ml_map19 +wf_fullrun 1]
+   ML_MAP19 - Bloodsea Keep
+   DCXTEST exiting ml_map19 -> [wf_story_ml_map37]
+   errors=0
+== H_lr_map13  [lr_map13 +wf_fullrun 1]
+   LR_MAP13 - Soul Silo
+   DCXTEST exiting lr_map13 -> [LR_MAP14]
+   errors=0
+== H_map30_nonext  [map30 +wf_fullrun 1 +wf_compat_nextmap 0]
+   MAP30 - Icon of Sin
+   DCXTEST exiting map30 -> [enDSeQ3325]
+   errors=0
+== R_o1c_e1m8  [wf_endgame_e1m8 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_E1M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e1m8 next=[wf_newgame_e2m1] inter=[Doom1_Ep1_Fusion_FullRun]
+   errors=0
+== R_o1n_e1m8  [wf_endgame_e1m8 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_E1M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e1m8 next=[wf_newgame_e2m1] inter=[Doom1_Ep1_Fusion_FullRun]
+   errors=0
+== R_o2c_e1m8  [wf_endgame_e1m8 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_E1M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e1m8 next=[wf_newgame_e2m1] inter=[Doom1_Ep1_Fusion_FullRun]
+   errors=0
+== R_o3c_e1m8  [wf_endgame_e1m8 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_E1M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e1m8 next=[wf_newgame_e2m1] inter=[Doom1_Ep1_Fusion_FullRun]
+   errors=0
+== R_off_e1m8  [wf_endgame_e1m8 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_E1M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e1m8 next=[] inter=[Doom1_Ep1_Fusion_FullRun_Off]
+   errors=0
+== R_o1c_e2m8  [wf_endgame_e2m8 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_E2M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e2m8 next=[wf_newgame_e3m1] inter=[Doom1_Ep2_Fusion_FullRun]
+   errors=0
+== R_o1n_e2m8  [wf_endgame_e2m8 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_E2M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e2m8 next=[wf_newgame_e3m1] inter=[Doom1_Ep2_Fusion_FullRun]
+   errors=0
+== R_o2c_e2m8  [wf_endgame_e2m8 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_E2M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e2m8 next=[wf_newgame_e3m1] inter=[Doom1_Ep2_Fusion_FullRun]
+   errors=0
+== R_o3c_e2m8  [wf_endgame_e2m8 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_E2M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e2m8 next=[wf_newgame_e3m1] inter=[Doom1_Ep2_Fusion_FullRun]
+   errors=0
+== R_off_e2m8  [wf_endgame_e2m8 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_E2M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e2m8 next=[] inter=[Doom1_Ep2_Fusion_FullRun_Off]
+   errors=0
+== R_o1c_e3m8  [wf_endgame_e3m8 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_E3M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e3m8 next=[wf_newgame_e4m1] inter=[Inter_Bunny_Fusion_FullRun]
+   errors=0
+== R_o1n_e3m8  [wf_endgame_e3m8 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_E3M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e3m8 next=[wf_newgame_e4m1] inter=[Inter_Bunny_Fusion_FullRun]
+   errors=0
+== R_o2c_e3m8  [wf_endgame_e3m8 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_E3M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e3m8 next=[wf_newgame_map01] inter=[Inter_Bunny_Fusion_FullRun]
+   errors=0
+== R_o3c_e3m8  [wf_endgame_e3m8 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_E3M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e3m8 next=[wf_newgame_e4m1] inter=[Inter_Bunny_Fusion_FullRun]
+   errors=0
+== R_off_e3m8  [wf_endgame_e3m8 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_E3M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e3m8 next=[] inter=[Inter_Bunny_Fusion_FullRun_Off]
+   errors=0
+== R_o1c_e4m8  [wf_endgame_e4m8 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_E4M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e4m8 next=[wf_newgame_e5m1] inter=[Doom1_Ep4_Fusion_FullRun]
+   errors=0
+== R_o1n_e4m8  [wf_endgame_e4m8 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_E4M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e4m8 next=[wf_newgame_e5m1] inter=[Doom1_Ep4_Fusion_FullRun]
+   errors=0
+== R_o2c_e4m8  [wf_endgame_e4m8 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_E4M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e4m8 next=[wf_newgame_ml_map01] inter=[Doom1_Ep4_Fusion_FullRun]
+   errors=0
+== R_o3c_e4m8  [wf_endgame_e4m8 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_E4M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e4m8 next=[wf_newgame_e5m1] inter=[Doom1_Ep4_Fusion_FullRun]
+   errors=0
+== R_off_e4m8  [wf_endgame_e4m8 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_E4M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e4m8 next=[] inter=[Doom1_Ep4_Fusion_FullRun_Off]
+   errors=0
+== R_o1c_e5m8  [wf_endgame_e5m8 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_E5M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e5m8 next=[wf_newgame_e6m1] inter=[Doom1_Ep5_Fusion_FullRun]
+   errors=0
+== R_o1n_e5m8  [wf_endgame_e5m8 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_E5M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e5m8 next=[wf_newgame_e6m1] inter=[Doom1_Ep5_Fusion_FullRun]
+   errors=0
+== R_o2c_e5m8  [wf_endgame_e5m8 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_E5M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e5m8 next=[wf_newgame_e6m1] inter=[Doom1_Ep5_Fusion_FullRun]
+   errors=0
+== R_o3c_e5m8  [wf_endgame_e5m8 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_E5M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e5m8 next=[wf_newgame_e6m1] inter=[Doom1_Ep5_Fusion_FullRun]
+   errors=0
+== R_off_e5m8  [wf_endgame_e5m8 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_E5M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e5m8 next=[] inter=[Doom1_Ep5_Fusion_FullRun_Off]
+   errors=0
+== R_o1c_e6m8  [wf_endgame_e6m8 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_E6M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e6m8 next=[wf_newgame_map01] inter=[Doom1_Ep6_Fusion_FullRun]
+   errors=0
+== R_o1n_e6m8  [wf_endgame_e6m8 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_E6M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e6m8 next=[wf_newgame_map01] inter=[Doom1_Ep6_Fusion_FullRun]
+   errors=0
+== R_o2c_e6m8  [wf_endgame_e6m8 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_E6M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e6m8 next=[wf_newgame_lr_map01] inter=[Doom1_Ep6_Fusion_FullRun]
+   errors=0
+== R_o3c_e6m8  [wf_endgame_e6m8 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_E6M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e6m8 next=[wf_newgame_map01] inter=[Doom1_Ep6_Fusion_FullRun]
+   errors=0
+== R_off_e6m8  [wf_endgame_e6m8 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_E6M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e6m8 next=[] inter=[Doom1_Ep6_Fusion_FullRun_Off]
+   errors=0
+== R_o1c_map30  [wf_endgame_map30 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_map30 next=[wf_newgame_ml_map01] inter=[Inter_Cast_Fusion_FullRun]
+   errors=0
+== R_o1n_map30  [wf_endgame_map30 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_map30 next=[wf_newgame_ml_map01] inter=[Doom2_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_o2c_map30  [wf_endgame_map30 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_map30 next=[wf_newgame_e4m1] inter=[Inter_Cast_Fusion_FullRun]
+   errors=0
+== R_o3c_map30  [wf_endgame_map30 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_map30 next=[wf_newgame_nv_map01] inter=[Inter_Cast_Fusion_FullRun]
+   errors=0
+== R_off_map30  [wf_endgame_map30 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_map30 next=[] inter=[Inter_Cast]
+   errors=0
+== R_o1c_masterlevels  [wf_endgame_masterlevels +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_MASTERLEVELS - Unnamed
+   DCXTEST_STATE wf_endgame_masterlevels next=[wf_newgame_nv_map01] inter=[MasterLevels_End_Fusion_FullRun]
+   errors=0
+== R_o1n_masterlevels  [wf_endgame_masterlevels +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_MASTERLEVELS - Unnamed
+   DCXTEST_STATE wf_endgame_masterlevels next=[wf_newgame_nv_map01] inter=[MasterLevels_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_o2c_masterlevels  [wf_endgame_masterlevels +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_MASTERLEVELS - Unnamed
+   DCXTEST_STATE wf_endgame_masterlevels next=[wf_newgame_tn_map01] inter=[MasterLevels_End_Fusion_FullRun]
+   errors=0
+== R_o3c_masterlevels  [wf_endgame_masterlevels +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_MASTERLEVELS - Unnamed
+   DCXTEST_STATE wf_endgame_masterlevels next=[wf_newgame_tn_map01] inter=[MasterLevels_End_Fusion_FullRun]
+   errors=0
+== R_off_masterlevels  [wf_endgame_masterlevels +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_MASTERLEVELS - Unnamed
+   DCXTEST_STATE wf_endgame_masterlevels next=[] inter=[MasterLevels_End]
+   errors=0
+== R_o1c_nv_map08  [wf_endgame_nv_map08 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_NV_MAP08 - Unnamed
+   DCXTEST_STATE wf_endgame_nv_map08 next=[wf_newgame_lr_map01] inter=[Inter_Cast_Fusion_FullRun_NoCredits]
+   errors=0
+== R_o1n_nv_map08  [wf_endgame_nv_map08 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_NV_MAP08 - Unnamed
+   DCXTEST_STATE wf_endgame_nv_map08 next=[wf_newgame_lr_map01] inter=[Doom2_End_Fusion_FullRun_NoCast_NoCredits]
+   errors=0
+== R_o2c_nv_map08  [wf_endgame_nv_map08 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_NV_MAP08 - Unnamed
+   DCXTEST_STATE wf_endgame_nv_map08 next=[wf_newgame_e5m1] inter=[Inter_Cast_Fusion_FullRun_NoCredits]
+   errors=0
+== R_o3c_nv_map08  [wf_endgame_nv_map08 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_NV_MAP08 - Unnamed
+   DCXTEST_STATE wf_endgame_nv_map08 next=[wf_newgame_ml_map01] inter=[Inter_Cast_Fusion_FullRun_NoCredits]
+   errors=0
+== R_off_nv_map08  [wf_endgame_nv_map08 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_NV_MAP08 - Unnamed
+   DCXTEST_STATE wf_endgame_nv_map08 next=[] inter=[Inter_Cast]
+   errors=0
+== R_o1c_lr_map07  [wf_endgame_lr_map07 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_LR_MAP07 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map07 next=[wf_newgame_lr_map08] inter=[Id1_Ep1_Fusion_FullRun]
+   errors=0
+== R_o1n_lr_map07  [wf_endgame_lr_map07 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_LR_MAP07 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map07 next=[wf_newgame_lr_map08] inter=[Id1_Ep1_Fusion_FullRun]
+   errors=0
+== R_o2c_lr_map07  [wf_endgame_lr_map07 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_LR_MAP07 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map07 next=[wf_newgame_lr_map08] inter=[Id1_Ep1_Fusion_FullRun]
+   errors=0
+== R_o3c_lr_map07  [wf_endgame_lr_map07 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_LR_MAP07 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map07 next=[wf_newgame_lr_map08] inter=[Id1_Ep1_Fusion_FullRun]
+   errors=0
+== R_off_lr_map07  [wf_endgame_lr_map07 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_LR_MAP07 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map07 next=[] inter=[Id1_Ep1_Fusion_FullRun_Off]
+   errors=0
+== R_o1c_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[wf_newgame_tn_map01] inter=[Id1Cast_Fusion_FullRun]
+   errors=0
+== R_o1n_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[wf_newgame_tn_map01] inter=[Id1_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_o2c_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[wf_newgame_e1m1] inter=[Id1Cast_Fusion_FullRun]
+   errors=0
+== R_o3c_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[wf_newgame_e1m1] inter=[Id1Cast_Fusion_FullRun]
+   errors=0
+== R_off_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[] inter=[Id1Cast]
+   errors=0
+== R_o1c_tn_map30  [wf_endgame_tn_map30 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_TN_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_tn_map30 next=[wf_newgame_pl_map01] inter=[Inter_Cast_Tnt_Fusion_FullRun]
+   errors=0
+== R_o1n_tn_map30  [wf_endgame_tn_map30 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_TN_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_tn_map30 next=[wf_newgame_pl_map01] inter=[Tnt_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_o2c_tn_map30  [wf_endgame_tn_map30 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_TN_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_tn_map30 next=[wf_newgame_pl_map01] inter=[Inter_Cast_Tnt_Fusion_FullRun]
+   errors=0
+== R_o3c_tn_map30  [wf_endgame_tn_map30 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_TN_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_tn_map30 next=[wf_newgame_pl_map01] inter=[Inter_Cast_Tnt_Fusion_FullRun]
+   errors=0
+== R_off_tn_map30  [wf_endgame_tn_map30 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_TN_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_tn_map30 next=[] inter=[Inter_Cast_Tnt]
+   errors=0
+== R_o1c_pl_map30  [wf_endgame_pl_map30 +wf_fullrun 1 +wf_fullrun_cast 1]
+   WF_ENDGAME_PL_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_pl_map30 next=[wf_newgame_e1m1] inter=[Inter_Cast_Plutonia_Fusion_FullRun]
+   errors=0
+== R_o1n_pl_map30  [wf_endgame_pl_map30 +wf_fullrun 1 +wf_fullrun_cast 0]
+   WF_ENDGAME_PL_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_pl_map30 next=[wf_newgame_e1m1] inter=[Plutonia_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_o2c_pl_map30  [wf_endgame_pl_map30 +wf_fullrun 2 +wf_fullrun_cast 1]
+   WF_ENDGAME_PL_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_pl_map30 next=[wf_newgame_nv_map01] inter=[Inter_Cast_Plutonia_Fusion_FullRun]
+   errors=0
+== R_o3c_pl_map30  [wf_endgame_pl_map30 +wf_fullrun 3 +wf_fullrun_cast 1]
+   WF_ENDGAME_PL_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_pl_map30 next=[wf_newgame_lr_map01] inter=[Inter_Cast_Plutonia_Fusion_FullRun]
+   errors=0
+== R_off_pl_map30  [wf_endgame_pl_map30 +wf_fullrun 0 +wf_fullrun_cast 1]
+   WF_ENDGAME_PL_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_pl_map30 next=[] inter=[Inter_Cast_Plutonia]
+   errors=0
+== R_loop0_o1_pl_map30  [wf_endgame_pl_map30 +wf_fullrun 1 +wf_fullrun_cast 0 +wf_fullrun_loop 0]
+   WF_ENDGAME_PL_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_pl_map30 next=[] inter=[Plutonia_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_loop1_o1_pl_map30  [wf_endgame_pl_map30 +wf_fullrun 1 +wf_fullrun_cast 0 +wf_fullrun_loop 1]
+   WF_ENDGAME_PL_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_pl_map30 next=[wf_newgame_e1m1] inter=[Plutonia_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_loop0_o2_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 2 +wf_fullrun_cast 0 +wf_fullrun_loop 0]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[] inter=[Id1_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_loop1_o2_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 2 +wf_fullrun_cast 0 +wf_fullrun_loop 1]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[wf_newgame_e1m1] inter=[Id1_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_loop0_o3_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 3 +wf_fullrun_cast 0 +wf_fullrun_loop 0]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[] inter=[Id1_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_loop1_o3_lr_map14  [wf_endgame_lr_map14 +wf_fullrun 3 +wf_fullrun_cast 0 +wf_fullrun_loop 1]
+   WF_ENDGAME_LR_MAP14 - Unnamed
+   DCXTEST_STATE wf_endgame_lr_map14 next=[wf_newgame_e1m1] inter=[Id1_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_noml_o1_map30  [wf_endgame_map30 +wf_fullrun 1 +wf_fullrun_cast 0 +wf_fullrun_ml 0]
+   WF_ENDGAME_MAP30 - Unnamed
+   DCXTEST_STATE wf_endgame_map30 next=[wf_newgame_nv_map01] inter=[Doom2_End_Fusion_FullRun_NoCast]
+   errors=0
+== R_noml_o2_e4m8  [wf_endgame_e4m8 +wf_fullrun 2 +wf_fullrun_cast 0 +wf_fullrun_ml 0]
+   WF_ENDGAME_E4M8 - Unnamed
+   DCXTEST_STATE wf_endgame_e4m8 next=[wf_newgame_tn_map01] inter=[Doom1_Ep4_Fusion_FullRun]
+   errors=0
+== R_noml_o3_nv_map08  [wf_endgame_nv_map08 +wf_fullrun 3 +wf_fullrun_cast 0 +wf_fullrun_ml 0]
+   WF_ENDGAME_NV_MAP08 - Unnamed
+   DCXTEST_STATE wf_endgame_nv_map08 next=[wf_newgame_tn_map01] inter=[Doom2_End_Fusion_FullRun_NoCast_NoCredits]
+   errors=0

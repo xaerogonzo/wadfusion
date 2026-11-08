@@ -1,0 +1,22 @@
+# Outside-campaign and custom-run cases. Format: label | start map | console vars | extra files (%FX% = fixtures dir)
+# A: replaces doom2, its last map is the fixture MAP01 -> exit leads to the shared hand-over map
+X_replace_hook      | map01 | +wf_fullrun 1 | "%FX%\fx_a.wad" "%FX%\ra\WFRUN.txt"
+# B: replaces doom2, last map MAP32; an outside MAP30 is an intermediate map -> must not become wf_endgame_map30
+X_intermediate_map30| map30 | +wf_fullrun 1 | "%FX%\fx_a.wad" "%FX%\fx_c.wad" "%FX%\rb\WFRUN.txt"
+# C: an outside WAD supplies MAP30 and nothing describes it -> WadFusion leaves it alone
+X_outside_map30     | map30 | +wf_fullrun 1 | "%FX%\fx_c.wad"
+# D: no outside file: MAP30 is still the Doom II end (control)
+X_control_map30     | map30 | +wf_fullrun 1 |
+# E: after the replacing campaign ends, order 1 continues with Nerve (Master Levels off by default)
+X_handover_o1       | wf_endgame_custom | +wf_fullrun 1 +wf_fullrun_cast 0 +dcxtest_pending btsx | "%FX%\fx_a.wad" "%FX%\ra\WFRUN.txt"
+# F: custom run: slot1 = outside campaign, slot2 = Plutonia, slot3 = E1; the outside campaign ends
+X_handover_custom   | wf_endgame_custom | +wf_fullrun 4 +wf_run_slot1 btsx +wf_run_slot2 plutonia +wf_run_slot3 doom1_e1 +dcxtest_pending btsx | "%FX%\fx_a.wad" "%FX%\rd\WFRUN.txt"
+# G: custom run from a built-in hand-over: Plutonia -> outside campaign (raw start map)
+X_custom_to_outside | wf_endgame_pl_map30 | +wf_fullrun 4 +wf_run_slot1 plutonia +wf_run_slot2 btsx +wf_run_slot3 doom1_e1 | "%FX%\fx_a.wad" "%FX%\rd\WFRUN.txt"
+# H: custom run: the last slot ends, loop off / on
+X_custom_end_noloop | wf_endgame_pl_map30 | +wf_fullrun 4 +wf_run_slot1 doom1_e1 +wf_run_slot2 plutonia +wf_fullrun_loop 0 |
+X_custom_end_loop   | wf_endgame_pl_map30 | +wf_fullrun 4 +wf_run_slot1 doom1_e1 +wf_run_slot2 plutonia +wf_fullrun_loop 1 |
+X_custom_gap_skip   | wf_endgame_e1m8 | +wf_fullrun 4 +wf_run_slot1 doom1_e1 +wf_run_slot3 not_installed +wf_run_slot5 doom2 |
+X_custom_all_empty  | wf_endgame_e1m8 | +wf_fullrun 4 |
+X_custom_unknown_id | wf_endgame_e1m8 | +wf_fullrun 4 +wf_run_slot1 doom1_e1 +wf_run_slot2 does_not_exist +wf_run_slot3 plutonia |
+X_custom_not_in_run | wf_endgame_map30 | +wf_fullrun 4 +wf_run_slot1 doom1_e1 +wf_run_slot2 plutonia |

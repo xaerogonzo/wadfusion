@@ -1,0 +1,9 @@
+# Real Back to Saturn X (BSX1.pk3) with a WFRUN written from its actual map list. label | map | vars | files
+BT_start_map01      | map01 | +wf_fullrun 1 | "D:\Games\Doom wads\Community Map Packs\Megawads\Doom 2\Megawad\Back to Saturn X\BSX1\BSX1.pk3" "%FX%\btsx\WFRUN.txt"
+BT_end_map25        | map25 | +wf_fullrun 1 | "D:\Games\Doom wads\Community Map Packs\Megawads\Doom 2\Megawad\Back to Saturn X\BSX1\BSX1.pk3" "%FX%\btsx\WFRUN.txt"
+BT_end_map25_off    | map25 | +wf_fullrun 0 | "D:\Games\Doom wads\Community Map Packs\Megawads\Doom 2\Megawad\Back to Saturn X\BSX1\BSX1.pk3" "%FX%\btsx\WFRUN.txt"
+BT_secret_map31     | map31 | +wf_fullrun 1 | "D:\Games\Doom wads\Community Map Packs\Megawads\Doom 2\Megawad\Back to Saturn X\BSX1\BSX1.pk3" "%FX%\btsx\WFRUN.txt"
+BT_map30_control    | map30 | +wf_fullrun 1 | "D:\Games\Doom wads\Community Map Packs\Megawads\Doom 2\Megawad\Back to Saturn X\BSX1\BSX1.pk3" "%FX%\btsx\WFRUN.txt"
+BT_handover_o1      | wf_endgame_custom | +wf_fullrun 1 +wf_fullrun_cast 0 +dcxtest_pending btsx | "D:\Games\Doom wads\Community Map Packs\Megawads\Doom 2\Megawad\Back to Saturn X\BSX1\BSX1.pk3" "%FX%\btsx\WFRUN.txt"
+BT_handover_custom  | wf_endgame_custom | +wf_fullrun 4 +wf_run_slot1 btsx +wf_run_slot2 plutonia +dcxtest_pending btsx | "D:\Games\Doom wads\Community Map Packs\Megawads\Doom 2\Megawad\Back to Saturn X\BSX1\BSX1.pk3" "%FX%\btsx\WFRUN.txt"
+BT_custom_into_btsx | wf_endgame_pl_map30 | +wf_fullrun 4 +wf_run_slot1 plutonia +wf_run_slot2 btsx | "D:\Games\Doom wads\Community Map Packs\Megawads\Doom 2\Megawad\Back to Saturn X\BSX1\BSX1.pk3" "%FX%\btsx\WFRUN.txt"
