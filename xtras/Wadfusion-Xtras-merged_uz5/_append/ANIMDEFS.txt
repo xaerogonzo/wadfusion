@@ -1,0 +1,5 @@
+
+// ---- animations merged from Xtras Revised beta
+texture Silver3A
+pic Silver3 tics 8
+pic Silver3B tics 8

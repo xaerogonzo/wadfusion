@@ -1,0 +1,10 @@
+// Texture definitions that only the Xtras Revised beta has
+Texture "SILVER3A", 64, 128
+{
+	Patch "RW32_3", 0, 0
+}
+
+Texture "SILVER3B", 64, 128
+{
+	Patch "RW32_B", 0, 0
+}

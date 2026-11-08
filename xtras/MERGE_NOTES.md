@@ -20,12 +20,15 @@ Revised files by decision: import-candidate=283, needs-decision=128, reuse-main=
 
 ## ZScript
 
-Main 51 classes, Revised 36. Shared names: 32. Revised-only: DCX_LesserMastermind, DCX_Multiplayerweaponremoveal, DCX_PlaystationSecrets, DCX_TotalCarnageMonsterPlacementsBackup.
+Main 145 classes, Revised 102. Shared names: 72. Revised-only: BallOSpew, BottleOfSpew, ChooserDemon, D64D2BossEye, DCX_LesserCyber, DCX_LesserMastermind, DCX_MapFixes, DCX_Multiplayerweaponremoveal, DCX_NightmareCyberdemon, DCX_PlaystationSecrets, DCX_TotalCarnageMonsterPlacementsBackup, DC_Replacer, FasterSpawnShot, Flames, GiantCanOfSpew, HangBNoBrainNS, HangNoGutsNS, HangTLookingDownNS, HangTLookingUpNS, HangTNoBrainNS, HangTSkullNS, Kick_Column, Kick_TechLamp, Kick_TechPillar, LoungeSinger, NightmareSinger, SpectreSinger, SurferMutant1, SurferMutant2, VoodooExploder.
 
-Shared classes whose bodies differ: 18 of 32.
+Shared classes whose bodies differ: 34 of 72.
 
 | Shared class | body | revised-only methods | revised-only fields |
 |---|---|---|---|
+| Berserk_BFG | same | - | - |
+| Berserk_Eternal | same | - | - |
+| Berserk_Unity | same | - | - |
 | CBlood | same | - | - |
 | CBloodBaronOfHell | same | - | - |
 | CBloodCacodemon | same | - | - |
@@ -33,31 +36,68 @@ Shared classes whose bodies differ: 18 of 32.
 | CBloodLostSoul | same | - | - |
 | DCX_Arachnotron | differs | - | - |
 | DCX_ArchvileFire | same | - | - |
+| DCX_Baronofhell | differs | - | - |
 | DCX_BloodHandler | same | - | - |
 | DCX_BlurSphere | same | - | - |
 | DCX_BossBrain | differs | - | - |
 | DCX_BossEye | same | - | - |
+| DCX_Cyankeyicon | same | - | - |
 | DCX_Cyberdemon | differs | - | - |
+| DCX_DM_Marinebot | differs | - | - |
+| DCX_DM_Marinebot_BFG9000 | differs | - | - |
+| DCX_DM_Marinebot_Berserk | differs | - | 20 |
+| DCX_DM_Marinebot_Chainsaw | differs | - | 20 |
+| DCX_DM_Marinebot_Pistol | same | - | - |
+| DCX_DM_Marinebot_Plasma | same | - | - |
+| DCX_DM_Marinebot_RapidFire | same | - | - |
+| DCX_DM_Marinebot_Rocket | same | - | - |
+| DCX_DM_Marinebot_Shotgun | same | - | - |
+| DCX_DM_Marinebot_SuperShotgun | same | - | - |
+| DCX_Demonkey1 | differs | - | - |
+| DCX_Demonkey2 | differs | - | - |
+| DCX_Demonkey3 | differs | - | - |
+| DCX_Demonkeycount | same | - | - |
+| DCX_DoubleBladedChainsaw | differs | - | - |
 | DCX_DualArachnotron | differs | - | - |
 | DCX_DualArachnotronPlasma | differs | - | - |
 | DCX_DualPainElemental | same | - | - |
 | DCX_EventHandler | differs | TextureFixes | - |
 | DCX_ForgottenSoul | differs | - | - |
 | DCX_HeavyPlasmaGun | differs | - | - |
+| DCX_Hellknight | differs | - | - |
 | DCX_LaserPuff | differs | - | - |
 | DCX_LostSoul | same | - | - |
+| DCX_MarineBotBrown | same | - | - |
+| DCX_MarineBotGreen | differs | - | - |
+| DCX_MarineBotGrey | same | - | - |
+| DCX_MarineBotRed | same | - | - |
+| DCX_MarineBotSpawner | same | - | - |
+| DCX_Motherdemon | differs | - | 25, 4, 9000 |
 | DCX_MusicHandler | differs | - | - |
+| DCX_NightmareCacodemon | differs | - | - |
 | DCX_NightmareCacodemonBall | same | - | - |
+| DCX_NightmareImp | differs | - | - |
+| DCX_NightmareImpBall | same | - | - |
+| DCX_NightmareSpectre | differs | - | - |
+| DCX_Orangekeyicon | same | - | - |
 | DCX_PerMapReplacementHandler | differs | - | - |
 | DCX_PlasmaBall2 | same | - | - |
 | DCX_Player | differs | - | - |
+| DCX_Purplekeyicon | same | - | - |
 | DCX_Spectre | same | - | - |
 | DCX_SpiderMastermind | differs | - | - |
 | DCX_Statusbar | differs | - | hudArmorOffset |
 | DCX_SuperShotgun | differs | - | - |
 | DCX_Unmaker | differs | - | - |
 | DCX_UnmakerLaser | differs | - | - |
+| DCX_UnmakerTrail | differs | - | - |
 | DCX_ZombieMan | differs | - | - |
+| Medikit_BFG | same | - | - |
+| Medikit_Eternal | same | - | - |
+| Medikit_Unity | same | - | - |
+| Stimpack_BFG | same | - | - |
+| Stimpack_Eternal | same | - | - |
+| Stimpack_Unity | same | - | - |
 
 ## CVars
 

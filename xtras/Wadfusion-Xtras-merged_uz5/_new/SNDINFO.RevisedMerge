@@ -1,0 +1,25 @@
+// Sounds that only the Xtras Revised beta defines (merged by xtras/make_merge_snippets.py)
+imp2/pain dspopain
+$pitchset imp2/pain  0.9
+caco2/active dsdmact
+caco2/pain dsdmpain
+caco/attack2 DSFIRSHT
+caco/shotx2 DSFIRXPL
+$pitchset caco2/active 0.9
+$pitchset caco2/pain 0.9
+baby/pain2		dsdmpain
+$pitchset baby/pain2 0.9
+skull/death2		dsfirxpl
+skull/active2			dsdmact
+skull/pain2			dsdmpain
+$pitchset skull/death2 0.9
+$pitchset skull/active2 0.9
+$pitchset skull/pain2 0.9
+LesserCyber/sight DSLCYSIT
+LesserCyber/pain DSLCYPIN
+LesserCyber/death DSLCYDTH
+LesserSpider/sight DSWIDSIT
+LesserSpider/pain DSWIDPIN
+LesserSpider/death DSWIDDTH
+$limit LesserSpider/sight 4
+$limit LesserSpider/death 4

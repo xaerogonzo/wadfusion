@@ -139,8 +139,8 @@ def parse_zscript(zf, entries):
         if e['category'] != 'zscript' or not e['norm'].endswith(('.zsc', '.zs')):
             continue
         t = strip_comments(text_of(zf, e))
-        for m in re.finditer(r'(?m)^[ \t]*(?:extend\s+)?(class|struct)\s+(\w+)\s*(?::\s*(\w+))?([^{;]*)\{', t):
-            kind, name, parent, rest = m.group(1), m.group(2), m.group(3) or '', m.group(4)
+        for m in re.finditer(r'(?im)^[ \t]*(?:extend\s+)?(class|struct)\s+(\w+)\s*(?::\s*(\w+))?([^{;]*)\{', t):
+            kind, name, parent, rest = m.group(1).lower(), m.group(2), m.group(3) or '', m.group(4)
             start = m.end()
             depth, i = 1, start
             while i < len(t) and depth:

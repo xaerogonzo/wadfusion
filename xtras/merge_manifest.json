@@ -4,15 +4,88 @@
   "revised": []
  },
  "classes": {
-  "main_total": 51,
-  "only_main_count": 19,
+  "main_total": 145,
+  "only_main_count": 73,
   "only_revised": [
+   "BallOSpew",
+   "BottleOfSpew",
+   "ChooserDemon",
+   "D64D2BossEye",
+   "DCX_LesserCyber",
    "DCX_LesserMastermind",
+   "DCX_MapFixes",
    "DCX_Multiplayerweaponremoveal",
+   "DCX_NightmareCyberdemon",
    "DCX_PlaystationSecrets",
-   "DCX_TotalCarnageMonsterPlacementsBackup"
+   "DCX_TotalCarnageMonsterPlacementsBackup",
+   "DC_Replacer",
+   "FasterSpawnShot",
+   "Flames",
+   "GiantCanOfSpew",
+   "HangBNoBrainNS",
+   "HangNoGutsNS",
+   "HangTLookingDownNS",
+   "HangTLookingUpNS",
+   "HangTNoBrainNS",
+   "HangTSkullNS",
+   "Kick_Column",
+   "Kick_TechLamp",
+   "Kick_TechPillar",
+   "LoungeSinger",
+   "NightmareSinger",
+   "SpectreSinger",
+   "SurferMutant1",
+   "SurferMutant2",
+   "VoodooExploder"
   ],
   "only_revised_detail": {
+   "BallOSpew": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "DoomImpBall"
+   },
+   "BottleOfSpew": {
+    "fields": [
+     "See"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "Lostsoul"
+   },
+   "ChooserDemon": {
+    "fields": [
+     "0",
+     "10",
+     "15",
+     "20",
+     "500",
+     "56"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "Actor"
+   },
+   "D64D2BossEye": {
+    "fields": [
+     "10",
+     "100",
+     "20",
+     "32"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "BossEye"
+   },
+   "DCX_LesserCyber": {
+    "fields": [
+     "2000",
+     "See"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "DCX_Cyberdemon"
+   },
    "DCX_LesserMastermind": {
     "fields": [
      "1500",
@@ -21,6 +94,18 @@
     "file": "zscript/actors.zsc",
     "methods": [],
     "parent": "DCX_SpiderMastermind"
+   },
+   "DCX_MapFixes": {
+    "fields": [
+     "ednum",
+     "mapName",
+     "mapPrefix"
+    ],
+    "file": "zscript/levelpostprocessors.zsc",
+    "methods": [
+     "Apply"
+    ],
+    "parent": "LevelPostProcessor"
    },
    "DCX_Multiplayerweaponremoveal": {
     "fields": [
@@ -33,6 +118,14 @@
      "Apply"
     ],
     "parent": "LevelPostProcessor"
+   },
+   "DCX_NightmareCyberdemon": {
+    "fields": [
+     "8000"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "DCX_Cyberdemon"
    },
    "DCX_PlaystationSecrets": {
     "fields": [],
@@ -53,10 +146,174 @@
      "Apply"
     ],
     "parent": "LevelPostProcessor"
+   },
+   "DC_Replacer": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "Actor"
+   },
+   "FasterSpawnShot": {
+    "fields": [
+     "30"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "SpawnShot"
+   },
+   "Flames": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "BurningBarrel"
+   },
+   "GiantCanOfSpew": {
+    "fields": [
+     "See"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "SpiderMastermind"
+   },
+   "HangBNoBrainNS": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "HangBNoBrain"
+   },
+   "HangNoGutsNS": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "HangNoGuts"
+   },
+   "HangTLookingDownNS": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "HangTLookingDown"
+   },
+   "HangTLookingUpNS": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "HangTLookingUp"
+   },
+   "HangTNoBrainNS": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "HangTNoBrain"
+   },
+   "HangTSkullNS": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "HangTSkull"
+   },
+   "Kick_Column": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "Column"
+   },
+   "Kick_TechLamp": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "TechLamp"
+   },
+   "Kick_TechPillar": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "TechPillar"
+   },
+   "LoungeSinger": {
+    "fields": [
+     "See"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "Demon"
+   },
+   "NightmareSinger": {
+    "fields": [
+     "300"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "LoungeSinger"
+   },
+   "SpectreSinger": {
+    "fields": [],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "LoungeSinger"
+   },
+   "SurferMutant1": {
+    "fields": [
+     "See"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [
+     "A_SpewAttack"
+    ],
+    "parent": "Doomimp"
+   },
+   "SurferMutant2": {
+    "fields": [
+     "See"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "Shotgunguy"
+   },
+   "VoodooExploder": {
+    "fields": [
+     "16",
+     "32"
+    ],
+    "file": "zscript/actors.zsc",
+    "methods": [],
+    "parent": "Actor"
    }
   },
-  "revised_total": 36,
+  "revised_total": 102,
   "shared": {
+   "Berserk_BFG": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Berserk",
+    "parent_revised": "Berserk"
+   },
+   "Berserk_Eternal": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Berserk",
+    "parent_revised": "Berserk"
+   },
+   "Berserk_Unity": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Berserk",
+    "parent_revised": "Berserk"
+   },
    "CBlood": {
     "fields_only_main": [],
     "fields_only_revised": [],
@@ -136,6 +393,19 @@
     "parent_main": "ArchvileFire",
     "parent_revised": "ArchvileFire"
    },
+   "DCX_Baronofhell": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_basedoom_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [
+     "A_CustomComboAttack"
+    ],
+    "methods_only_revised": [],
+    "parent_main": "Baronofhell",
+    "parent_revised": "Baronofhell"
+   },
    "DCX_BloodHandler": {
     "fields_only_main": [],
     "fields_only_revised": [],
@@ -183,6 +453,17 @@
     "parent_main": "BossEye",
     "parent_revised": "BossEye"
    },
+   "DCX_Cyankeyicon": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Inventory",
+    "parent_revised": "Inventory"
+   },
    "DCX_Cyberdemon": {
     "fields_only_main": [],
     "fields_only_revised": [],
@@ -196,6 +477,184 @@
     "methods_only_revised": [],
     "parent_main": "Cyberdemon",
     "parent_revised": "Cyberdemon"
+   },
+   "DCX_DM_Marinebot": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [
+     "A_BotHeatWaveATK",
+     "A_BotProjectileAtk",
+     "A_BotShotgunATK",
+     "A_BulletATK"
+    ],
+    "methods_only_revised": [],
+    "parent_main": "Actor",
+    "parent_revised": "Actor"
+   },
+   "DCX_DM_Marinebot_BFG9000": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_DM_Marinebot_Berserk": {
+    "fields_only_main": [
+     "25"
+    ],
+    "fields_only_revised": [
+     "20"
+    ],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_DM_Marinebot_Chainsaw": {
+    "fields_only_main": [
+     "25"
+    ],
+    "fields_only_revised": [
+     "20"
+    ],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_DM_Marinebot_Pistol": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_DM_Marinebot_Plasma": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_DM_Marinebot_RapidFire": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_DM_Marinebot_Rocket": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_DM_Marinebot_Shotgun": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_DM_Marinebot_SuperShotgun": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_DM_Marinebot",
+    "parent_revised": "DCX_DM_Marinebot"
+   },
+   "DCX_Demonkey1": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "CustomInventory",
+    "parent_revised": "CustomInventory"
+   },
+   "DCX_Demonkey2": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "CustomInventory",
+    "parent_revised": "CustomInventory"
+   },
+   "DCX_Demonkey3": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "CustomInventory",
+    "parent_revised": "CustomInventory"
+   },
+   "DCX_Demonkeycount": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_weapons.zsc",
+    "file_revised": "zscript/weapons.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Inventory",
+    "parent_revised": "Inventory"
+   },
+   "DCX_DoubleBladedChainsaw": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_weapons.zsc",
+    "file_revised": "zscript/weapons.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DoomWeapon",
+    "parent_revised": "DoomWeapon"
    },
    "DCX_DualArachnotron": {
     "fields_only_main": [],
@@ -272,6 +731,19 @@
     "parent_main": "DoomWeapon",
     "parent_revised": "DoomWeapon"
    },
+   "DCX_Hellknight": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_basedoom_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [
+     "A_CustomComboAttack"
+    ],
+    "methods_only_revised": [],
+    "parent_main": "Hellknight",
+    "parent_revised": "Hellknight"
+   },
    "DCX_LaserPuff": {
     "fields_only_main": [],
     "fields_only_revised": [],
@@ -294,6 +766,87 @@
     "parent_main": "LostSoul",
     "parent_revised": "LostSoul"
    },
+   "DCX_MarineBotBrown": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_MarineBotGreen",
+    "parent_revised": "DCX_MarineBotGreen"
+   },
+   "DCX_MarineBotGreen": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Actor",
+    "parent_revised": "Actor"
+   },
+   "DCX_MarineBotGrey": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_MarineBotGreen",
+    "parent_revised": "DCX_MarineBotGreen"
+   },
+   "DCX_MarineBotRed": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "DCX_MarineBotGreen",
+    "parent_revised": "DCX_MarineBotGreen"
+   },
+   "DCX_MarineBotSpawner": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "RandomSpawner",
+    "parent_revised": "RandomSpawner"
+   },
+   "DCX_Motherdemon": {
+    "fields_only_main": [
+     "30",
+     "50",
+     "5000",
+     "8",
+     "Melee",
+     "proj"
+    ],
+    "fields_only_revised": [
+     "25",
+     "4",
+     "9000"
+    ],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [
+     "A_RectAttack",
+     "A_RectChase",
+     "A_RectGroundFire"
+    ],
+    "methods_only_revised": [],
+    "parent_main": "Actor",
+    "parent_revised": "Actor"
+   },
    "DCX_MusicHandler": {
     "fields_only_main": [],
     "fields_only_revised": [],
@@ -305,6 +858,17 @@
     "parent_main": "StaticEventHandler",
     "parent_revised": "StaticEventHandler"
    },
+   "DCX_NightmareCacodemon": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Cacodemon",
+    "parent_revised": "Cacodemon"
+   },
    "DCX_NightmareCacodemonBall": {
     "fields_only_main": [],
     "fields_only_revised": [],
@@ -315,6 +879,53 @@
     "methods_only_revised": [],
     "parent_main": "CacodemonBall",
     "parent_revised": "CacodemonBall"
+   },
+   "DCX_NightmareImp": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Doomimp",
+    "parent_revised": "Doomimp"
+   },
+   "DCX_NightmareImpBall": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "CacodemonBall",
+    "parent_revised": "CacodemonBall"
+   },
+   "DCX_NightmareSpectre": {
+    "fields_only_main": [
+     "12",
+     "See"
+    ],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_extra_actors.zsc",
+    "file_revised": "zscript/actors.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Demon",
+    "parent_revised": "Demon"
+   },
+   "DCX_Orangekeyicon": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Inventory",
+    "parent_revised": "Inventory"
    },
    "DCX_PerMapReplacementHandler": {
     "fields_only_main": [],
@@ -348,6 +959,17 @@
     "methods_only_revised": [],
     "parent_main": "Doomplayer",
     "parent_revised": "Doomplayer"
+   },
+   "DCX_Purplekeyicon": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_d64d2_actors.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Inventory",
+    "parent_revised": "Inventory"
    },
    "DCX_Spectre": {
     "fields_only_main": [],
@@ -530,6 +1152,17 @@
     "parent_main": "FastProjectile",
     "parent_revised": "FastProjectile"
    },
+   "DCX_UnmakerTrail": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_weapons.zsc",
+    "file_revised": "zscript/weapons.zsc",
+    "identical_body": false,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "actor",
+    "parent_revised": "actor"
+   },
    "DCX_ZombieMan": {
     "fields_only_main": [],
     "fields_only_revised": [],
@@ -540,6 +1173,72 @@
     "methods_only_revised": [],
     "parent_main": "ZombieMan",
     "parent_revised": "ZombieMan"
+   },
+   "Medikit_BFG": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Medikit",
+    "parent_revised": "Medikit"
+   },
+   "Medikit_Eternal": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Medikit",
+    "parent_revised": "Medikit"
+   },
+   "Medikit_Unity": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Medikit",
+    "parent_revised": "Medikit"
+   },
+   "Stimpack_BFG": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Stimpack",
+    "parent_revised": "Stimpack"
+   },
+   "Stimpack_Eternal": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Stimpack",
+    "parent_revised": "Stimpack"
+   },
+   "Stimpack_Unity": {
+    "fields_only_main": [],
+    "fields_only_revised": [],
+    "file_main": "zscript/actors/dcx_items.zsc",
+    "file_revised": "zscript/items.zsc",
+    "identical_body": true,
+    "methods_only_main": [],
+    "methods_only_revised": [],
+    "parent_main": "Stimpack",
+    "parent_revised": "Stimpack"
    }
   }
  },
