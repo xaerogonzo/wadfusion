@@ -1,0 +1,26 @@
+// Full Run entries for WadFusion Xtras (read by WadFusion's Full Run, see its README: "Custom Full Run").
+// These two are appended to the three built-in Full Run orders, Jaguar first, then Absolution.
+
+version = 1
+
+entry
+{
+    id = jaguar
+    name = "Jaguar Doom"
+    order = 10
+    start = wf_newgame_ja_map01
+    end = ja_map24
+    cast = Jaguar_Cast
+    presets = 1,2,3
+}
+
+entry
+{
+    id = absolution
+    name = "Absolution"
+    order = 20
+    start = wf_newgame_ab_map01
+    end = ab_map30
+    cast = D64Inter_Cast
+    presets = 1,2,3
+}

@@ -7,7 +7,9 @@
 //   * the PlayStation versions of E3M1 (dcx_playstationmaps)
 //   * title screens and music for the Xtras-only episodes
 //       (Jaguar, Absolution, Doom II / TNT / Plutonia part 2 and 3 hack maps)
-//   * Full Run: Jaguar and Absolution are appended to WadFusion's Full Run chain
+//
+// Chaining Jaguar and Absolution into the Full Run is no longer done here: the WFRUN file in this
+// pack describes them and WadFusion's own Full Run router handles them.
 //
 // WadFusion's handler is registered first, so on every tick it runs before this one. That lets this
 // handler adjust the state WadFusion just computed (nextMap / intermission) before it is used.
@@ -16,9 +18,6 @@ class DCX_StaticHandler : StaticEventHandler
 {
 	String dcxCurrentMap;  // map we are on
 	String dcxPreviousMap; // map we came from
-	String dcxEndSource;   // last map of an Xtras episode while a Full Run hands over (see DCX_FullRunHook)
-	String dcxNext;        // where the hand-over map goes next
-	String dcxIntermission;
 
 	WadFusionStaticHandler DCX_Base()
 	{
@@ -29,11 +28,6 @@ class DCX_StaticHandler : StaticEventHandler
 	{
 		dcxPreviousMap = dcxCurrentMap;
 		dcxCurrentMap = Level.MapName.MakeLower();
-
-		bool hackMap = dcxCurrentMap.Left(10) == "wf_newgame" || dcxCurrentMap.Left(10) == "wf_endgame"
-			|| dcxCurrentMap.Left(8) == "wf_story" || dcxCurrentMap == "dcx_handover";
-		if ( !hackMap )
-			dcxEndSource = "";
 	}
 
 	override void WorldTick()
@@ -44,25 +38,6 @@ class DCX_StaticHandler : StaticEventHandler
 			DCX_NewGameTitle(mapName);
 		else if ( mapName == "e3m1" )
 			DCX_PlaystationRedirect();
-		else if ( mapName.Left(10) == "wf_endgame" )
-		{
-			if ( Level.MapTime == 0 )
-				DCX_AppendToChain(mapName.Mid(11));
-		}
-		else if ( mapName == "dcx_handover" )
-			DCX_EndGame();
-		else
-			DCX_FullRunHook(mapName);
-	}
-
-	override void RenderOverlay(RenderEvent e)
-	{
-		// the hand-over map is only a place to show an intermission from, so hide the map behind it
-		if ( Level.MapName.MakeLower() == "dcx_handover" )
-		{
-			Level.SetFrozen(true);
-			Screen.DrawTexture(TexMan.CheckForTexture("TITLEPIC"), false, 0, 0, DTA_FullScreen, 1);
-		}
 	}
 
 	void DCX_StartIntermission(String name)
@@ -153,113 +128,5 @@ class DCX_StaticHandler : StaticEventHandler
 
 		S_ChangeMusic(titleMusic, 0, false);
 		DCX_StartIntermission(title);
-	}
-
-	//-------------------------------------------------------------------------
-	// Full Run
-	//-------------------------------------------------------------------------
-
-	// Last map of Jaguar / Absolution: during a Full Run, exit to the hand-over map instead of the normal ending.
-	void DCX_FullRunHook(String mapName)
-	{
-		if ( mapName != "ja_map24" && mapName != "ab_map30" )
-			return;
-		if ( !CVar.FindCVar("wf_compat_nextmap").GetBool() )
-			return;
-
-		int fullRun = CVar.FindCVar("wf_fullrun").GetInt();
-		if ( fullRun < 1 || fullRun > 3 )
-			return;
-
-		dcxEndSource = mapName;
-		Level.NextMap = "dcx_handover";
-		Level.NextSecretMap = "dcx_handover";
-	}
-
-	// First Xtras episode in the Full Run, or "" if the Xtras maps aren't installed.
-	String DCX_FirstXtrasEpisode()
-	{
-		if ( Wads.CheckNumForFullName("maps/ja_map01.wad") != -1 )
-			return "wf_newgame_ja_map01";
-		if ( Wads.CheckNumForFullName("maps/ab_map01.wad") != -1 )
-			return "wf_newgame_ab_map01";
-		return "";
-	}
-
-	// Where a Full Run goes after the last Xtras episode: back to the start if "Full Run loop" is on.
-	String DCX_LoopTarget()
-	{
-		if ( !CVar.FindCVar("wf_fullrun_loop").GetBool() )
-			return "";
-
-		String starts[] = { "e1m1", "e2m1", "e3m1", "e4m1", "e5m1", "e6m1", "map01", "nv_map01", "lr_map01", "tn_map01", "pl_map01" };
-		for ( int i = 0; i < starts.Size(); i++ )
-		{
-			if ( Wads.CheckNumForFullName("maps/"..starts[i]..".wad") != -1 )
-				return "wf_newgame_"..starts[i];
-		}
-		return "";
-	}
-
-	// First tick of one of WadFusion's wf_endgame_* maps, after WadFusion chose the next episode.
-	// If it has nothing left (or would loop back to the start), continue with the Xtras episodes.
-	void DCX_AppendToChain(String endMap)
-	{
-		let wfHandler = DCX_Base();
-		if ( !wfHandler )
-			return;
-
-		int fullRun = CVar.FindCVar("wf_fullrun").GetInt();
-		if ( fullRun < 1 || fullRun > 3 )
-			return;
-
-		String first = DCX_FirstXtrasEpisode();
-		if ( first == "" )
-			return;
-
-		// the last episode of each Full Run order
-		String lastOfOrder = fullRun == 1 ? "pl_map30" : "lr_map14";
-		bool wouldLoop = CVar.FindCVar("wf_fullrun_loop").GetBool() && endMap == lastOfOrder;
-
-		if ( wfHandler.nextMap == "" || wouldLoop )
-			wfHandler.nextMap = first;
-	}
-
-	// Hand-over map: reached from the last map of an Xtras episode during a Full Run.
-	void DCX_EndGame()
-	{
-		if ( Level.MapTime == 0 )
-		{
-			bool cast = CVar.FindCVar("wf_fullrun_cast").GetBool();
-			int fullRun = CVar.FindCVar("wf_fullrun").GetInt();
-			bool fullRunOn = fullRun >= 1 && fullRun <= 3;
-
-			dcxIntermission = "";
-			dcxNext = "";
-
-			if ( dcxEndSource == "ja_map24" )
-			{
-				dcxIntermission = "Jaguar_Cast";
-				if ( fullRunOn && Wads.CheckNumForFullName("maps/ab_map01.wad") != -1 )
-					dcxNext = "wf_newgame_ab_map01";
-				else if ( fullRunOn )
-					dcxNext = DCX_LoopTarget();
-			}
-			else if ( dcxEndSource == "ab_map30" )
-			{
-				dcxIntermission = "D64Inter_Cast";
-				if ( fullRunOn )
-					dcxNext = DCX_LoopTarget();
-			}
-
-			// Full Run without cast sequences goes straight on to the next episode
-			if ( fullRunOn && !cast && dcxNext != "" )
-				dcxIntermission = "";
-
-			DCX_StartIntermission(dcxIntermission);
-		}
-
-		if ( Level.MapTime >= 1 )
-			DCX_ChangeLevel(dcxNext);
 	}
 }
