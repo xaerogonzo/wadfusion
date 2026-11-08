@@ -57,7 +57,7 @@ if ($LASTEXITCODE -ne 0) { throw 'PyInstaller failed' }
 $win = Join-Path $stage 'win'
 New-Item -ItemType Directory -Path (Join-Path $win 'source_wads') | Out-Null
 Copy-Item (Join-Path $stage "dist\$proj.exe") $win
-Copy-Item README.md, CHANGES.md $win
+Copy-Item README.md, CHANGES.md, 'WadFusion Menu.bat' $win
 Copy-Item source_wads\place_wads_here.txt (Join-Path $win 'source_wads')
 Copy-Item (Join-Path $OutDir $wide), (Join-Path $OutDir 'licenses.zip') $win
 New-ZipFromDir $win (Join-Path $OutDir "${proj}_win.zip")
@@ -68,7 +68,7 @@ $py = Join-Path $stage 'py'
 New-Item -ItemType Directory -Path (Join-Path $py 'source_wads') | Out-Null
 foreach ($d in 'data', 'omg', 'res') { Copy-Item $d (Join-Path $py $d) -Recurse }
 Get-ChildItem $py -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force
-Copy-Item README.md, CHANGES.md, "$proj.py" $py
+Copy-Item README.md, CHANGES.md, 'WadFusion Menu.bat', "$proj.py" $py
 Copy-Item source_wads\place_wads_here.txt (Join-Path $py 'source_wads')
 Copy-Item (Join-Path $OutDir $wide), (Join-Path $OutDir 'licenses.zip') $py
 New-ZipFromDir $py (Join-Path $OutDir "${proj}_py.zip")

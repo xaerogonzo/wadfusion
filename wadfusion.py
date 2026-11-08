@@ -111,6 +111,8 @@ parser.add_argument('-v', '--verbose', help='Print out all the logged informatio
 parser.add_argument('-w', '--wads', help='Search the specified directory path for WADs. Can be used multiple times', metavar='PATH', action='append')
 parser.add_argument('-p', '--patch', help='Patch an existing IPK3 without extracting WADs', action='store_true')
 parser.add_argument('-d', '--deflate', help='Use DEFLATE compression when generating the IPK3', action='store_true')
+parser.add_argument('-c', '--check', help='List which source WADs were found and what they unlock, then exit without building', action='store_true')
+parser.add_argument('--scan', help='Search a folder (and everything below it) for source WADs WadFusion can use, list them with their sizes, then exit', metavar='PATH')
 parser.add_argument('-e', '--extract-only', help='Skip copying pre-authored lumps and only extract WADs (for developers)', action='store_true')
 args = parser.parse_args()
 
@@ -454,6 +456,131 @@ def declare_data_sigil():
     SIGIL2_FILENAMES = ['sigil2', 'sigil_ii_v1_0']
     # sigil2 version with MP3 music (no sigil_shreds equivalent; MP3 music just an alternate wad)
     SIGIL2_MP3_FILENAMES = ['sigil2_shreds', 'sigil2_mp3', 'sigil_ii_mp3_v1_0']
+
+def check_report():
+    # pre-flight report: what was found, what each missing file would unlock. Builds nothing.
+    def have(name):
+        return get_wad_filename(name) is not None
+    def mark(ok):
+        return '[ OK ]' if ok else '[ -- ]'
+    def line(name, note=''):
+        f = get_wad_filename(name)
+        kind = ''
+        if f:
+            if name in ('nerve', SIGIL_WAD, SIGIL2_WAD) and pwad_is_kex(name):
+                kind = ' (KEX version)'
+            if name == 'extras':
+                kind = ' (KEX: has the IDKFA soundtrack)' if extras_is_kex() else ' (Unity version)'
+        logg('  %s %-16s %s%s' % (mark(bool(f)), name + '.wad', note, kind))
+        return bool(f)
+    logg('Source WAD check')
+    logg('Searching in:')
+    for d in SRC_WAD_DIR:
+        logg('  %s%s' % (path.realpath(d), '' if path.exists(d) else '   (does not exist)'))
+    logg('')
+    logg('Main games (at least one is needed):')
+    d1 = line('doom', 'DOOM / Ultimate DOOM: Episodes 1-3 (4 with the retail version)')
+    d1u = line('doomu', 'Ultimate DOOM, if doom.wad is the registered one')
+    d2 = line('doom2', 'DOOM II: Hell on Earth (also needed for most of the rest)')
+    tnt = line('tnt', 'TNT: Evilution')
+    plu = line('plutonia', 'The Plutonia Experiment')
+    logg('')
+    logg('Expansions:')
+    sig = line(SIGIL_WAD or 'sigil', 'SIGIL (needs DOOM)')
+    sig2 = line(SIGIL2_WAD or 'sigil2', 'SIGIL II (needs DOOM)')
+    line(SIGIL_MP3_WAD or 'sigil_shreds', 'optional: SIGIL Buckethead soundtrack')
+    line(SIGIL2_MP3_WAD or 'sigil2_mp3', 'optional: SIGIL II THORR soundtrack')
+    nv = line('nerve', 'No Rest for the Living (needs DOOM II)')
+    line('id1', 'Legacy of Rust: The Vulcan Abyss + Counterfeit Eden (needs DOOM II)')
+    line('iddm1', 'id Deathmatch Pack #1 (needs DOOM II)')
+    line('extras', 'sounds, HUD icons, optional IDKFA soundtrack')
+    logg('')
+    logg('Bonus levels (all optional):')
+    line('sewers', 'E1M10 (needs DOOM)')
+    line('betray', 'MAP33 (needs DOOM II)')
+    line('e1m8b', 'replacement E1M8')
+    line('e1m4b', 'replacement E1M4')
+    logg('')
+    ml_all = have('masterlevels')
+    ml_missing = [w for w in MASTER_LEVELS_ORDER if not have(w)]
+    logg('Master Levels (needs DOOM II):')
+    line('masterlevels', 'the KEX bundle (one file instead of the 20 below)')
+    logg('  %s the 20 individual WADs: %d of %d found%s' % (mark(not ml_missing), len(MASTER_LEVELS_ORDER) - len(ml_missing), len(MASTER_LEVELS_ORDER),
+         '' if not ml_missing else ('; missing ' + ', '.join(ml_missing))))
+    rej_missing = [w for w in MASTER_LEVELS_REJECTS_ORDER if not have(w)]
+    extra_rej = [w for w in ('udtwid', 'caball') if not have(w)]
+    logg('  %s Rejects: %d of %d found%s' % (mark(not rej_missing and not extra_rej), len(MASTER_LEVELS_REJECTS_ORDER) - len(rej_missing) + (2 - len(extra_rej)), len(MASTER_LEVELS_REJECTS_ORDER) + 2,
+         '' if not rej_missing and not extra_rej else ('; missing ' + ', '.join(rej_missing + extra_rej))))
+    logg('')
+    logg('Optional extras:')
+    line('doom2_original', 'original DOOM II v1.9 (14,604,584 bytes): uncensored Wolfenstein textures')
+    for w in ('doomkex', 'doom2kex', 'tntkex', 'plutoniakex'):
+        line(w, 'renamed KEX version: official widescreen assets')
+    logg('')
+    problems = []
+    notes = []
+    if not (d1 or d1u or d2 or tnt or plu):
+        problems.append('No main game found: put at least one of doom, doom2, tnt or plutonia into the folder.')
+    if (sig or sig2) and not (d1 or d1u):
+        notes.append('SIGIL needs doom.wad or doomu.wad; it will be skipped.')
+    if nv and not d2:
+        notes.append('nerve.wad needs doom2.wad; it will be skipped.')
+    if ml_all and not ml_missing:
+        notes.append('masterlevels.wad and the 20 individual Master Levels WADs are both present: the build then reports 3 missing sky patches (MSKY1, MSKY2, STARS). Remove masterlevels.wad if you want a clean build.')
+    if d2 and ml_missing and not ml_all:
+        notes.append('Master Levels will be skipped (missing: %s).' % ', '.join(ml_missing))
+    eps = get_eps(get_report_found())
+    if eps:
+        logg('The build would contain %d episodes:' % len(eps))
+        for e in eps:
+            logg('- %s' % e)
+        logg('')
+    for n in notes:
+        logg('Note: ' + n)
+    for pr in problems:
+        logg('PROBLEM: ' + pr)
+    if not problems and not notes:
+        logg('Everything needed for the episodes above is present.')
+    return len(problems) == 0
+
+def scan_report(root):
+    # list every source WAD WadFusion knows under `root`, flagging names that exist more than once
+    wanted = set(REPORT_WADS) | set(WADS) | set(MASTER_LEVELS_ORDER) | set(MASTER_LEVELS_REJECTS_ORDER)
+    wanted |= set(SIGIL_FILENAMES) | set(SIGIL_MP3_FILENAMES) | set(SIGIL2_FILENAMES) | set(SIGIL2_MP3_FILENAMES)
+    wanted |= {'udtwid', 'caball', 'sewers', 'betray', 'e1m8b', 'e1m4b'}
+    wanted.discard('')
+    hits = {}
+    root = path.realpath(root)
+    if not path.isdir(root):
+        logg('"%s" is not a folder.' % root)
+        return False
+    logg('Searching "%s" (this can take a minute)...' % root)
+    for dirpath, dirnames, filenames in os.walk(root):
+        for fn in filenames:
+            base, ext = os.path.splitext(fn)
+            if ext.lower() == '.wad' and base.lower() in wanted:
+                full = os.path.join(dirpath, fn)
+                try:
+                    size = os.path.getsize(full)
+                except OSError:
+                    continue
+                hits.setdefault(base.lower(), []).append((full, size))
+    if not hits:
+        logg('No known source WADs found there.')
+        return True
+    for name in sorted(hits):
+        for i, (full, size) in enumerate(sorted(hits[name])):
+            logg('  %-16s %12s bytes  %s' % (name + '.wad' if i == 0 else '', format(size, ','), full))
+    dups = [n for n in hits if len({s for _, s in hits[n]}) > 1]
+    logg('')
+    logg('%d different WADs found.' % len(hits))
+    if dups:
+        logg('These exist in more than one version (different sizes); WadFusion uses the first one it finds in your folder list, so keep only the version you want in the folder you add: ' + ', '.join(sorted(dups)))
+    folders = sorted({path.dirname(f) for n in hits for f, _ in hits[n]})
+    logg('Folders holding them:')
+    for f in folders:
+        logg('  ' + f)
+    return True
 
 def should_deflate():
     if args.deflate:
@@ -1398,6 +1525,13 @@ def main():
     clear_temp()
     title_line = 'WadFusion v%s' % VERSION
     logg(title_line + '\n' + '-' * len(title_line) + '\n')
+    # --scan needs only the name tables, not the source folders
+    if args.scan:
+        declare_data_sigil()
+        declare_data()
+        scan_report(args.scan)
+        logfile.close()
+        sys.exit(0)
     # source_wads/ directory stuff
     source_wads_dirs()
     # support for all the various filenames used by sigil releases
@@ -1405,6 +1539,11 @@ def main():
     set_sigil_filenames()
     # initialize data tables
     declare_data()
+    # --check: report and stop
+    if args.check:
+        ok = check_report()
+        logfile.close()
+        sys.exit(0 if ok else 1)
     # patch an existing ipk3 if --patch argument is used
     if should_patch():
         pk3_patch()

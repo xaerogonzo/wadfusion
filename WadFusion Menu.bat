@@ -1,0 +1,147 @@
+@echo off
+rem WadFusion builder menu: check your source WADs before building, build the IPK3, patch an existing one.
+rem Run it from the folder that holds wadfusion.exe (or wadfusion.py). Command line shortcuts:
+rem     "WadFusion Menu.bat" check     only list what was found
+rem     "WadFusion Menu.bat" build     check, then build (asks before it starts)
+setlocal EnableDelayedExpansion
+cd /d "%~dp0"
+title WadFusion builder
+
+set "FOLDERS=wadfusion_folders.txt"
+set "WF="
+if exist "wadfusion.exe" set WF="%~dp0wadfusion.exe"
+if not defined WF if exist "wadfusion.py" (
+    where python >nul 2>nul
+    if errorlevel 1 (
+        echo Python was not found. Install Python 3 from python.org, or use the wadfusion.exe release.
+        pause
+        exit /b 1
+    )
+    set "WF=python wadfusion.py"
+)
+if not defined WF (
+    echo Put this file next to wadfusion.exe or wadfusion.py.
+    pause
+    exit /b 1
+)
+if not exist "source_wads" mkdir "source_wads"
+
+if /i "%~1"=="check" ( call :check & exit /b !errorlevel! )
+if /i "%~1"=="build" ( call :build & exit /b !errorlevel! )
+
+:menu
+cls
+echo ==========================================================
+echo   WadFusion builder
+echo ==========================================================
+echo.
+echo   Source WAD folders searched:
+echo     source_wads\  ^(next to this file^)
+if exist "%FOLDERS%" (
+    for /f "usebackq delims=" %%F in ("%FOLDERS%") do (
+        if exist "%%F\" ( echo     %%F ) else ( echo     %%F   ^(not found^) )
+    )
+)
+echo.
+echo   1  Check my WADs ^(shows what is found and what is missing^)
+echo   2  Build doom_fusion.ipk3
+echo   3  Add another folder that holds source WADs
+echo   4  Search a folder tree for source WADs
+echo   5  Forget the added folders
+echo   6  Patch an existing doom_fusion.ipk3 with newer WadFusion files
+echo   7  Open source_wads folder
+echo   8  Open the last log
+echo   Q  Quit
+echo.
+choice /c 12345678Q /n /m "  Choose: "
+set "PICK=%errorlevel%"
+if "%PICK%"=="1" ( call :check & pause & goto menu )
+if "%PICK%"=="2" ( call :build & pause & goto menu )
+if "%PICK%"=="3" ( call :addfolder & goto menu )
+if "%PICK%"=="4" ( call :scan & goto menu )
+if "%PICK%"=="5" ( call :forget & goto menu )
+if "%PICK%"=="6" ( call :patch & pause & goto menu )
+if "%PICK%"=="7" ( start "" explorer "%~dp0source_wads" & goto menu )
+if "%PICK%"=="8" ( if exist wadfusion.log ( start "" notepad wadfusion.log ) else ( echo No log yet. & pause ) & goto menu )
+exit /b 0
+
+:folderargs
+set "WARGS="
+if exist "%FOLDERS%" (
+    for /f "usebackq delims=" %%F in ("%FOLDERS%") do (
+        if exist "%%F\" set WARGS=!WARGS! -w "%%F"
+    )
+)
+exit /b 0
+
+:check
+call :folderargs
+echo.
+%WF% --check%WARGS%
+exit /b %errorlevel%
+
+:build
+call :check
+if errorlevel 1 (
+    echo.
+    echo Nothing to build yet. Fix the PROBLEM line above first.
+    exit /b 1
+)
+echo.
+echo If the list above looks right, the build starts after you confirm.
+echo.
+%WF%%WARGS%
+exit /b %errorlevel%
+
+:patch
+call :folderargs
+echo.
+%WF% -p%WARGS%
+exit /b %errorlevel%
+
+:addfolder
+echo.
+set "NEWF="
+set /p "NEWF=  Folder path (you can drag the folder onto this window): "
+if not defined NEWF exit /b 0
+set "NEWF=!NEWF:"=!"
+if "!NEWF:~-1!"=="\" set "NEWF=!NEWF:~0,-1!"
+if not exist "!NEWF!\" (
+    echo   That folder does not exist.
+    pause
+    exit /b 1
+)
+if exist "%FOLDERS%" (
+    findstr /x /i /c:"!NEWF!" "%FOLDERS%" >nul 2>nul
+    if not errorlevel 1 (
+        echo   Already in the list.
+        pause
+        exit /b 0
+    )
+)
+>>"%FOLDERS%" echo !NEWF!
+echo   Added. Choose 1 to see what it contributes.
+pause
+exit /b 0
+
+:scan
+echo.
+set "SCANF="
+set /p "SCANF=  Folder to search, for example D:\Games (drag a folder here): "
+if not defined SCANF exit /b 0
+set "SCANF=!SCANF:"=!"
+if "!SCANF:~-1!"=="\" set "SCANF=!SCANF:~0,-1!"
+echo.
+%WF% --scan "!SCANF!"
+echo.
+echo   Use option 3 to add the folder you want. Where a WAD appears in two versions, add only the folder
+echo   with the version you want, or copy that one file into source_wads\.
+pause
+exit /b 0
+
+:forget
+if exist "%FOLDERS%" del "%FOLDERS%"
+echo.
+echo   The added folders were forgotten. source_wads\ is still searched.
+pause
+exit /b 0

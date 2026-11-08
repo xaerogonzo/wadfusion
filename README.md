@@ -15,6 +15,13 @@ Simply copy all of your WADs into the `source_wads` subfolder, then run WadFusio
 
 Also included is a file called `doom_fusion_widescreen_gfx.pk3`, which adds super-ultra-widescreen assets courtesy of the [Ultra-Widerpix854 project](https://www.doomworld.com/forum/topic/148537). DOOM Fusion will load it automatically if it's placed in the same directory as the IPK3. ZDoom's own widescreen assets are disabled in Fusion. (It's worth noting that the full Ultra-Widerpix854 project has some extra features not included with WadFusion, such as alternate versions for some graphics, extended sky textures, and support for other DOOM-based games.)
 
+### Checking your WADs before you build
+Run `WadFusion Menu.bat` (it sits next to `wadfusion.exe`). Option 1 lists every source WAD it found, what each one
+unlocks, which Master Levels files are missing and which episodes the build would contain, before anything is built. Option 4
+searches a folder tree (for example `D:\Games`) for usable WADs and flags names that exist in more than one version, and
+option 3 adds a folder to the search list, so you don't have to copy WADs around. The same checks are available on the
+command line as `wadfusion --check` and `wadfusion --scan <folder>`.
+
 ## Options
 
 WadFusion can be launched with the following command line arguments:
@@ -25,6 +32,8 @@ WadFusion can be launched with the following command line arguments:
 - `-w PATH`, `--wads PATH` — Search the specified directory path for WADs. Can be used multiple times.
 - `-p`, `--patch` — Patch an existing IPK3 without extracting WADs.
 - `-d`, `--deflate` — Use DEFLATE compression when generating the IPK3.
+- `-c`, `--check` — List which source WADs were found and what they unlock, then exit without building (exit code 1 if no main game was found).
+- `--scan PATH` — Search a folder and everything below it for source WADs WadFusion can use, then exit.
 - `-e`, `--extract-only` — Skip copying pre-authored lumps and only extract WADs (for developers).
 
 ## Supported WADs

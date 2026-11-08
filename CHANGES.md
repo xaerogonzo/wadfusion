@@ -6,6 +6,8 @@
   versions, and no longer duplicates `#include` lines in `textures.txt` when run repeatedly.
 - Added `build_release.ps1` to build the Windows exe and release zips without 7-Zip.
 - Added optional `doom2_original.wad` support: the original (uncensored) Wolfenstein textures of DOOM II are used by default when it is present, with a "Censored Wolfenstein textures" option in the menu.
+- Added `wadfusion --check` (lists which source WADs were found and what they unlock, builds nothing), `--scan <folder>`
+  (finds usable WADs under a folder) and `WadFusion Menu.bat`, a menu around them with a saved list of extra WAD folders.
 - The Full Run option now lists "On (custom order)" (it showed "Unknown").
 - Clearer English labels for the Full Run options, plus a short explanation under them in the menu.
 - Full Run is now one router with a catalog of campaigns (stable IDs) instead of three hard-coded chains.
