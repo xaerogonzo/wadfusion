@@ -67,3 +67,19 @@ Pack: `Wadfusion-Xtras-Revised_beta.pk3`. All edits are renames or deletions:
 | `Zscript/dcx_sbar.zsc` | `Fuel`→`ID24Fuel`, `Incinerator`→`ID24Incinerator`, `Heatwave`→`ID24CalamityBlade`; cvars `wf_id1_weapswap`→`wf_compat_id24_weapons` |
 | `Zscript/Weapons.zsc` | `Incinerator`→`ID24Incinerator`, `CalamityBlade`→`ID24CalamityBlade` |
 | `Zscript/EventHandlers.zsc` | cvar `wf_hulshult_idkfa`→`wf_mus_idkfa` |
+
+## Planned: isolate outside mods (textures first)
+Playing Back to Saturn X (or any mod that ships its own `TEXTURE1`/`PNAMES`/flats/palette) with WadFusion makes the
+other campaigns look wrong for the whole session, because a later file replaces an earlier one with the same name.
+A spike showed the fix works without an executable or DLL, only a pk3 and ZScript:
+- Keep private copies of Fusion's textures and flats under unique names (built by the WadFusion builder, as true-colour
+  PNG so the mod's palette cannot recolour them) and, when a Fusion map loads and an outside mod is detected, swap the
+  map's textures to the copies with `Level.ReplaceTextures`. The mod's own maps are untouched.
+- Spike result (`research/texture_isolation_spike.py`, Plutonia `PL_MAP02` with Back to Saturn X loaded): the wall that
+  Back to Saturn X turned into cobblestone (`FIREBLU1`) came back as Plutonia's own texture.
+- Still needed: animation entries for the copies (blue fire, water), switch pairs, per-map sky (`Level.ChangeSky`),
+  which names to copy (all 740 textures and 424 flats, or only the ones an installed mod overrides), and the build step.
+- Not fixable the same way: the palette (a global setting; the mod's differs from Fusion's in 111 of 256 colours, which
+  gives the purple speckles) except by converting all of Fusion's art to true colour at build time (much larger ipk3);
+  sprites (monster and weapon skins), menu/HUD art and a few music names, which replace vanilla names on purpose.
+- Plan: a separate resource-building tool (textures, sounds, other assets), not this repository.
