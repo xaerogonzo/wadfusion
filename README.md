@@ -134,6 +134,44 @@ It can be enabled from the WadFusion options menu, and is available in three con
 > [!TIP]
 > Whether or not the Master Levels are included in a Full Run can also be toggled from the WadFusion options menu.
 
+### Custom Full Run
+
+Choosing **Custom** as the Full Run mode lets you pick your own order. Open **Custom Full Run** in the WadFusion options menu and choose a campaign for each of up to 16 slots; empty slots are ignored and campaigns that aren't installed are skipped, as in the other modes. The order is read once when you start a run, so changing the menu mid-run does not affect it. The choices are saved by campaign ID, not by position, so they stay correct when you add or remove other mods.
+
+#### Adding outside campaigns (WFRUN files)
+
+A Full Run can also include a WAD or PK3 that WadFusion doesn't know about, for example a replacement for DOOM II. Describe it in a small text file named `WFRUN` (a loose `WFRUN.txt` works, or put one inside the PK3):
+
+```
+version = 1
+
+entry
+{
+    id = btsx                  // required, unique, a-z 0-9 _ -
+    name = "Back to Saturn X"  // required, shown in the menu
+    start = MAP01              // required, first map
+    end = MAP32                // required, last map; repeat the line for several
+    end = MAP31
+    cast = MY_CAST_INTERMISSION    // optional ending screens (MAPINFO intermission names)
+    nocast = MY_END_INTERMISSION
+    replaces = doom2           // optional, see below
+    container = btsx_e1.wad    // file that supplies the maps; required in a loose WFRUN.txt
+    order = 100                // optional, sorts the list of outside campaigns (then by id)
+    presets = 1,2,3            // optional, see below
+}
+```
+
+Values that contain spaces need quotes. Names are not case sensitive.
+
+- WadFusion never guesses a campaign's last map. Without a `WFRUN` entry an outside campaign is simply not part of a Full Run.
+- `replaces = doom2` says the campaign takes over WadFusion's DOOM II slot. It then also takes that place in the three built-in orders. Without it the campaign is only used in a Custom run.
+- `presets = 1,2,3` appends the campaign to the end of those built-in orders. It is meant for packs that extend WadFusion itself (the Xtras pack uses it for Jaguar and Absolution); an ordinary outside mod shouldn't use it.
+- A mod's last map only needs to be listed in `end`. The intermediate maps of a campaign, even ones WadFusion would normally treat as an ending (such as `MAP30`), are left alone while an outside campaign owns them.
+- `cast` / `nocast` name ending screens (MAPINFO intermissions) shown when the "cast call" option is on / off. If you leave one out, nothing is shown in that case and the run moves straight on.
+- A map that WadFusion normally supplies but another file overrides (for example a WAD that provides its own `MAP01`) is reported in the console at start-up, and that built-in campaign is skipped in Full Runs unless a `WFRUN` entry describes the replacement.
+- Textures, flats and sprites are looked up by name for the whole game, so an outside WAD that redefines a name used by other episodes can change how those look too. WadFusion can't prevent that; it prints a warning at start-up when an outside file brings its own `TEXTURE1`, `TEXTURE2`, `PNAMES` or `TEXTURES`. Put such campaigns last, or play them on their own.
+- The New Game menu keeps the name "Hell on Earth" for the DOOM II slot because those names are fixed text. To rename it, load a tiny add-on with `episode WF_NEWGAME_MAP01 { Name = "Back to Saturn X" }` in its MAPINFO.
+
 ## Absolute Beginner's Guide
 
 1. Download WadFusion for [Windows](https://github.com/Owlet7/wadfusion/releases/latest/download/wadfusion_win.zip) or [macOS and GNU/Linux](https://github.com/Owlet7/wadfusion/releases/latest/download/wadfusion_py.zip), and extract it to a folder.
