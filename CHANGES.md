@@ -25,6 +25,16 @@
     cast screen.
   - New test harness in `tests/` (96-case router baseline plus outside-campaign, Xtras and real
     Back to Saturn X cases), run on UZDoom 5.0.3 and LZDoom l4.14.4.
+- In a custom Full Run with "Full Run loop" on, the run now starts over when nothing available follows the
+  current campaign (the built-in orders keep their old behaviour).
+- WadFusion's soundtrack replacements (IDKFA, Sigil, Plutonia/TNT) no longer touch maps that another mod supplies,
+  which cut off Back to Saturn X's music a moment after it started.
+- Xtras: one merged pack (`xtras/apply_merged_uz5.ps1`) now replaces the Xtras main + Revised beta pair.
+  It is Xtras main (with the UZDoom 5 fixes) plus the parts of the Revised beta that Main lacks:
+  the Total Carnage, Unholy Massacre! and ULTRA NIGHTMARE skills with their monsters and ACS placements,
+  a co-op item cleanup option (off), and Final DOOM HUD skins for TNT Evilution, TNT Revilution, Plutonia and
+  Plutonia Revisited (menu options; the defaults look like before). `xtras/MERGE_DISPOSITION.md` lists what happened
+  to every Revised item. The Unofficial Xtras pack gets a WFRUN file so its campaigns join the Custom Full Run.
 - Added "Master Levels in Full Run" option.
 - Rewrote how the title screens and episode endings are handled.
   - Time spent on title screens won't be added to the total time played.

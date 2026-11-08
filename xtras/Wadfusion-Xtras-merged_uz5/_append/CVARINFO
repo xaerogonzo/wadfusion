@@ -1,0 +1,4 @@
+
+User int Tnt_Hud_toggle = 2;
+User int Plu_Hud_toggle = 1;
+server bool dcx_CoopWeaponRemoval = false;

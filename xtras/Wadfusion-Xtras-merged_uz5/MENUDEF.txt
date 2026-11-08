@@ -1,0 +1,210 @@
+
+OptionValue SSGtweaks
+{
+	0.0, "\c[WHITE]Vanilla"
+	1.0, "\c[DARK GREY]Playstation"
+	2.0, "\c[CREAM]Hybrid"
+}
+
+OptionValue Wolf3DTextureTweaks
+{
+	0.0, "\c[BLUE]Original \c-(Uncensored)"
+	1.0, "\c[CYAN]Unity \c-(Censored)"
+	2.0, "\c[PURPLE]GBA \c-(Censored Alt)"
+	3.0, "\c[DARK GREEN]BFG Edition \c-(Removed)"
+}
+
+OptionValue HealthCrossTweaks
+{
+	0.0, "Vanilla (Red Cross \cg+\c-)"
+	1.0, "BFG edition (\cgPill\c-)"
+	2.0, "Unity Port (Green Cross \cd+\c-)"
+	3.0, "Doom Eternal (White Inverted Cross \cg|\cj+\cg|\c-)"
+}
+
+OptionValue PsxMaps
+{
+	0.0, "Off"
+	1.0, "Originals"
+	2.0, "Remakes"
+}
+
+OptionValue HUDtweaks
+{
+	0.0, "\c[GREY]PC Hud \c[Dark Grey](Default)"
+	1.0, "\c[DARK GREY]Playstation hud"
+	2.0, "\c[WHITE]Sega Saturn hud"
+	3.0, "\c[DARK BROWN]Jaguar hud"
+	4.0, "\c[GOLD]BETA 93 hud"
+	5.0, "\c[Yellow]Final DOOM hud"
+	6.0, "\c[PURPLE]Doom 64 For Doom 2 hud"
+	7.0, "\c[Grey]Dynamic Hud \c[Dark Grey](Switch Per Game)"
+}
+
+OptionValue D64HudTweaks
+{
+	0.0, "\c[TAN]StarTan \c[Dark Grey](Default)"
+	1.0, "\c[ICE]Metal"
+	2.0, "\c[OLIVE]Hellbar 1 \c[Dark Grey](No Flesh)"
+	3.0, "\c[OLIVE]Hellbar 2 \c[Brick](With Flesh)"
+}
+
+OptionValue TNTHUDtweaks
+{
+	0.0, "TNT Evilution"
+	1.0, "TNT Revilution"
+	2.0, "Plutonia 2 \c[Dark Grey](Default)"
+}
+
+OptionValue PLUHUDtweaks
+{
+	0.0, "Plutonia"
+	1.0, "Plutonia 2 \c[Dark Grey](Default)"
+	2.0, "Plutonia Revisited"
+}
+
+OptionValue DCX_CabalLevelOrder
+{
+	0.0, "$DCX_CABAL_DEFAULT"
+	1.0, "$DCX_CABAL_ODW"
+	2.0, "$DCX_CABAL_WOTM"
+}
+
+OptionValue Smooth_Weapons
+{
+	0.0, "\c[DARK GREY]Off"
+	1.0, "\c[GOLD]On"
+}
+
+OptionValue CustomMonsters
+{
+	0.0, "\c[GOLD]On"
+	1.0, "\c[DARK GREY]Off"
+}
+
+OptionValue EnchancedMonsters
+{
+	0.0, "\c[DARK GREY]Off"
+	1.0, "\c[GOLD]On"
+}
+
+OptionValue Muggibbers
+{
+	0.0, "\c[DARK GREY]Off"
+	1.0, "\c[GOLD]On"
+}
+
+OptionValue StockMidis
+{
+	0.0, "\c[DARK GREY]Stock Midis"
+	1.0, "\c[GOLD]Unique Midis"
+}
+
+
+AddOptionMenu "OptionsMenu"
+{
+	Submenu "DCX Options","DCXOptions"
+}
+
+OptionMenu "DCXOptions"
+{
+	Title "DCX Options"
+	Submenu "Gameplay Options","DCXGameplayOptions"
+	StaticText " "
+	StaticText "Graphic options", "Gold"
+	StaticText " "
+	Submenu "Texture Options","DCXSKYOptions"
+	StaticText " "
+	option "Mugshot Gibbing Animation", "dcx_MugShotGib", "Muggibbers"
+	StaticText "When enabled, plays a gibbing animation for the mugshot.", "dark red"
+	StaticText "Note: Leave this off if you are using a custom mugshot.", "dark red"
+	StaticText " "
+	option "Status bar graphic", "HUD_toggle", "HUDtweaks"
+	StaticText "Changes the appearence of the status bar.", "dark red"
+	StaticText " "
+	option "Doom 64 For Doom 2 Hud", "AB_hud_toggle", "D64HudTweaks"
+	StaticText "Select which hud to use for the D64D2 levels", "dark red"
+	StaticText " "
+	option "TNT Evilution Final DOOM hud", "Tnt_Hud_toggle", "TNTHUDtweaks"
+	StaticText "Skin of the Final DOOM / Dynamic hud on the TNT: Evilution maps.", "dark red"
+	StaticText " "
+	option "Plutonia Final DOOM hud", "Plu_Hud_toggle", "PLUHUDtweaks"
+	StaticText "Skin of the Final DOOM / Dynamic hud on the Plutonia Experiment maps.", "dark red"
+	StaticText " "
+	option "$OPTIONS_SSG", "ssgtoggle", "SSGtweaks"
+	StaticText "Toggles the sprite the super shotgun uses to ether the PSX version or a vanilla hybird style.", "dark red"
+	StaticText " "
+	option "$OPTIONS_MED", "Health_Cross_Toggle", "HealthCrossTweaks"
+	StaticText "Changes the appearence of crosses on the health/berserk packs to your choice.", "dark red"
+	StaticText " "
+	option "Smooth and Enchanced Weapon Toggle", "DCX_SmoothToggle", "Smooth_Weapons"
+	StaticText "Switch this on for smooth like doom weapon animations.", "dark red"
+	StaticText " "
+	option "Monster Enchanments", "dcx_EnchancesMonsters", "EnchancedMonsters"
+	StaticText "Enchances the monsters with stuff like projectile firing offsets,", "dark red"
+	StaticText "Among other things.", "dark red"
+	StaticText " "
+	StaticText "Music Options", "Gold"
+	StaticText " "
+	Option "$OPTIONS_3DO", "dcx_3DO_Music", "OnOff"
+	StaticText "Replaces tracks in doom 1 with the 3do version remixes", "dark red"
+	StaticText " "
+}
+
+OptionMenu "DCXSKYOptions"
+{
+	Title "Texture Options"
+	StaticText " "
+	StaticText "General", "Gold"
+	StaticText " "
+	Option "Texture Enchancements", "dcx_TextureEchancements", "OnOff"
+	StaticText "Adds/Replaces various textures in the maps to improve them.", "dark red"
+	StaticText " "
+	StaticText "Sky Textures", "Gold"
+	StaticText " "
+	Option "Playstation sky textures", "fs_toggle", "OnOff"
+	StaticText "Changes the sky textures to match the playstation version, IE: fire skys for episode 3.", "dark red"
+}
+
+OptionMenu "DCXGameplayOptions"
+{
+	Title "Gameplay options"
+	StaticText " "
+	Option "$OPTIONS_CON", "dcx_playstationmaps", "PsxMaps"
+	StaticText "When enabled, you will be able to acess the maps from the playstation version", "dark red"
+	StaticText "The remakes option lets you play those maps in the style of the PC ones", "dark red"
+	StaticText " "
+	Option "$OPTIONS_W3D", "W3D_Text_toggle", "Wolf3DTextureTweaks"
+	StaticText "Alters the Wolfenstein 3D textures, enenmies, and music found in Doom 2's secret maps.", "dark red"
+	StaticText " "
+	Option "Cabal Level Order", "dcx_CabalOrder", "DCX_CabalLevelOrder"
+	StaticText "Configures the level order of the cabal series of maps.", "dark red"
+	StaticText " "
+	Option "Co-op item cleanup", "dcx_CoopWeaponRemoval", "OnOff"
+	StaticText "In co-op, removes the extra weapons, ammo and power-ups that levels place for co-op only", "dark red"
+	StaticText "and turns the co-op Cyberdemons and Spider Mastermind into their lesser versions.", "dark red"
+	StaticText "(Taken from the Xtras Revised beta; not play-tested in a network game.)", "dark red"
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText "Compatibility", "Gold"
+	StaticText " "
+	Option "Disable Custom Actors", "dcx_CustomMonsters", "CustomMonsters"
+	StaticText "Replaces every new actor with a vanilla equivilant.", "dark red"
+	StaticText "(Example: The Legacy of Rust and the Doom 64 for Doom 2 exclusive monsters)", "dark red"
+	StaticText "(Only enable if the gameplay mod in question doesn't support them)", "dark red"
+	StaticText " "
+	Option "Doom 64 for Doom 2 Xtras", "dcx_D64D2Xtras", "OnOff", "dcx_CustomMonsters", 0
+	StaticText "Disables the new doom 64 for doom 2 additions like the unmaker and demon keys.", "dark red"
+	StaticText " "
+}

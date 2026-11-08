@@ -40,6 +40,14 @@ Tested: UZDoom 5.0.3, WadFusion 1.6.2-dev (upstream `2e95646`).
   case differs only because of a different saved setting). Also tested with the real Back to Saturn X
   (`BSX1.pk3`): takes over Doom II's slot, hands over after `MAP25`, the secret maps and an intermediate
   `MAP30` do not trigger a hand-over, it works in the custom order, and it keeps its own music.
+- **Merged Xtras pack.** `xtras/apply_merged_uz5.ps1` builds one pack from the two original archives (both checked by
+  SHA-256, never modified): Xtras main with our UZDoom 5 fixes, plus the Revised beta's hard skills (Total Carnage,
+  Unholy Massacre!, ULTRA NIGHTMARE) with their ACS placements and monsters, Final DOOM HUD skins for TNT/Plutonia,
+  a co-op cleanup option, and the art, fonts and sounds those need. Every Revised item has a recorded disposition in
+  `xtras/MERGE_DISPOSITION.md`; `diff_xtras.py` and `merge_manifest.json` are the inventory. Tested: both engines load it
+  with no script errors, E1M3 on ULTRA NIGHTMARE has 8-9 more monsters than Ultra-Violence, the new monsters spawn with
+  their sprites, three HUD skins checked on screen, and the Xtras/Unofficial Full Run cases give the same results as
+  before. Not tested: the co-op option in a network game, the Plutonia Revisited skin on screen.
 - **Limits.** A mod that replaces `PLAYPAL`, `COLORMAP`, `TEXTURE1`/`PNAMES` or flats changes how the DOOM 1
   and other episodes look (Back to Saturn X tints the title screen and gives E1M1 the wrong floors and ceilings,
   and replaces the menu graphics). This is detected and reported, not fixed. Outside end maps come only from the
