@@ -5,7 +5,7 @@
 WadMelt is a fork of [WadFusion by Owlet7](https://github.com/Owlet7/wadfusion) (GPL-3.0), which is itself based on [WadSmoosh](https://jp.itch.io/wadsmoosh) by JP LeBreton. All the original work and credit stay with them. This fork is **not** the official WadFusion and is not endorsed by its author; it was renamed from "WadFusion UZDoom 5 fork" to avoid confusion with upstream's own releases. Current version: **2.0.0**, built on upstream commit `2e95646`, tested on **UZDoom 5.0.3** and **LZDoom l4.14.4**. Names inside the game files (the `wf_` console variables, `WFRUN` files and the `WadFusion...` class names) are unchanged on purpose, so the original WadFusion Xtras and other add-ons made for WadFusion keep working; the program, menu script, log file and release zips use the WadMelt name.
 
 > [!NOTE]
-> Upstream's 1.6.1 release builds an IPK3 for UZDoom 4.14. On UZDoom 5 it fails with "Class name already exists" and `compat_nombf21` errors, because UZDoom 5 now contains the ID24 actors itself. Building from this fork fixes that.
+> A `doom_fusion.ipk3` built by an old WadFusion (1.5.1) fails on UZDoom 5 and LZDoom with "Class name already exists" and `compat_nombf21` errors, because UZDoom 5 now contains the ID24 actors itself. That is fixed by rebuilding the IPK3 with a current version; a clean build from upstream's source loads on UZDoom 5.0.3 without errors. What this fork adds on top is listed below.
 
 ## What this fork adds
 
@@ -303,7 +303,7 @@ Values that contain spaces need quotes. Names are not case sensitive.
 
 ## Absolute Beginner's Guide
 
-1. Download [WadMelt for Windows](https://github.com/xaerogonzo/wadmelt/releases/latest/download/wadmelt_win.zip) or [for macOS and GNU/Linux](https://github.com/xaerogonzo/wadmelt/releases/latest/download/wadmelt_py.zip) from this fork's releases, and extract it somewhere. (The upstream project's downloads build an IPK3 for UZDoom 4.14 and will not work on UZDoom 5.)
+1. Download [WadMelt for Windows](https://github.com/xaerogonzo/wadmelt/releases/latest/download/wadmelt_win.zip) or [for macOS and GNU/Linux](https://github.com/xaerogonzo/wadmelt/releases/latest/download/wadmelt_py.zip) from this fork's releases, and extract it somewhere. (Upstream WadFusion's own releases are a separate project.)
 2. Find the folder(s) where GOG / Steam installed your game(s).
    - For Steam on Windows, this will be something like\
    `C:\Program Files (x86)\Steam\steamapps\common\Ultimate Doom\base`
