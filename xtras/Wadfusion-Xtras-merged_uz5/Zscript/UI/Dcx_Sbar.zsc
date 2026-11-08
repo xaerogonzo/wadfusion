@@ -261,7 +261,7 @@ class DCX_Statusbar : BaseStatusBar
 					DrawImage("PRTPRCNT", (90, 171), DI_ITEM_OFFSETS);
 					DrawImage("PRTPRCNT", (221, 171), DI_ITEM_OFFSETS);
 					break;
-				case 4: // TNT Evilution (its bar is 18 pixels wider than the others)
+				case 4: // TNT Evilution (its bar is 18 pixels wider than the others and its panels sit 14 further left, so the bar starts at -150)
 					get_font = mTNTfont;
 					y_value = 170;
 					DrawImage("TNBAR", (-150, 168), DI_ITEM_OFFSETS);

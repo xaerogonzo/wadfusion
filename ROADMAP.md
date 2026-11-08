@@ -47,7 +47,7 @@ Tested: UZDoom 5.0.3, WadFusion 1.6.2-dev (upstream `2e95646`).
   `xtras/MERGE_DISPOSITION.md`; `diff_xtras.py` and `merge_manifest.json` are the inventory. Tested: both engines load it
   with no script errors, E1M3 on ULTRA NIGHTMARE has 8-9 more monsters than Ultra-Violence, the new monsters spawn with
   their sprites, three HUD skins checked on screen, and the Xtras/Unofficial Full Run cases give the same results as
-  before. Not tested: the co-op option in a network game, the Plutonia Revisited skin on screen.
+  before. HUD skins checked on screen: TNT Evilution, TNT Revilution, Plutonia, Plutonia Revisited. Not tested: the co-op option in a network game.
 - **Limits.** A mod that replaces `PLAYPAL`, `COLORMAP`, `TEXTURE1`/`PNAMES` or flats changes how the DOOM 1
   and other episodes look (Back to Saturn X tints the title screen and gives E1M1 the wrong floors and ceilings,
   and replaces the menu graphics). This is detected and reported, not fixed. Outside end maps come only from the
