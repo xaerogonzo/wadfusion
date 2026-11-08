@@ -7,6 +7,24 @@
 - Added `build_release.ps1` to build the Windows exe and release zips without 7-Zip.
 - Added optional `doom2_original.wad` support: the original (uncensored) Wolfenstein textures of DOOM II are used by default when it is present, with a "Censored Wolfenstein textures" option in the menu.
 - Clearer English labels for the Full Run options, plus a short explanation under them in the menu.
+- Full Run is now one router with a catalog of campaigns (stable IDs) instead of three hard-coded chains.
+  The three built-in orders behave exactly as before.
+  - New "On (custom order)" Full Run setting with 16 slots (`wf_run_slot1`..`16`, stored as campaign IDs)
+    and a "Custom Full Run" menu. Installed campaigns that are missing are skipped; unknown IDs are shown as
+    "(not available)" and never remapped.
+  - Outside campaigns (for example Back to Saturn X) can join the Full Run with a small `WFRUN` text file
+    (`id`, `name`, `start`, `end`, optional `cast`, `nocast`, `replaces`, `container`, `order`, `presets`).
+    See "Custom Full Run" in the README.
+  - At start-up WadFusion reports when another file replaces a built-in map (it lists which file supplies
+    it) and when another file supplies `TEXTURE1`/`TEXTURE2`/`PNAMES`/`TEXTURES`, which can change the look of
+    other episodes. These are warnings only; the textures are not isolated.
+  - Outside campaigns keep their own ending when Full Run is off, and keep their own music (WadFusion's
+    soundtrack replacements no longer touch maps supplied by another mod).
+  - The Xtras pack describes Jaguar and Absolution with a `WFRUN` file (`presets = 1,2,3`) instead of its
+    own chain code. One difference: with "Show cast call" off, the end of the Xtras chain no longer shows a
+    cast screen.
+  - New test harness in `tests/` (96-case router baseline plus outside-campaign, Xtras and real
+    Back to Saturn X cases), run on UZDoom 5.0.3 and LZDoom l4.14.4.
 - Added "Master Levels in Full Run" option.
 - Rewrote how the title screens and episode endings are handled.
   - Time spent on title screens won't be added to the total time played.

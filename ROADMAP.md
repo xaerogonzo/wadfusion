@@ -32,15 +32,18 @@ Tested: UZDoom 5.0.3, WadFusion 1.6.2-dev (upstream `2e95646`).
   "Class name ... already exists" errors it gives on UZDoom 5, so rebuilding is the fix there as well.
   Not tested: LZDoom 4.14.3a itself, or anything older, and actual play on a low-end machine.
 
-- **Xtras episodes in the Full Run chain.** After WadFusion's last episode (in all three orders) the Full Run
-  continues with Jaguar, then Absolution; with "Full Run loop" on it then wraps back to the first episode.
-  Cast calls (`Jaguar_Cast`, `D64Inter_Cast`) play when "Show cast call" is on. Also fixed the Jaguar ending,
-  which pointed at a non-existent intermission name. Implementation notes: `DCX_StaticHandler` is a separate
-  handler that runs next to WadFusion's (`Replaces` does not remove the original), after it on each tick, so it
-  adjusts WadFusion's `nextMap` instead of racing it; the Xtras ending uses its own hand-over map
-  `DCX_HANDOVER` (a copy of a WadFusion hack map) that WadFusion's handler ignores.
-  Tested on UZDoom 5.0.3 and LZDoom l4.14.4 with an auto-exit test pack: Jaguar→Absolution, Absolution→loop,
-  chain end, PL_MAP30→Jaguar (order 1, with and without loop), LR_MAP14→Jaguar (order 2), E2M8→PSX02/PSX02B.
+- **Unified Full Run (custom runs and outside campaigns).** Full Run is one router with a catalog of campaigns,
+  a `WFRUN` text format for outside mods, a 16-slot custom order (`wf_fullrun = 4`) with its own menu, and
+  start-up reports for maps replaced by other files and for texture-table conflicts. The Xtras pack now
+  describes Jaguar and Absolution with a `WFRUN` file instead of its own chain code. Regression: the 96 router
+  cases give the same results as the original router on UZDoom 5.0.3, and LZDoom l4.14.4 matches (one
+  case differs only because of a different saved setting). Also tested with the real Back to Saturn X
+  (`BSX1.pk3`): takes over Doom II's slot, hands over after `MAP25`, the secret maps and an intermediate
+  `MAP30` do not trigger a hand-over, it works in the custom order, and it keeps its own music.
+- **Limits.** A mod that replaces `PLAYPAL`, `COLORMAP`, `TEXTURE1`/`PNAMES` or flats changes how the DOOM 1
+  and other episodes look (Back to Saturn X tints the title screen and gives E1M1 the wrong floors and ceilings,
+  and replaces the menu graphics). This is detected and reported, not fixed. Outside end maps come only from the
+  `WFRUN` file; nothing is guessed. The "Hell on Earth" menu entry keeps its name when a mod replaces it.
 
 ## Known issues (Xtras-main)
 - Not play-tested end to end: title-screen input flow, E4/PSX ending maps (`e4ending`), cast sequences.
